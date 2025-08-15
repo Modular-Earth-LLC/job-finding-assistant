@@ -1,7 +1,17 @@
-# job-finding-assistant
+# Job Finding Assistant
+
 A career coach and digital marketing assistant designed to help job seekers create personalized go-to-market strategies and outreach content for building professional networks and securing job opportunities. The assistant crafts tailored connection requests and introductory messages by analyzing company needs.
 
+# How to use this agent
+
+1. Copy the following system prompt into your favorite text editor: https://github.com/praeducer/job-finding-assistant/blob/main/job_finding_assistant.system.prompt.md. 
+2. Personalize it for your goals by editing the values of the variables in the context section.
+3. Reduce the character count according to the specs of the AI platform that you are using. LLMs are great at this task ;D
+4. Copy your personalized system prompt into the AI agent builder studio of your choice.
+5. Follow the instructions on your preferred AI platform to host and chat with your new personal job finding assistant.\
+
 # Why I chose the MIT License
+
 This license aligns with Modular Earth's mission to support social good through open-source AI-driven applications and our commitment to accessibility, privacy, trust, and minimizing costs.
 
 **Permissive Use**: The MIT License is one of the most permissive licenses, allowing for the software to be used, modified, and distributed freely, even for commercial purposes. This aligns well with Modular Earth's goal of making wealth accessible and supporting a wide range of uses without restrictive conditions.
