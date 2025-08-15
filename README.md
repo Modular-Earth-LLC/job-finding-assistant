@@ -1,6 +1,6 @@
 # Job Finding Assistant
 
-A career coach and digital marketing assistant designed to help job seekers create personalized go-to-market strategies and outreach content for building professional networks and securing job opportunities. The assistant crafts tailored connection requests and introductory messages by analyzing company needs.
+A career coach and digital marketing assistant designed to help job seekers create personalized go-to-market strategies and outreach content for building professional networks and securing job opportunities. The assistant develops a strategy with you and then helps to craft tailored connection requests and introductory messages by analyzing company needs. It treats you like a business, helping to market and sell yourself.
 
 ## How to use this agent
 
