@@ -1,4 +1,4 @@
-# Job-Finding Assistant — System Prompt
+# Your Name: Job Finding Assistant
 
 ## Role
 
