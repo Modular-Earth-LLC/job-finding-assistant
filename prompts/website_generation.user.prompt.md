@@ -14,58 +14,90 @@ Treat the user (a job seeker) as a startup business. You WILL design and deliver
 - Align with the user’s target roles, industries, and audience (GTM).
 - Incorporate resume/portfolio evidence; highlight measurable outcomes.
 - Pass the QA checklist and iterate at least once based on self-critique and/or user feedback.
+- Be explicit about the four core prompt components (per Dorik): purpose, visual style, content sections, and target audience.
 
 ## Required variables (fill or ask)
 Provide as YAML. If any required value is missing, list it in “Missing inputs” and ask targeted questions before proceeding.
 
-```YAML
+```yaml
 required:
-  - full_name: "Alex Rivera"
-  - headline: "Product Manager | GTM & Growth"
-  - contact_email: "alex@example.com"
-  - primary_cta:
-    - type: "email" # one of: email | form | calendar
-    - value: "alex@example.com" # or form/calendar URL
-  - target_roles: ["Product Manager", "Growth PM"]
-  - target_industries: ["Climate Tech", "SaaS"]
-  - target_audience: ["Seed–Series B founders", "Hiring managers"]
-  - location_preference: "Remote, US"
-  - gtm_objectives_as_okrs:
+  full_name: "Alex Rivera"
+  headline: "Product Manager | GTM & Growth"
+  contact_email: "alex@example.com"
+  primary_cta:
+    type: "email" # one of: email | form | calendar
+    value: "alex@example.com" # or form/calendar URL
+    label: "Email Me" # optional button/link label
+  target_roles: ["Product Manager", "Growth PM"]
+  target_industries: ["Climate Tech", "SaaS"]
+  target_audience: ["Seed–Series B founders", "Hiring managers"]
+  location_preference: "Remote, US"
+  gtm_objectives_as_okrs:
     - objective: "Break into climate tech PM"
-      - key_results:
+      key_results:
         - "Secure 6 interviews in 60 days"
         - "Publish 3 thought pieces with 2k+ views"
-  - brand:
-    - mission: "Build products that reduce emissions at scale."
-    - vision: "A world where clean tech is the default."
-    - values: ["Clarity", "Integrity", "Velocity", "Impact"]
-  - resume:
+  brand:
+    mission: "Build products that reduce emissions at scale."
+    vision: "A world where clean tech is the default."
+    values: ["Clarity", "Integrity", "Velocity", "Impact"]
+  resume:
     url: "https://..."
     text: "" # paste if available
-  - portfolio_items:
+  portfolio_items:
     - title: "Fleet Optimization Platform"
-    - link: "https://..."
-    - outcome: "15% route emissions reduction; $3.2M ARR"
-    - role: "PM Lead"
-    - skills: ["Product Strategy", "Data Viz"]
-  - example_sites: ["https://ex1.com", "https://ex2.com"]
-- optional:
+      link: "https://..."
+      outcome: "15% route emissions reduction; $3.2M ARR"
+      role: "PM Lead"
+      skills: ["Product Strategy", "Data Viz"]
+  example_sites:
+    - url: "https://ex1.com"
+      likes: ["Clean hero", "Case study layout"]
+    - url: "https://ex2.com"
+      likes: ["Tone", "Pricing section"]
+
+optional:
+  services_offers:
+    - name: "Fractional PM"
+      scope: ["Roadmapping", "MVP definition"]
+      pricing: "Weekly retainer"
   testimonials:
     - quote: "Delivered outcomes fast."
-    - author: "VP Product, GreenCorp"
-  - services_offers:
-    - name: "Fractional PM"
-    - scope: ["Roadmapping", "MVP definition"]
-    - pricing: "Weekly retainer"
-  - skills: ["Product Strategy", "Growth Experiments", "User Research", "SQL"]
-  - tools: ["Figma", "Mixpanel", "Looker", "Linear"]
-  - rates_or_budgets: "Available on request"
-  - availability: "Part-time, 20h/week"
-  - social:
-    - linkedin: "https://linkedin.com/in/..."
-    - github: "https://github.com/..."
-    - website: "https://..."
-  - extra_sections: ["Publications", "Talks", "Open Source"]
+      author: "VP Product, GreenCorp"
+  skills: ["Product Strategy", "Growth Experiments", "User Research", "SQL"]
+  tools: ["Figma", "Mixpanel", "Looker", "Linear"]
+  rates_or_budgets: "Available on request"
+  availability: "Part-time, 20h/week"
+  social:
+    linkedin: "https://linkedin.com/in/..."
+    github: "https://github.com/..."
+    website: "https://..."
+  extra_sections: ["Publications", "Talks", "Open Source"]
+  design:
+    brand_voice: "Confident, data-driven, friendly"
+    tone: "Crisp, benefit-led"
+    visual_style: "Minimalist, modern, clean"
+    color_palette: ["#0F172A", "#22C55E", "#0EA5E9", "#F8FAFC"]
+    typography_feel: "Humanist, readable"
+    imagery_style: "Product mockups, dashboards, clean illustrations"
+    layout_style: "Single-page, anchored ToC, sections 600–900 words total"
+  features:
+    - "Contact email link"
+    - "Calendar/booking link (if provided)"
+    - "Newsletter signup (text CTA only)"
+  seo:
+    primary_keywords: ["climate tech product manager", "growth product manager"]
+    secondary_keywords: ["go-to-market", "B2B SaaS", "product-led growth"]
+    target_locations: ["Remote US"]
+  avoid:
+    - "Jargon and buzzwords"
+    - "Autoplay media or carousels"
+    - "Generic stock phrases (results-driven, synergy)"
+    - "Walls of text over 6 lines"
+  assets:
+    logos: []
+    images: []
+  legal_constraints: "" # e.g., NDA redactions, name usage permissions
 ```
 
 ### Missing inputs
@@ -138,6 +170,16 @@ If any required variable is undefined:
 - NEVER fabricate credentials, relationships, or metrics.
 - Keep all outputs portable; avoid tool-specific features.
 
+## Design style tokens (visual direction)
+- Use the design and seo variables to set voice, tone, color palette, typography feel, imagery, and keyword focus.
+- Reflect target audience in word choice and proof selection.
+- Keep a single-page layout with anchored ToC and clear section breaks.
+
+## Negative constraints (AVOID)
+- Do not include features not supported by Notion paste-import (iframes, embeds, toggles, databases).
+- Avoid long paragraphs, jargon, auto-play elements, carousels, and bare URLs.
+- Avoid generic stock phrases; replace with concrete outcomes and specifics.
+
 ## QA checklist (MANDATORY)
 - Structure: H2/H3 only; ToC present; sections in logical order.
 - Positioning: clear ICP, roles, industries; benefit-led headline.
@@ -149,6 +191,8 @@ If any required variable is undefined:
 - Consistency: tone, terminology, and formatting uniform.
 - Length: scannable sections; bullets over long paragraphs.
 - Policy: no secrets; personal data only as provided.
+- Visual style: requested colors/typography/imagery reflected.
+- SEO: primary/secondary keywords integrated naturally in H2/H3 and body.
 
 ## Guidelines (design, build, host)
 - Keep a single-page structure for speed; add anchors and a ToC at top.
@@ -212,15 +256,14 @@ You WILL generate a single-page personal/professional website in Markdown that p
 - Accessibility: Provide meaningful alt text, descriptive links, and clear headings.
 - Secrets: Redact sensitive info as [REDACTED]. Do not fabricate facts or metrics.
 - Use blockquotes for callouts; Notion converts to quote blocks.
-- Keep links descriptive [Text](URL); avoid bare URLs where possible.
+- Keep links descriptive like [Descriptive text](https://example.com); avoid bare URLs where possible.
 - Keep sections modular; Notion supports easy block rearrangement after paste.
 - Keep whitespace between sections for readability.
 - Ensure link targets exist; avoid dead anchors.
 - Headings: Use H2 (##) and H3 (###) only; the Notion page title is H1.
 - Structure: Start with a mini Table of Contents linking to H2 anchors; keep sections modular.
 - Links: Use descriptive link text Text. Avoid bare URLs.
-- Images: Use Markdown images with alt text only:
-<img alt="Alt text" src="https://.../">.
+- Images: Use Markdown image syntax with alt text only: ![Alt text](https://.../)
 - Prefer stable, publicly hosted URLs.
 - Code/data: Use fenced code blocks with a language tag only for code or data (YAML/CSV). Do NOT use HTML/XML in code fences for layout.
 
