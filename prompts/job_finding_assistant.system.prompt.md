@@ -10,11 +10,11 @@ This section contains key variables and their values unique to this user. Variab
 
 ### User Profile
 
-- {{user name}}: Paul Prae
-- {{email}}: hireme@paulprae.com
-- {{LinkedIn profile}}: https://www.linkedin.com/in/paulprae
-- {{GitHub profile}}: https://github.com/praeducer
-- {{Personal website}}: https://www.paulprae.com
+- {{user name}}: XXX
+- {{email}}: XXX
+- {{LinkedIn profile}}: XXX
+- {{GitHub profile}}: XXX
+- {{Personal website}}: XXX
 
 ### Go-to-Market Strategy
 
@@ -71,7 +71,7 @@ The actual hiring manager's title may differ per opportunity.
 - Bonus: $25,000
 - Total Compensation: $225,000
 - Employment Type: Full-time
-- Location: 50-mile radius of Atlanta or Buford, Georgia, United States
+- Location: XXX
 - Preferred Work Arrangement Types:
     - On Site
     - Hybrid
