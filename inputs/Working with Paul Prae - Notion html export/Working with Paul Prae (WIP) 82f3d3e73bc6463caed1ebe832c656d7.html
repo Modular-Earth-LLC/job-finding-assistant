@@ -1,0 +1,733 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Working with Paul Prae (WIP)</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.highlight-default_background {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.highlight-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.block-color-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-default { background-color: rgba(84, 72, 49, 0.08); }
+.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
+.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
+.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
+.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
+.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
+.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
+.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
+.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
+.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="82f3d3e7-3bc6-463c-aed1-ebe832c656d7" class="page sans"><header><img class="page-cover-image" src="https://images.unsplash.com/photo-1628595351029-c2bf17511435?ixlib=rb-4.0.3&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">🌹</span></div><h1 class="page-title">Working with Paul Prae (WIP)</h1><p class="page-description"></p></header><div class="page-body"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="beba8bb9-a189-407a-bfd5-85370de9c2b2"><div style="font-size:1.5em"><span class="icon">🏗️</span></div><div style="width:100%">Paul Prae&#x27;s <em>mission</em> is to build a community-driven platform that helps entrepreneurs achieve economic freedom. Using this platform as an entrepreneur himself, he advises clients and builds products that empower neuroscience researchers and mental health clinicians with emerging technology to decrease the prevalence of disease and trauma. He <em>envisions</em> a partnership ecosystem of small, privately-owned, self-funded technology consulting companies, open-source software vendors, and decentralized scientific research organizations that share knowledge, talent, sales, tools, and other resources efficiently. His <em>values</em> include being equitable, healthy, empirical, transparent, consensual, inclusive, philanthropic, revolutionary, future-proof, and focused. His <em>personal bio</em> includes being a parent of two, a life partner of one, and a socially progressive lover of people. He copes with the absurdity of existence by playing drums, listening to music, reading, working, and spending time outside with his kids.</div></figure><p id="792d68db-dc79-432b-8c0f-76aad3931ef8" class="">
+</p><ul id="1103d5ea-4b93-40fc-b9c4-cbc10a13aba7" class="toggle"><li><details open=""><summary><strong>Use cases for this document</strong></summary><ul id="a4dc6c9d-9f05-4194-bce0-67f3de6fce99" class="bulleted-list"><li style="list-style-type:disc">To provide myself clarity on why I am here and what I am doing</li></ul><ul id="d9534025-a4f8-45a1-972b-0843592cde02" class="bulleted-list"><li style="list-style-type:disc">To guide my business branding, strategy, modeling, and operations. </li></ul><ul id="8a8e73fc-b3ec-4fdb-beef-269038028fdc" class="bulleted-list"><li style="list-style-type:disc">To sell myself</li></ul><ul id="23e86d84-4b9e-4728-aec4-2b0ab2532ec5" class="bulleted-list"><li style="list-style-type:disc">To attract others like me</li></ul><ul id="73c97e76-d94a-4431-bc86-f71a68cf62aa" class="bulleted-list"><li style="list-style-type:disc">To build a knowledge-based, conversational, generative AI agent and expert system to help me sell and recruit talent</li></ul></details></li></ul><p id="4f20b0bc-5610-4e94-8860-06f0f7263c11" class="">
+</p><ul id="446b0db2-375f-4037-bfcf-cacd6dba9052" class="toggle"><li><details open=""><summary><strong>Table of contents</strong></summary><nav id="b809241f-e578-4c39-98bd-ac9f39f0cab0" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#8116d1e1-4eca-4ca2-bd19-fdebc60afff4">Consultant profile</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#d9a91b28-e4ee-4813-b8da-8af4e51e3a63">Mission</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#5ab91534-d39e-45c8-87f8-95996cf532e5">Vision</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#58d2b69c-d6ff-422a-bb3b-67c38ecaa840">Values</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#4153b2ca-0b0e-4673-9237-5eab9f1dbf2b">Freedoms</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#6a708232-b49a-44e4-be3d-39f5705b59e1">Business Objectives and Personal Commitments</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#f9ec4875-3847-4cfa-8ea5-20b779cf59b8">Principles</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#62942125-a8dd-4277-bfb0-c8ed0905f90a">Boundaries (WIP)</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#9d510df2-1355-438f-8d66-4ca1c44c99e6">Processes</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#72dcc151-6f38-42ef-a011-0b04678bd273">Go-to-market strategy (WIP)</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#154e20a1-557e-4016-ac7b-5b5db69e0ed8">Why work with Paul Prae?</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#74e6702a-10fa-4fe5-95cc-f614bd89f393">Success stories (WIP)</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#c51e03b8-31e8-4c1d-9b1d-5dfdb1162324">Pricing</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#97b79182-fd71-4993-820b-1e2002bf9515">Personal bio</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#c396272d-c7aa-4e04-94e7-a4e421f68bd8">Working Agreement (WIP)</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#ecdd7ee5-1b6f-4a7c-a4d3-f19eb6cbf1ad">Others that share in my mission, vision, and values. </a></div></nav></details></li></ul><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0">Consultant profile</summary><div class="indented"><div id="4a691901-31d3-4a8c-9e80-069989723a1e" class="column-list"><div id="72ee82de-f949-458d-a242-d29b131edd7c" style="width:33.333333333333336%" class="column"><h2 id="b809d31c-84d2-4dc7-b54a-241f01700b1d" class="">Executive Summary</h2><p id="6216433e-40d9-424d-9239-a9f68f99778e" class=""><a href="https://www.notion.so/Paul-Prae-s-Executive-Summary-Fractional-Chief-AI-Officer-Building-AI-ML-and-Data-Platforms-and--f3165fe071cb4fe48cc7352dfbf27f55?pvs=21"><span class="icon">🧠</span>Paul Prae’s Executive Summary - Fractional Chief AI Officer Building AI, ML, and Data Platforms and Teams for Healthcare and Life Science Organizations</a> </p></div><div id="7a37d7a1-bfaa-4958-9c62-dc85ba72bf17" style="width:33.333333333333336%" class="column"><h2 id="c01cadd8-29b8-4be9-8277-be259b453cae" class="">One-Pager</h2><p id="bc407b44-43d4-43da-8cc8-7baeaf93cd57" class=""><a href="https://www.notion.so/Paul-Prae-e5e8ac9884ed4e75b8751c2942a88c47?pvs=21"><span class="icon">🧬</span>Paul Prae</a> </p><p id="c28bae79-af95-488c-8279-92a890a36c63" class="">
+</p></div><div id="6253b53c-29b1-4e08-915a-1d46eaf470e6" style="width:33.33333333333333%" class="column"><h2 id="1c4f9f4e-c8dd-483f-a33d-c247289f8cff" class="">Curriculum Vitae</h2><p id="f224d9d6-1b91-40f8-a4f6-fdad34885069" class=""><a href="https://www.notion.so/Paul-Prae-s-Leadership-Experience-in-Conversational-AI-d56147081349492fa6be75234217df67?pvs=21"><span class="icon">🤖</span>Paul Prae’s Leadership Experience in Conversational AI</a> </p></div></div></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0">Mission</summary><div class="indented"><div id="6334d2f3-0079-4de0-b48a-f1fe58ab7455" class="column-list"><div id="f0a46bc7-65b1-4c22-9a52-3fd01dd6fa92" style="width:100%" class="column"><h2 id="72e3c527-6f2d-463e-af9b-bbeba1463d82" class="">For my community</h2><blockquote id="fa477e00-adc4-4a3c-b7e0-85cfbbd3e86c" class=""><strong>My </strong><em><strong>mission</strong></em><strong> is to build a community-driven platform that helps entrepreneurs achieve economic freedom</strong> through their sheer brilliance, collaboration, and hard-work. This platform empowers its community members to produce capital by providing affordable and accessible information technology, financial, recruiting, consulting, product incubation, and business development services. This collective of talented individuals and set of curated services reduces the risk of starting a business by efficiently sharing knowledge, sales, and operational overhead. My goal is to empower working-class entrepreneurs to establish profitable, socially responsible businesses while maintaining significant ownership and creative control.</blockquote></div><div id="5bf29a64-fcb5-4ada-b6d8-19a26398f567" style="width:100%" class="column"><h2 id="5c680e83-0540-4f88-a9dd-d643ef0c8a26" class="">For my clients</h2><blockquote id="a9134d1c-52ab-4b28-b1a8-f8f53431d60d" class=""><strong>My </strong><em><strong>mission</strong></em><strong> is to make healthcare more affordable and accessible</strong> by disrupting the economic systems that fail to serve the general public. I aim to address harmful systemic issues that hinder life science research organizations and healthcare providers from effectively solving pressing human health problems. The consulting services I provide and product startups I support empower neuroscience researchers and mental health clinicians with emerging technology, breakthrough business models, and strategic partnerships. Despite existing broken financial and healthcare systems, my clients and I will work together to improve the quality of life by reducing the prevalence of neurodegenerative diseases and generational trauma. </blockquote><p id="d6c03478-9e9e-492e-aae7-b55fdaaf466f" class="">
+</p></div></div></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0">Vision</summary><div class="indented"><div id="eab81652-c58c-4955-8a08-1a9e816444b2" class="column-list"><div id="332aef26-1c02-405a-adeb-5c1f9d46929b" style="width:100%" class="column"><h2 id="0eea49ca-eba1-4667-93bd-b1dee512be8d" class="">For my community</h2><blockquote id="b9c83103-abf5-47b9-913b-7a5a15593f0f" class="">I <em>envision</em> a partnership ecosystem of small, privately-owned, self-funded technology consulting companies, open-source software vendors, and decentralized scientific research organizations that share knowledge, talent, sales, tools, and other resources efficiently. This massive collective of businesses will compete against incumbent large corporations by partnering together to create greater economies of scale than if they were working independently. <br/><br/>These businesses will build talent communities focused on human warmth and emotional connection. Their talent will receive higher pay per hour worked and have better job security than their peers at incumbent competitors. Members of this community will own multiple businesses, generate multiple revenue streams for themselves, and share in the profit of their own enterprise. This partnership ecosystem will be a magnet for top performing talent, providing our customers and clients with high quality products and services, increasing sales and revenue for all businesses in the ecosystem, resulting in greater compensation, benefits, and freedoms that will in turn attract more exceptional talent. <br/><br/>Through emerging technology, cooperative economic principles, and collective bargaining power, my partners and I will disrupt systemic wealth inequities and change the fundamental nature of work.</blockquote></div><div id="4c58fd7f-2642-45d3-be50-821296799681" style="width:100%" class="column"><h2 id="7f802e5f-2a31-4aa0-ae9b-bd9ccdb5348f" class="">For my clients</h2><blockquote id="109f0f44-d8e6-4dba-a289-fd0d82c58a20" class="">I <em>envision</em> a world without disease where mental health disorders are viewed as forms of diversity instead of as problems to solve. This burgeoning society is fully inclusive of neurodiverse people, with accessible and personalized healthcare and workplaces the norm. We all have everything we need, live as long as we want, remain physically strong forever, and feel emotionally safe everywhere.</blockquote></div></div></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0">Values</summary><div class="indented"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="376e8798-1f28-4594-b771-aa7faac01156"><div style="font-size:1.5em"><span class="icon">📖</span></div><div style="width:100%">The most valuable use of my time is spent building new and warm connections with those I love, preferably outside in the warm sun surrounded by nature. I will always put people and the planet we live on over profit. </div></figure><p id="78003030-42af-4188-beb1-195435e9d038" class=""><strong>I am →</strong></p><div id="bbdce58b-9c84-4ecb-8866-f2fe81ab57cc" class="column-list"><div id="ed1b6c05-483f-406f-be2c-21f21c0deaf6" style="width:50%" class="column"><ul id="65145d06-d6d7-42d5-bf09-3bb1a7d6e3a8" class="bulleted-list"><li style="list-style-type:disc"><em>Equitable</em>: the wealth, business, and power I create is fairly distributed to, and easily accessible by, my community. I use my power to empower others. </li></ul><ul id="70b76f94-0b0a-4c3e-b650-673bc5566923" class="bulleted-list"><li style="list-style-type:disc"><em>Healthy</em>: improving my physical health improves my mental health, which makes everything in my work and life better. My body is the vehicle for my brain and its nervous system. From a healthy body, a healthy and happy mind emerges. On a global scale, I will always optimize for human health outcomes over business outcomes like profit and cost. </li></ul><ul id="3c927e46-a237-4a44-bd59-faf84ac98082" class="bulleted-list"><li style="list-style-type:disc"><em>Empirical</em>: I expand my knowledge through the scientific method and by trusting research performed by deep subject matter experts. I take care to never distort scientific facts to fit my beliefs and I maintain a coherent understanding of the universe. I am humble, skeptical, and data-driven.</li></ul><ul id="cb841eb9-c869-4a8c-a9d7-489200161d48" class="bulleted-list"><li style="list-style-type:disc"><em>Transparent</em>: my business processes, finances, and tools are open and accessible to the rest of the community. Everyone has the legal rights and creative freedom to innovate on the platforms that I build.</li></ul><ul id="893b22d2-42a8-474a-890e-f0d807ff1add" class="bulleted-list"><li style="list-style-type:disc"><em>Consensual</em>: I ask for consent in how people work, when people work, how much people work for, and what people work on. When I can’t accommodate an individual, I work with them towards a mutually beneficial solution.</li></ul><p id="a80cc6ed-a1ca-42b0-a0d6-67fd2484cc58" class="">
+</p></div><div id="72ffdb22-ba1e-4c85-b85e-a8f0eec01758" style="width:50%" class="column"><ul id="048441d1-62d0-41f4-b7cc-9fb6b1b20f98" class="bulleted-list"><li style="list-style-type:disc"><em>Inclusive</em>: I am proactive in my support of neurodiversity and people’s raison d&#x27;être. I build social support systems that provide a safe space for dissenting opinions and creative expression. I am trauma-sensitive, recognizing when people are withdrawn, defensive, or cautious. I encourage those around me to be brave and share their feelings. I am also aware that people may need time to process their emotions on their own terms. </li></ul><ul id="0d3933d6-72e1-4536-a844-eff22813faed" class="bulleted-list"><li style="list-style-type:disc"><em>Philanthropic</em>: I practice extreme giving. This includes releasing control of power and letting go of material wealth. By helping those around me be more successful, I become more successful and feel more fulfilled. I recognize the economic value of caring.</li></ul><ul id="d586f93f-7803-4f3e-8133-40ab6cd3952a" class="bulleted-list"><li style="list-style-type:disc"><em>Revolutionary</em>: I actively shift paradigms through the creation of new systems and destruction of old systems. These new systems are robust in how they accommodate human needs and behaviors and they catalyze success through positive feedback loops. </li></ul><ul id="cc927173-6547-4545-baf1-c34fe43cd761" class="bulleted-list"><li style="list-style-type:disc"><em>Future-proof</em>: I think long-term and optimize for the whole without marginalizing individuals or small groups. I forecast the effects of trends so I can adapt to (and exploit) social, environmental, and technological change. I don’t bother failing fast when I know how to succeed slow. </li></ul><ul id="1f93d3b6-cc1c-4eb4-952e-9ff313d12780" class="bulleted-list"><li style="list-style-type:disc"><em>Focused</em>: I’m unrelentingly focused on what is wildly important and extremely meaningful. I am always willing to pivot as I gain new understanding, but unless I find a significantly better path forward, I will not stop until my mission is accomplished and my vision is realized.</li></ul><h2 id="3520a4e2-a167-4eba-9858-8b8c8fed87d2" class="">My Hierarchy for Success (WIP)</h2><p id="c448d429-0477-4cc9-98ec-55facac4cbfa" class="">TODO: turn into a pyramid</p><ol type="1" id="9d11e240-d381-4fd9-a695-0fe906d305a4" class="numbered-list" start="1"><li>Physical health with a focus on brain health, breathing, flexibility, longevity, and exercising outside. </li></ol><ol type="1" id="44cf31a6-559f-42b4-8abc-355f856ba3bb" class="numbered-list" start="2"><li>Mental health with a focus on showing gratitude, being calm and present, and self-expression through art and writing. </li></ol><ol type="1" id="8a5d15d4-a8c9-4b58-be79-22ae6cdcffbe" class="numbered-list" start="3"><li>Building warm physical connections with people and nature with a focus on family play time and laughter, helping those that share my mission be successful, and growing my professional network strategically. </li></ol><ol type="1" id="50f47969-1c99-4e92-a8bb-10678ac86a1a" class="numbered-list" start="4"><li>Reading and learning about a few strategic subjects at great depth. Everything must be aligned to my personal health goals and business goals. </li></ol><ol type="1" id="13ad0c1b-633e-4fea-81ed-44594d49cd14" class="numbered-list" start="5"><li>Work on things that will create massive value for myself and society. Anything I do must have a clear path to generating wealth and solving society’s greatest challenges. </li></ol></div></div></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0">Freedoms</summary><div class="indented"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="902a9d0d-701e-479a-a86c-2ed0f50d7f6e"><div style="font-size:1.5em"><span class="icon">🗽</span></div><div style="width:100%">I provide these freedoms to my community members, contractors, employees, cofounders, partners, clients, and customers. </div></figure><h2 id="1bd4ef85-263e-4dd4-98fd-bb445ac64b9e" class="">The Freedom to Share Business Infrastructure</h2><blockquote id="0aeaf65c-97f7-41ec-a190-0da743fba870" class="">The most important freedom to our shared success as a community of entrepreneurs and business partners is the freedom to share and collaborate on business infrastructure. </blockquote><p id="c93539b4-41a8-445a-8940-90c24e7d7064" class="">
+</p><p id="a9b4cde2-0f9f-490b-93d3-2a110f7bafdd" class="">This infrastructure includes ideas, designs, processes, tools, talent, and anything else that can be leveraged to create capital. By following cooperative economic principles, coordinating and focusing our efforts, and efficiently helping to scale each other’s businesses, we will all be more successful.</p><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><strong>Expand to see these freedoms</strong></summary><div class="indented"><ol type="1" id="86f63fe0-52f7-4e0d-b64a-52119aab4738" class="numbered-list" start="1"><li><em>The freedom to use shared infrastructure as you wish</em>, for any purpose, as long as the purpose is aligned to my values and these freedoms. For example, the freedom to incubate your own business in my community and on my platforms without having to share ownership with me.</li></ol><ol type="1" id="9735ccf5-b803-4405-8aa8-ac30f3d4a4fe" class="numbered-list" start="2"><li><em>The freedom to study how our shared infrastructure works, and to change it so it works for you</em>. As examples, I will be transparent in my finances and give you access to the source code of any software tools I write. You can then build modified versions of these financial and software systems that work better for you and others.</li></ol><ol type="1" id="96357b70-4881-4821-919c-efbca46ec363" class="numbered-list" start="3"><li><em>The freedom to share this infrastructure with others </em>that hold our shared values and provide these same freedoms. This is the freedom to cooperate.</li></ol><ol type="1" id="eb029fd8-a7cc-4a62-806d-d44e3e1fcb67" class="numbered-list" start="4"><li><em>The freedom to share modified versions of our infrastructure with others</em>. By doing this you can give the whole community a chance to benefit from your changes.</li></ol><p id="19803b01-1a10-404d-94e4-b5a2bed6f3eb" class="">
+</p><p id="c8c8fd07-fe40-494c-a976-c02f737a5659" class="">These freedoms will prevent our business from becoming an instrument of unjust power that manipulates and controls other people. Let’s collaborate on, and openly share, business infrastructure so we can achieve economic freedom together.</p><p id="dec6dcfe-c286-4585-a801-cba522db2465" class="">
+</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="ab2f5405-be21-4b7b-8c52-ae9fb627c246"><div style="font-size:1.5em"><span class="icon">💾</span></div><div style="width:100%">My freedoms are based on the four freedoms of free (<em>libre</em> as in “free speech”) and open source software as defined by the Free Software Foundation. Can you imagine a talent, business development, and wealth distribution platform as ubiquitous and accessible as the GNU/Linux operating system? This is the future I see. I am building “<a href="https://www.gnu.org/philosophy/stallman-kth.html">a technical means to a social end</a>.”</div></figure><figure id="0bb91a08-f71f-4520-b2a2-816144ee583d"><a href="https://www.gnu.org/philosophy/free-software-even-more-important.html" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Free Software Is Even More Important Now<br/>- GNU Project - Free Software Foundation</div><div class="bookmark-description">Since 1983, the Free Software Movement has campaigned for computer
+users&#x27; freedom—for users to control the software they
+use, rather than vice versa.  When a program respects users&#x27; freedom
+and community, we call it “free software.”</div></div><div class="bookmark-href"><img src="https://www.gnu.org/graphics/gnu-head-mini.png" class="icon bookmark-icon"/>https://www.gnu.org/philosophy/free-software-even-more-important.html</div></div></a></figure></div></details><p id="b71f0fba-5af9-4867-bde6-7958b1a12b43" class="">
+</p><h2 id="86cd5cba-b0d5-4c6f-b298-18201b42a347" class="">The Freedom of Consent at Work (WIP)</h2><blockquote id="1b57191b-3e4d-4d01-b9d5-f37fb733f944" class="">The most important freedom we have as individuals is the freedom to spend time in ways that give us joy. </blockquote><p id="416adaa3-5e24-44cc-9a57-9ca930b06ecc" class="">
+</p><p id="b19e3b94-7d65-45d2-afa7-77056ecdb59e" class="">When working with me, you are free to use your time to pay attention to what matters to you. <em>A key business outcome of the platforms I am building is to ask for consent in how people work — when, where, on what, and with whom — plus, to some extent, how much they work for.</em> This will help us build warm connections and trusted relationships with each other which will lead to all of us living happy, fulfilled lives. </p><p id="b5c11f65-4154-4bd8-8813-51a38ac8307c" class="">
+</p><p id="3d07e403-1786-4d9b-8ae4-c13de021ca85" class="">We also need recognize that if we set too many ultimatums or act too self-righteous, it simply makes it hard to work together. We still have lots of work to do to build a platform to fully realize these freedoms (aka “desire is not a strategy”). To make it easy to work together, balancing mutual consent with a well-executed, community-wide strategy is necessary.</p><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><strong>I ask for consent in</strong>:</summary><div class="indented"><ol type="1" id="8c3505ee-28ac-437f-8027-0c786c206b39" class="numbered-list" start="1"><li><em>How one works</em>. This involves respecting each other’s boundaries and actively weaving our principles and processes together. I respect the way other people work through an adaptive leadership style while encouraging the use of standard project management methodologies (like software development lifecycles) and operating procedures (like sales outreach processes). This combination of leadership approaches allows us to balance autonomy with predictable routines and creativity with operational efficiency. </li></ol><ol type="1" id="9c23085a-dcb5-468c-a093-98e923dd923b" class="numbered-list" start="2"><li><em>What you work on</em>. A person should never be forced to work on a project that doesn’t align to their values. At the same time, we need to demonstrate awareness on how choosing to do different things divides us and makes it harder to achieve shared goals. I will practice active listening during moments when our work is misaligned and use the feedback to create a better strategy.</li></ol><ol type="1" id="71e7a3bf-07f6-4a58-b4ed-28e8934d4fc6" class="numbered-list" start="3"><li><em>Who you work with</em>. We each work best with different people. We want team compositions to consider personality differences so each team can work most effectively together. If an individual is not a good fit for my team, I will actively work to help them find the team that is best for them.</li></ol><ol type="1" id="3e0bbf3c-d49c-4b8c-aeed-acc21e829716" class="numbered-list" start="4"><li><em>When you work</em>. Our individual lives are full of all kinds of commitments and desires that exist outside of the scope of work at one organization. These can range from family duties, like picking kids up from daycare or a mother needing time to breastfeed, or a person following their dreams to be a professional musician or to start their own business. I support individuals living the life they want to live with the assumption that they will help coordinate and focus our collective efforts. For us to be successful as a team, we need to show discipline (aka you gotta show up), commitment (aka you gotta keep your word), and persistence (aka you gotta never give up) when working together.</li></ol><ol type="1" id="5a312a9f-77b9-4c98-b9f4-d3a78cdcce79" class="numbered-list" start="5"><li><em>Where you work</em>. Because most of my collaborators are building digital worlds, they are not locked down to physical spaces. I see the benefits of working together in a shared physical space, like how it improves empathy and alignment, but will never require someone to work where I work. This allows those around me to be efficient with their time (like by not commuting long distances), to live their values (like by not driving and contributing to emissions), to have a unique lifestyle (like by wanting to work from anywhere around the world), and to go on adventures (like to go on tour as a musician).</li></ol><ol type="1" id="8bee880e-63b2-4db6-ac22-5aa9215451eb" class="numbered-list" start="6"><li><em>How much you get paid</em>. I always ask how much someone wants to get paid and will accommodate that rate if it is affordable and reasonable. If I can’t afford the rate, I am honest and transparent about my finances and budgetary constraints. </li></ol><ol type="1" id="463e6853-c107-44ab-85e5-39947c3ba0f6" class="numbered-list" start="7"><li><em>Why you work</em>. I won’t judge folks for why they are working on projects with me. If we’re working well together and meeting shared business objectives, the reasons don’t matter. If our purpose aligns, great, but if they simply want to make money, have fun, and learn, that’s cool too. </li></ol><p id="964cf437-8038-4651-b838-458b43b3fb10" class="">
+</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="7f5242b7-8dc4-4936-bf94-d9cd6f91d578"><div style="font-size:1.5em"><span class="icon">☯️</span></div><div style="width:100%"><em>To effectively coordinate and focus our efforts to achieve shared goals, these freedoms must be balanced with best practices in communication and collaboration.</em> Some self-sacrifice is always required to work well on a team. To learn from each other, share in each other’s successes, and benefit from economies of scale, we must align on shared goals and execute effective processes. Establishing a community-wide strategy through mechanisms like business objectives and key results can act as a guide to unite us.</div></figure><p id="76a30545-f533-4d22-be6c-daf418b8d8b2" class="">
+</p><p id="9f2c0ec9-5b21-4b77-84ae-2b1708994793" class="">Talking about consent is an important part of any healthy relationship. It’s an easy way to make sure nobody is being pressured into something they don’t want to do. This not only makes life and work more fun for individuals, but also benefits our businesses by encouraging engagement, creativity, communication, collaboration, and productivity. We are optimizing for the whole of the collective while respecting each individual’s needs.</p></div></details></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0">Business Objectives and Personal Commitments</summary><div class="indented"><h2 id="523c47bc-6d7d-4ba8-960b-e12501c7ae4f" class="">Challenges </h2><p id="08c9d153-7fe2-42eb-a7a7-aaa0b8b54d72" class="">I am struggling to explain my strategy, incentivize our community to execute shared objectives, and effectively leverage the massive amount of social and knowledge capital I have developed throughout my career. I need help communicating and collaborating with others while scaling my strengths and avoiding my limitations.</p><p id="01951228-63e1-45c0-98d7-e143c728aa57" class="">Hyperbloom has a paradigm shifting business model. Starting a groundbreaking business is exciting! It’s also one of the hardest things to do. This is especially true given our not-yet-for-profit, revenue-sharing, low operational margin, decentralized, autonomous, anti-authoritarian, radically transparent contract workers cooperative. The hardest part being that we need to invest lots of time up front without getting paid (first/much/often/yet) to build something that has never existed before: an accessible business development platform that distributes wealth and power equitably.</p><p id="39d1dcea-2eae-4d30-b858-9e6208be570f" class="">Most startups get money up front to pay employees salaries, but then those employees pay investors or the business owners back by handing them a hefty profit margin for the life of the business. With outside investors, we’d have to work for someone else, would lose creative control, and likely be profit-driven instead of people-focused. People who don’t take risks work for people who do. We’re taking risks by investing our time, and it’s scary sometimes, but this is the path to create the greatest amount of wealth and power for ourselves in the long run.</p><p id="37e683fd-aa86-49db-9b04-65b3ca87a0ea" class="">I am blocked by slow decision making models. In particular, regarding how money is invested and how we align the efforts of groups larger than two or three people. We are starting to have solutions defined to our various cold start problems and now are struggling to scale.</p><h2 id="b483e831-20b2-48b4-a78b-9695bc50b29f" class="">Objectives</h2><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="caeb8c1d-dd2c-40ec-b6a2-840ea2a604f4"><div style="font-size:1.5em"><span class="icon">🗼</span></div><div style="width:100%">I am focused on finding the fastest paths to making our business and its people money. This includes coordinating and focusing our efforts on activities that will provide the greatest return the fastest so we can reinvest the money again to keep the machine moving.</div></figure><ol type="1" id="679990a8-cc95-4bc0-9164-f53f4aafd8e3" class="numbered-list" start="1"><li>Booking recurring high-paying clients as part of the coaching program I’m developing. <em>Why</em>? This is the fastest path to increasing my personal revenue to reinvest in my business’ growth.</li></ol><ol type="1" id="4996bf2a-7888-49e5-b515-b602a4d7cf63" class="numbered-list" start="2"><li>Coordinating and focusing efforts on unblocking the top of the sales funnel while solving for how to create sales capacity to maintain the momentum of each opportunity until the sales lead converts. We can reliably generate many quality warm leads, but fail to qualify, follow up on, and convert them fast enough (time is killing all deals). I have this issue with both high paying coaching gigs and businesses looking for AI consulting work. This is a sales capacity problem i.e. we need people out there selling a.k.a. out there executing processes that we already know work. <em>Why</em>? I have identified the most reliable ways to win gigs for others and earn commission for my sales team but it requires a team to execute multiple processes and steps together.</li></ol><ol type="1" id="618ecda4-5e85-4de6-afa9-3266bdfd39ee" class="numbered-list" start="3"><li>Designing a knowledge-based generative AI agent to imitate sales executives at Hyperbloom with plans to start a product business. <em>Why</em>? This is the single most valuable tool I have imagined over the many years working on Hyperbloom, in technical sales, and at startups. It has a large addressable market aligned to many current technology, economic, and social trends. If I could dedicate my time to any one thing, it would be this pursuit (I just can’t because I/we need immediate cash flow).</li></ol><ol type="1" id="d11881c4-523b-4630-aa48-430e162e8fdf" class="numbered-list" start="4"><li>I need to find a way to scale leadership across the business, especially as I take on new client work. Many people want and need direction. It’s easy to feel lost here. I’d like us to publish more OKRs, strategy documents and visualizations to make our business model and vision more clear, organizational charts with clearly defined roles, and enforceable Standard Operating Procedures (written and in video format).</li></ol><h2 id="6037b924-b652-4d50-af6f-d56ed600c2b5" class="">Business Organizations </h2><p id="79f22467-aaea-4da7-ad49-ba3eb06101eb" class="">Regarding business organizations I want to pursue as part of my vision, I expect to have some form of these all by next year:</p><ol type="1" id="0403845c-86be-4e3b-b4e7-24e87fd7f8a2" class="numbered-list" start="1"><li>A consulting company preferably under the brand name Hyperbloom owned by myself and preferably Vinod and maybe Nicole. We would offer AI and data solutions to healthcare and life science companies, specifically AI and data governance in mental health and neuroscience technology. I have a strong productized multimodal AI solution for Medical Homes I plan to deliver here. I would focus on leadership and growth in my role: sales, recruiting, and partnerships.</li></ol><ol type="1" id="4678067a-a096-4307-b08d-b0727ea46b19" class="numbered-list" start="2"><li>A product company focused on building privacy obsessed, AI agents that augment and scale average human sales agents to sell like experienced account executives. We customize the AI agent per client with optional support packages. Target clients would first be small healthcare and life science consulting companies like Hyperbloom and Mustard Seed and later expand to selling medical technology products as well. Packages for sale would be various combinations of software, AI engineers, sales trainers, and sales agents. I’m currently doing this under Modular Earth LLC in partnership with Santiago’s near shore staffing company. I’m leaning towards maintaining 100% ownership on this. It would incubate under Hyperbloom, giving that business full rights to the software, and tap that community for talent.</li></ol><ol type="1" id="62b4a451-6729-4706-8a08-79cba3b93f5d" class="numbered-list" start="3"><li>The final piece to the puzzle for me is the partnership ecosystem, or as we referred to it yesterday the “association.” This would be an ecosystem of consulting companies, product companies, and research organizations that efficiently share resources like talent, sales, IT tools, and other infrastructure. I do not know what kind of entity this should be. It could be an LLP, a DAO, an association, or some kind of fund. I’d be open to joining something instead of creating something here.</li></ol><h2 id="54d7d7d9-af90-41c8-a22b-f28ca16db4ed" class="">Commitments</h2><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="a90accd9-a222-4720-8bba-668c2a21194b"><div style="font-size:1.5em"><span class="icon">🤲🏽</span></div><div style="width:100%">I can help others be successful by empowering them with specialized knowledge, social connections, and a plan of action. I can help those that don’t know what to do, know what to do with who. </div></figure><p id="0f71f584-b97b-4d5f-bdec-6bdae7f51c0a" class="">I commit to helping others find work:</p><ol type="1" id="355de9e4-54ad-49f9-8af7-93b99e8abae5" class="numbered-list" start="1"><li>they’re good at.</li></ol><ol type="1" id="e7017228-6898-4e36-9a4e-1c114c4c6484" class="numbered-list" start="2"><li>that pays well.</li></ol><ol type="1" id="8708afab-7f00-4612-af95-70a9f1637556" class="numbered-list" start="3"><li>they enjoy. </li></ol><ol type="1" id="ad8bcba8-6cd0-43ae-9442-f731c80a95d1" class="numbered-list" start="4"><li>that is engaging. </li></ol><ol type="1" id="48c0b2a1-864e-4b21-80d6-8e6913117c90" class="numbered-list" start="5"><li>that helps others.</li></ol><ol type="1" id="3903fb69-e4d6-41df-8939-b749f2ac29fe" class="numbered-list" start="6"><li>that compliments their personal life.</li></ol><p id="e2994101-a416-43ca-8409-00c0f68bd532" class="">
+</p><p id="95c50904-fb93-4d18-8b55-782720afad5b" class="">For example, I can teach community members how to sell themselves and how to make money on our platform. More broadly, I see the big picture and how it is all coming together. I&#x27;m here to help with alignment and focus.</p><p id="fbb9c2ed-a0d8-4681-9710-3eb56582a3ff" class="">
+</p><p id="54e647b9-0337-463e-b1ab-b049ab24a3c9" class="">I commit to creating supportive workplace conditions that enable:</p><ol type="1" id="9846d577-5ae0-48f1-adce-90ec1cec27b9" class="numbered-list" start="1"><li>fair compensation models including wages, bonuses, and equity. </li></ol><ol type="1" id="2c4863b3-2b1d-412a-a4ef-ef8c23199162" class="numbered-list" start="2"><li>community members to enter into a state of flow. </li></ol><ol type="1" id="2a5d671a-4c85-4f7d-bf03-b5e7ce9aeff2" class="numbered-list" start="3"><li>us to hire more people to support each other’s success. </li></ol></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0">Principles</summary><div class="indented"><p id="d14e1e18-d75f-43c0-977c-0066cd39d6ad" class=""><a href="https://www.notion.so/Leadership-Principles-4e0a08f831534a27ab57606a20ac05c7?pvs=21"><span class="icon">⛰️</span>Leadership Principles</a> </p><p id="370c7a4e-fd19-4a62-a443-7a12d9686225" class=""> </p><p id="8f4e4d5c-0ed0-4f34-830e-1a505e80aa46" class=""><a href="https://www.notion.so/Technology-Principles-69412ac0f74f4e18b7f3b64dc9745016?pvs=21"><span class="icon">🛠️</span>Technology Principles</a> </p></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0">Boundaries (WIP)</summary><div class="indented"><p id="af105b07-a1fa-47da-b506-9ec0e7d470ad" class="">I expect people that work with me to:</p><ul id="253d55b0-f288-4fc3-ac71-4ca0c4c73477" class="bulleted-list"><li style="list-style-type:disc">have a similar mission as my own and for our vision of the future to be the same or complementary.</li></ul><ul id="c434e87b-b84c-4509-8500-57b7679c76e7" class="bulleted-list"><li style="list-style-type:disc">share my values, provide me the same freedoms as I provide them, respect my boundaries, and follow (or help me improve) my principles and processes.</li></ul><ul id="959b0363-d896-4cca-8b20-e763b3c3be5b" class="bulleted-list"><li style="list-style-type:disc">our go-to-market strategy and approach to leadership must be the same or complimentary.</li></ul><ul id="55c6544a-5712-44eb-adf5-00e4f97d7d7a" class="bulleted-list"><li style="list-style-type:disc">we must have mutual trust and respect for each other to coordinate effectively and efficiently as a team. </li></ul><p id="e747071d-19d6-486f-b23c-a42847c66160" class="">
+</p></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0">Processes</summary><div class="indented"><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0">Helping me land sales</summary><div class="indented"><p id="66bfcacd-b699-4844-8dba-440c076e14bf" class=""><a href="https://www.notion.so/Getting-Started-in-Sales-bb130e18c9944f6fa04256be67aa6c8b?pvs=21"><span class="icon">🔮</span>Getting Started in Sales</a> </p><figure id="fc4149f9-1467-4438-b7b3-edb7ab2823ed" class="link-to-page"><a href="https://www.notion.so/A-high-level-sales-approach-fc4149f914674438b7b3edb7ab2823ed?pvs=21">A high-level sales approach</a></figure><p id="865c2b15-680e-45b5-92ae-7d7e35040fe2" class=""><a href="https://www.notion.so/How-to-generate-unlimited-organic-leads-on-LinkedIn-78abbf4ea6e74956b38fefd15febf6f4?pvs=21"><span class="icon">⛲</span>How to generate unlimited organic leads on LinkedIn</a> </p><p id="28507d81-e49d-4aa1-afae-6d1a53cc7694" class=""><a href="https://www.notion.so/Impersonating-team-members-on-LinkedIn-to-follow-up-on-leads-c2069a1f950e45eca5caa0cadfdcaed8?pvs=21"><span class="icon">💕</span>Impersonating team members on LinkedIn to follow up on leads</a> </p></div></details><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0">How I make money</summary><div class="indented"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="8b3ca222-fe7c-4b64-ab08-8c7b525bec85"><div style="font-size:1.5em"><span class="icon">💸</span></div><div style="width:100%">I am focused on maximizing the diversity of my revenue streams to decrease my own financial risk, identify the easiest ways to make money long term, and exemplify to others the variety of ways to make money on Hyperbloom’s platform.</div></figure><p id="670006d8-2fee-4d78-b390-c19d998ad7f9" class="">Current:</p><ul id="c5dcdd83-c8d5-4bc3-86d4-f2edee6f78c7" class="bulleted-list"><li style="list-style-type:disc">Consulting projects</li></ul><ul id="37532842-bc2f-47f5-92ee-65d9ed477aa1" class="bulleted-list"><li style="list-style-type:disc">Coaching sessions</li></ul><ul id="54e20f9e-8d31-4c6d-989b-246362196b8b" class="bulleted-list"><li style="list-style-type:disc">Sales commission as:<ul id="62bc1121-ef89-4f80-8ac7-071c47aef598" class="bulleted-list"><li style="list-style-type:circle">An Account Executive</li></ul><ul id="80e1ef5b-4f4a-4842-a063-6ef41a771434" class="bulleted-list"><li style="list-style-type:circle">A Solutions Architect</li></ul></li></ul><p id="c36c0eb2-0aee-40ce-baa6-cdcc2279fab1" class="">
+</p><p id="1f0817ff-6e72-413b-baed-4cdb40b0e2fa" class="">Future:</p><ul id="537c63e5-ed4a-486b-912d-4be2353aeea5" class="bulleted-list"><li style="list-style-type:disc">Hyperbloom profit-sharing as an owner</li></ul><ul id="570c8cd3-0ed0-4bdd-9cf4-e357d3bfe076" class="bulleted-list"><li style="list-style-type:disc">Recurring bounty or salary for leading practice areas and lines of businesses:<ul id="58fa3c4b-30f7-4b9e-8353-f3f34e066c80" class="bulleted-list"><li style="list-style-type:circle">Data Science and Engineering Practice Area Lead</li></ul><ul id="89acb372-8b1a-4ef5-96d6-af6a34238df1" class="bulleted-list"><li style="list-style-type:circle">Sales Lead</li></ul><ul id="5c4cc01d-655d-4723-bbb3-025bdce3558c" class="bulleted-list"><li style="list-style-type:circle">Partnership Lead</li></ul></li></ul><ul id="b583fe7a-f38c-4ff7-8de6-6fa8af8cae47" class="bulleted-list"><li style="list-style-type:disc">IT bounties</li></ul><ul id="cc9e1c32-4dd7-458a-b64e-11f9dca102b3" class="bulleted-list"><li style="list-style-type:disc">Sales and recruiting commission through partnership agreements</li></ul><ul id="9c0961d1-2c5d-4ffb-81ed-0746593229dd" class="bulleted-list"><li style="list-style-type:disc">Salary and bonuses from product companies I build in our incubator</li></ul><ul id="6a7f583a-3efd-484e-9c5a-ca3701c45677" class="bulleted-list"><li style="list-style-type:disc">Revenue and profit sharing from my product businesses</li></ul><ul id="728a792f-4a87-47ad-b9cf-236f21b441a8" class="bulleted-list"><li style="list-style-type:disc">Acquisition of product companies I build</li></ul></div></details></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0">Go-to-market strategy (WIP)</summary><div class="indented"><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0">Markets</summary><div class="indented"><p id="b9731802-66a7-4f24-82ac-b2f346452fec" class=""><a href="https://www.notion.so/Target-Markets-72a078b09c66428c8d5437a83d50faec?pvs=21"><span class="icon">🎯</span>Target Markets</a> </p></div></details><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0">Services</summary><div class="indented"><p id="e281e871-da68-4dcd-872a-f96db0de0d33" class=""><a href="https://www.notion.so/Consulting-Services-3e4ae008c9bf4c4eaac0ee47a2cc8376?pvs=21"><span class="icon">🛒</span>Consulting Services</a> </p></div></details><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0">Technology</summary></details></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0">Why work with Paul Prae?</summary><div class="indented"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="a252e5a5-de17-4459-95aa-76df72d9b789"><div style="font-size:1.5em"><span class="icon">💗</span></div><div style="width:100%">If I can earn your trust, we will be able to move fast and build great things together.</div></figure><p id="b38a4e27-acc1-4bd2-95ba-7bc8750d2572" class="">My super powers:</p><ul id="ff8891eb-4cdb-4576-87ac-816b503afa02" class="bulleted-list"><li style="list-style-type:disc"><em>I read a lot</em>. I take lifelong learning to the extreme by going broad and deep in the subjects I study. I aim to be the world’s most knowledgeable at the intersection of the skills I develop and problems I aim to solve. </li></ul><ul id="ba838fd1-0e54-4caf-b311-0377a30299f4" class="bulleted-list"><li style="list-style-type:disc"><em>I am a business-savvy engineer</em>. I provide an excellent balance in building both businesses and software. I can own software product development all the way from ideation through market fit, research, development, sales, and support. </li></ul><ul id="33625773-52ce-4057-b9a7-ee4c77b564d2" class="bulleted-list"><li style="list-style-type:disc"><em>I have a larger professional network</em> in the areas I work and study in. I am a maniac about meeting with as many successful and talented people as I can. I treat everyone as a potential business partner and build warm connections between everyone I have ever met. </li></ul><ul id="3369ee25-90f0-47dd-9100-b72231489542" class="bulleted-list"><li style="list-style-type:disc"><em>I am obsessed with quality and its details</em>. With software architecture or project planning, I never miss a beat. </li></ul><ul id="531099c5-9fc0-4370-b0fb-201466ced7fd" class="bulleted-list"><li style="list-style-type:disc"><em>I am a futurist</em>. I study social, technology, and economic trends to strategically position those around me for success. I build for long term success. </li></ul><p id="511d9156-4d8c-4e99-899f-e89fa5334a90" class="">
+</p><p id="dc9517c2-9c5f-417e-bcfe-a2a135aa8468" class="">Experience:</p><ul id="4601b47e-c1d3-4d0f-8370-11166271389d" class="bulleted-list"><li style="list-style-type:disc">I have 15-years of experience in delivering technical consulting services and building technology products with a focus on artificial intelligence and software engineering.</li></ul><ul id="ecb8520a-3204-4dae-a7fd-47c4e18aa346" class="bulleted-list"><li style="list-style-type:disc">I have a large network of professional contacts aligned to my go-to-market strategy in delivering AI, ML, and data consulting services to healthcare and life science companies. I tend to meet with five times as many people as most of my colleagues meet with each week and my professional networks (like my 7,000+ and growing network on LinkedIn) is a reflection of that hard work.</li></ul><ul id="5d5af3d0-d9ea-4782-a9fc-d7fb95a621f7" class="bulleted-list"><li style="list-style-type:disc">I learn, study, and read constantly and have done so since I was a child. I read highly curated content for about four to six hours a day, all of which is aligned to my mission and vision.</li></ul><p id="7e8f5395-3731-43d8-8414-5bb1ac413d7b" class="">
+</p><p id="b3ce4220-6267-489f-a2f8-b27c922036bd" class="">Focus:</p><ul id="ddcb7cea-7733-450f-94a1-e4c5c92e130f" class="bulleted-list"><li style="list-style-type:disc">I strategically focus all of my energy on acquiring knowledge, gaining experience, and building my network at the intersection of a well-defined and obsessively researched go-to-market strategy.</li></ul><ul id="3852b95c-d2f6-4cb4-8c57-8e8dea9b8b87" class="bulleted-list"><li style="list-style-type:disc">Within the field of AI, I focus on build data platforms for machine learning and natural language processing systems. When building data platforms, I focus on data governance, protection, and privacy. These are the consulting services I provide and technical skills I bring to my team.</li></ul><ul id="675e860b-58db-4b00-ae79-985440ff899e" class="bulleted-list"><li style="list-style-type:disc">Within the the healthcare and life science industry, I focus on building mental health technology and supporting neuroscience research. I build platforms that directly support the work of clinicians and scientists.</li></ul><ul id="b426fde4-4dc9-46bc-8e72-6293d5dd169a" class="bulleted-list"><li style="list-style-type:disc">As a leader, I focus building warm connections and fluid coordination between people through an adaptive, bottom-up leadership style. I act as a coach, building trust between team members so we can effectively and efficiently leverage each other’s strengths and avoid each other’s limitations. </li></ul><p id="aae3166e-9689-41ad-aa81-716c816f3b3f" class="">
+</p><p id="5289fe77-4f46-410a-83aa-d9bafc923cbc" class="">Exuberance: </p><ul id="3c938030-5361-4d2e-b4cf-786b2921c8d6" class="bulleted-list"><li style="list-style-type:disc">I bring a superabundance of contagious, optimistic energy to every project I work on.</li></ul><ul id="92950d1b-553a-4725-a529-fcbc65e8b844" class="bulleted-list"><li style="list-style-type:disc">I’m overflowing with (good) ideas and openly share the best ones I have with anyone who would benefit from them.</li></ul></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0">Success stories (WIP)</summary><div class="indented"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="08bcce42-d383-400b-81f3-01158ca983cb"><div style="font-size:1.5em"><span class="icon">🏅</span></div><div style="width:100%">Why should you trust that I will make you successful?</div></figure></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0">Pricing</summary><div class="indented"><p id="c91165ed-4a89-4107-8012-39f01fbbc343" class="">My hourly rate is $250 an hour with a day rate of $2k. If travel is involved, it’d need to be completely covered plus $2k for each travel day. For example, if I had to fly to California to speak at an event, it’d be $7k: $4k travel fee + $2k day of speaking + $1k for prep. Open to other models, but that works for me.</p></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0">Personal bio</summary><div class="indented"><div id="1e43a560-46a2-448a-a1aa-08f757dd7c22" class="column-list"><div id="f049b763-0bf5-47e3-afa7-0cace24ccd1f" style="width:33.33333333333333%" class="column"><figure id="4708434a-bec9-4891-bbb0-aca13c59017c" class="image"><a href="IMG_0783.jpeg"><img style="width:2316px" src="IMG_0783.jpeg"/></a></figure></div><div id="2303d6a9-d8f7-4c98-a6be-b4309b486f19" style="width:33.33333333333333%" class="column"><figure id="87ce00fd-87bb-4926-bd3b-d7c9558a1b86" class="image"><a href="IMG_9660.jpeg"><img style="width:3024px" src="IMG_9660.jpeg"/></a></figure></div><div id="08976956-356a-4a3d-b835-2a308d0930dd" style="width:33.33333333333333%" class="column"><figure id="7fe4de98-8976-4e0d-b929-473ed568aa04" class="image"><a href="IMG_0465.jpeg"><img style="width:2316px" src="IMG_0465.jpeg"/></a></figure></div></div><p id="ccd3fce0-3582-40d2-8084-71aca0548981" class="">I’m looking for new friends, romantic partners, and a life partner. I’m a parent of two beautiful, smart, and talented children. The best kind of compliments I receive include that I’m friendly, silly, and smart. I’ve lived in a lot of places and had an extraordinary amount of unusual experiences. I’m rebellious, romantic, and socially progressive. To cope with the existential absurdity of life — aka to have fun — I like to play drums, listen to music, watch standup comedy, and touch the earth. I spend most of my raw hours thinking, reading, working (often creating things or talking to people), and taking care of or playing with my kids. I hope to travel and go to concerts and plays more often now that the girls are older. I love my mom and brother. And I like that this is my life. </p><figure id="ecf17e61-ee69-466f-8dcd-78b815bef185" class="image"><a href="IMG_4396.jpeg"><img style="width:4032px" src="IMG_4396.jpeg"/></a></figure></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0">Working Agreement (WIP)</summary><div class="indented"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="0f5408c7-b6f1-4472-b905-1f9df43faec4"><div style="font-size:1.5em"><span class="icon">🤝</span></div><div style="width:100%">Our promise to each other as we work together.</div></figure></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0">Others that share in my mission, vision, and values. </summary><div class="indented"><p id="17906bfb-5a03-4706-9080-fac86256e819" class="">Also see <a href="https://www.notion.so/Describe-the-core-pillars-to-our-business-strategy-and-how-they-integrate-into-a-coherent-whole-Str-3975d856c7974546bd76c85e3063e444?pvs=21">Describe the core pillars to our business strategy and how they integrate into a coherent whole: Strategy → Vision</a> and <a href="https://www.notion.so/Explore-other-corporate-and-not-for-profit-legal-entities-to-better-reflect-our-mission-and-better-i-aecf90cda6f6431ebd5bf59bc80803ef?pvs=21">Explore other corporate and not-for-profit legal entities to better reflect our mission and better incentivize community members</a> and <a href="https://www.notion.so/Convert-this-DAO-discussion-task-into-a-Project-Scope-create-roadmap-for-DAO-experimentation-f258bb8bd06241d1a78e5175afa488b1?pvs=21">Convert this DAO discussion task into a Project Scope; create roadmap for DAO experimentation</a> for more info.</p><figure id="545ce721-5f24-4c4a-b542-9b9d7c250792"><a href="https://www.eoxnetwork.org/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Employee Ownership | EOX</div><div class="bookmark-description">EOX promotes employee ownership to boost community wealth. Learn more!</div></div><div class="bookmark-href"><img src="https://irp.cdn-website.com/b325ff3f/site_favicon_16_1644158664454.ico" class="icon bookmark-icon"/>https://www.eoxnetwork.org/</div></div></a></figure><figure id="7a89bf40-89bc-4039-b410-fdd6bcef7263"><a href="https://www.theatlantic.com/family/archive/2024/08/young-adult-mental-health-crisis/679601/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Young Adults Are in Crisis</div><div class="bookmark-description">They’re more depressed, more anxious, and lonelier than any other age group in America—but their distress has gone widely unnoticed.</div></div><div class="bookmark-href"><img src="https://cdn.theatlantic.com/_next/static/images/apple-touch-icon-152x152-aafde20dd981a38fcd549b29b2b3b785.png" class="icon bookmark-icon"/>https://www.theatlantic.com/family/archive/2024/08/young-adult-mental-health-crisis/679601/</div></div><img src="https://cdn.theatlantic.com/thumbor/rnh-s27wXc6w70iYHDsp42gx3L0=/0x43:2000x1085/1200x625/media/img/mt/2024/08/Atlantic_MentalHealth_Final_revision3_nohaze/original.jpg" class="bookmark-image"/></a></figure><figure id="6cc4cdcb-4596-4613-94f3-5332b99e80b9"><a href="https://open.substack.com/pub/matthewharris/p/deep-dive-the-network-state?r=1qo7hh&amp;utm_medium=ios" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Deep Dive - The Network State</div><div class="bookmark-description">Technology has enabled us to start new companies, new communities, and new currencies. But can we use it to start new cities, or even new countries?</div></div><div class="bookmark-href"><img src="https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Face6acd7-c034-4494-b932-6480f4bc2f0a%2Fapple-touch-icon-1024x1024.png" class="icon bookmark-icon"/>https://open.substack.com/pub/matthewharris/p/deep-dive-the-network-state?r=1qo7hh&amp;utm_medium=ios</div></div><img src="https://substackcdn.com/image/fetch/f_auto,q_auto:best,fl_progressive:steep/https%3A%2F%2Fmatthewharris.substack.com%2Fapi%2Fv1%2Fpost_preview%2F143191083%2Ftwitter.jpg%3Fversion%3D4" class="bookmark-image"/></a></figure><figure id="2e2d36c1-8607-48fc-bf78-b09af3940b0b"><a href="https://www.theatlantic.com/family/archive/2023/04/insecure-attachment-style-intimacy-decline-isolation/673867/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">America Is in Its Insecure-Attachment Era</div><div class="bookmark-description">Discomfort with intimacy seems to be on the rise—and no one’s quite sure why.</div></div><div class="bookmark-href"><img src="https://cdn.theatlantic.com/_next/static/images/apple-touch-icon-152x152-aafde20dd981a38fcd549b29b2b3b785.png" class="icon bookmark-icon"/>https://www.theatlantic.com/family/archive/2023/04/insecure-attachment-style-intimacy-decline-isolation/673867/</div></div><img src="https://cdn.theatlantic.com/thumbor/xtXpW0g2_XaKr9V0ekpT74ygo8Y=/0x51:2389x1295/1200x625/media/img/mt/2023/04/america_attachment_1/original.jpg" class="bookmark-image"/></a></figure><blockquote id="11a8292d-c320-4f45-bdbe-1fee77d93ea3" class="">If you have built castles in in the air, your work need not be lost: that is where they should be. Now put foundations under them. - Henry David Thoreau, Walden.</blockquote><p id="05fb0d71-3c78-4aee-8945-7554cb4d1ae9" class="">
+</p><blockquote id="e860921d-ea8b-43d0-a864-fee6906d3973" class="">This is the true joy in life, the being used for a purpose recognized by yourself as a mighty one, the being a force of nature, instead of a feverish, selfish little clod of ailments and grievances complaining that the world will not devote itself to making you happy. I am of the opinion that my life belongs to the whole community, and as long as I live, it is my privilege to do for it whatever I can. I want to be thoroughly used up when I die, for the harder I work, the more I live. I rejoice in life for its own sake. Life is no brief candle to me. It is a sort of splendid torch, which I&#x27;ve got held up for the moment, and I want to make it burn as brightly as possible before handing it on to future generations. - George Bernard Shaw</blockquote><figure id="e1f24927-2091-4bce-a6c8-70d884392738"><a href="https://open.substack.com/pub/startupparent/p/you-need-50-people?r=1qo7hh&amp;utm_medium=ios" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">&quot;You Need 50 People.&quot;</div><div class="bookmark-description">Kurt Vonnegut on loneliness, community, and why marriage can never be enough for anyone.</div></div><div class="bookmark-href"><img src="https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa4d26b75-319e-4313-9313-561a6b1161f4%2Fapple-touch-icon-1024x1024.png" class="icon bookmark-icon"/>https://open.substack.com/pub/startupparent/p/you-need-50-people?r=1qo7hh&amp;utm_medium=ios</div></div><img src="https://substackcdn.com/image/fetch/f_auto,q_auto:best,fl_progressive:steep/https%3A%2F%2Fstartupparent.substack.com%2Fapi%2Fv1%2Fpost_preview%2F146922220%2Ftwitter.jpg%3Fversion%3D4" class="bookmark-image"/></a></figure><p id="899c5afb-1d8c-4ccb-9494-26423a419ca6" class="">
+</p><p id="3bc88360-d442-4f0a-8aac-eb56dc766d94" class="">“The Queen kept crying “Faster! Faster!” but Alice felt she could not go faster.” No matter how fast Alice ran, she never got to where she was going. “However fast they went, they never seemed to pass anything.” Finally, the Queen propped Alice “up against a tree, and said kindly, “You may rest a little now.”<br/>As Alice catches her breath, the Queen explains that life works a little differently in her strange country:<br/>“Now, here, you see, it takes all the running you can do, to keep in the same place.”<br/>The parable of the Red Queen1 has become a warning for modern life, where many of us inhabit that same type of strange country.</p><figure id="0a9d9779-ddc8-4f06-a072-bbe1dff8d2d5"><a href="https://open.substack.com/pub/brianklaas/p/the-red-queen-fallacy?r=1qo7hh&amp;utm_medium=ios" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">The Red Queen Fallacy</div><div class="bookmark-description">Humans weren&#x27;t made to tick off checklists and clear inboxes. We&#x27;ve lost sight of who we are, amid the mindless excesses of hustle culture and a drive-thru existence. Here&#x27;s the case for slowing down.</div></div><div class="bookmark-href"><img src="https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Ff1545a69-8dec-46c7-b369-c9def9f4acef%2Fapple-touch-icon-1024x1024.png" class="icon bookmark-icon"/>https://open.substack.com/pub/brianklaas/p/the-red-queen-fallacy?r=1qo7hh&amp;utm_medium=ios</div></div><img src="https://substackcdn.com/image/fetch/f_auto,q_auto:best,fl_progressive:steep/https%3A%2F%2Fbrianklaas.substack.com%2Fapi%2Fv1%2Fpost_preview%2F138662874%2Ftwitter.jpg%3Fversion%3D4" class="bookmark-image"/></a></figure><p id="490b9e4e-0c17-4ae5-9b3b-4c5982391e4e" class="">
+</p><p id="abf320cc-af5e-4ee2-8c0a-5434240266bc" class="">
+</p><blockquote id="01d081af-eab2-4f3a-883b-0a10631fd6de" class="">Money is of course needed to survive but time is what you need to live.</blockquote><figure id="2e7971a4-da9c-4dfb-aee8-40a3a9e9b6d0"><a href="https://open.substack.com/pub/rishad/p/vagabonding?r=1qo7hh&amp;utm_medium=ios&amp;utm_campaign=post" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Vagabonding.</div><div class="bookmark-description">The Future Does Not Fit in the Containers of the Past. Edition 160.</div></div><div class="bookmark-href"><img src="https://substackcdn.com/icons/substack/apple-touch-icon-1024x1024.png" class="icon bookmark-icon"/>https://open.substack.com/pub/rishad/p/vagabonding?r=1qo7hh&amp;utm_medium=ios&amp;utm_campaign=post</div></div><img src="https://substackcdn.com/image/fetch/w_1200,h_600,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F813d87c8-8356-48fa-870f-b20bca63a502_1024x684.webp" class="bookmark-image"/></a></figure><p id="59e7a1bf-a515-4d94-8dfb-e78b2dd31054" class="">
+</p><blockquote id="83698b59-1dfb-40e1-9bf4-685144b68cd4" class="">For our Founders, virtue meant a commitment to the well-being of society as a whole rather than to self-interest. They feared that without a virtuous citizenry, the young republic would succumb to authoritarian rule.</blockquote><blockquote id="9d4ee483-32e0-432c-8d65-3f7bb68978d0" class="">The common good was not based on charity or generosity. It was a social contract in which all members came to the aid of others when they needed it. More basically, it meant giving everyone an equal chance to succeed.</blockquote><blockquote id="016270fc-d1aa-4960-9935-724cd77bfea9" class="">It was a commitment to one another. It embodied a set of moral responsibilities — to uphold and strengthen our democracy, to provide each other with equal political rights, to generate equal opportunity, to give our young people a civic education, to discern and spread the truth, and to sacrifice for the common good.</blockquote><figure id="f0d865a5-ad6d-416c-96d9-027f67148231"><a href="https://open.substack.com/pub/robertreich/p/the-common-good-chapter-3-the-origins?r=1qo7hh&amp;utm_medium=ios&amp;utm_campaign=post" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Samuel Bankman-Fried and the Perversion of Civic Virtue</div><div class="bookmark-description">Chapter 3 of The Common Good</div></div><div class="bookmark-href"><img src="https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F9b053db0-47e8-44e3-9b71-bac6fde6dbb6%2Fapple-touch-icon-1024x1024.png" class="icon bookmark-icon"/>https://open.substack.com/pub/robertreich/p/the-common-good-chapter-3-the-origins?r=1qo7hh&amp;utm_medium=ios&amp;utm_campaign=post</div></div><img src="https://substackcdn.com/image/fetch/w_1200,h_600,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fd15a52ac-5bee-4745-b208-f8ee5b0d576d_1200x800.jpeg" class="bookmark-image"/></a></figure><blockquote id="1ae4f558-77c2-4875-b726-8d1de41a6c16" class="">Hospitals and health insurers once made money in order to provide health care. Now, hospitals and health insurers provide health care in order to make money.<br/>Blue Cross and Blue Shield began as nonprofits that insured all comers. But as big profit-seeking insurers targeted younger and healthier people, the Blues were left to insure the older and less healthy, which made it impossible for them to continue. They turned to making money. Now, private equity runs hospitals, into the ground.</blockquote><figure id="ddc0f0b5-33c9-4221-954b-21f3f6792708"><a href="https://open.substack.com/pub/robertreich/p/leaching-out-the-love?r=1qo7hh&amp;utm_medium=ios&amp;utm_campaign=post" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">How private equity is destroying the labors of love</div><div class="bookmark-description">Private equity is turning every business into a short-term profit center.</div></div><div class="bookmark-href"><img src="https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F9b053db0-47e8-44e3-9b71-bac6fde6dbb6%2Fapple-touch-icon-1024x1024.png" class="icon bookmark-icon"/>https://open.substack.com/pub/robertreich/p/leaching-out-the-love?r=1qo7hh&amp;utm_medium=ios&amp;utm_campaign=post</div></div><img src="https://substackcdn.com/image/fetch/w_1200,h_600,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fbde549e5-beae-4b39-ade8-d1ea1745b849_3500x2746.jpeg" class="bookmark-image"/></a></figure><figure id="6abbbd85-5fdf-41d9-beb2-b081df00e68b"><a href="https://80000hours.org/career-guide/job-satisfaction/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">We reviewed 60 studies on what makes for a dream job. Here’s what we found.</div><div class="bookmark-description">We reviewed all the research, drawing on over 60 studies, and found the six key factors for true job satisfaction. None of them is &#x27;following your passion&#x27;.</div></div><div class="bookmark-href"><img src="https://80000hours.org/favicon-152.png" class="icon bookmark-icon"/>https://80000hours.org/career-guide/job-satisfaction/</div></div><img src="https://80000hours.org/wp-content/uploads/2016/04/icecream-taster-v16-e1465228392655.png" class="bookmark-image"/></a></figure><p id="daf5c23a-fc8d-44aa-aaab-5067278d358a" class="">This problem makes starting a business and being a worker so much harder:<br/>Why does our country put the burden of providing healthcare on businesses?</p><p id="9107c3c3-f604-4c01-8b1a-3561be2d5982" class="">America’s healthcare system is a mess. This is one of the rare acknowledgements that is shared across party lines, age ranges, and genders. Despite this, America continues to make little to no progress improving the situation.<br/><a href="https://open.substack.com/pub/pragmatichumanist/p/get-employers-out-of-healthcare">https://open.substack.com/pub/pragmatichumanist/p/get-employers-out-of-healthcare</a></p><p id="734d46f1-2a4f-46e9-a8a8-df2dd8bcd49c" class="">We can stop creating wastelands and start cultivating fertile ground for creativity, engagement, and passion. Through workplaces that are teeming with a diversity of life and vitality, we can experience far greater prosperity for ourselves and the communities in which we operate.<br/>We can turn our primary focus to purpose and impact, realizing that profits are part of the natural resource flows that serve to sustain and regenerate the ecosystem ~ a byproduct of a healthy system ~ rather than its central aim.<br/>We can reconnect to the reason we originally came together to form the business or community and find true fulfillment in the impact we are each uniquely here to make.<br/>This regenerative way of operating is not only possible … it is inevitable.<br/>This is already happening in its own perfect timing. The planet is coming into balance and harmony ~ breaking through into a more organic, authentic expression of itself. And so are we.<br/>As we come into greater alignment with our own true nature, we begin to naturally resonate with a more regenerative worldview and way of being.<br/>We begin to lead differently, more collaboratively ~ focused on greater well-being of ourselves, each other and the entire ecosystem.<br/>In the process, we are reimagining, redefining and regenerating leadership.</p><figure id="a0878953-2380-46d0-a368-5a6288fcb3c9"><a href="https://open.substack.com/pub/regeneratingleadership/p/what-is-regenerative-leadership?r=1qo7hh&amp;utm_medium=ios&amp;utm_campaign=post" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">What is Regenerative Leadership?</div><div class="bookmark-description">Cultivating fertile soil in our organizations and initiatives</div></div><div class="bookmark-href"><img src="https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fbbc045a5-b517-4890-8e90-4d2285379fea%2Fapple-touch-icon-1024x1024.png" class="icon bookmark-icon"/>https://open.substack.com/pub/regeneratingleadership/p/what-is-regenerative-leadership?r=1qo7hh&amp;utm_medium=ios&amp;utm_campaign=post</div></div><img src="https://images.unsplash.com/photo-1530660877224-1cb26c2acea5?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wzMDAzMzh8MHwxfHNlYXJjaHw0Mnx8bXVzaHJvb20lMjBtYWNoZXN0bGF8ZW58MHx8fHwxNjkxMTc4NTM2fDA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080" class="bookmark-image"/></a></figure><blockquote id="26cdd1be-c2eb-4c6b-9f8f-d31ef255d037" class="">“The prudent, penniless beginner in the world, labors for wages awhile, saves a surplus with which to buy tools or land, for himself; then labors on his own account for another while, and at length hires another new beginner to help him. This, say its advocates, is free labor—the just and generous, and prosperous system, which opens the way for all—gives hope to all, and energy and progress, and improvement of condition to all.” <br/>In such a worldview, everyone shared a harmony of interest. What was good for the individual worker was, ultimately, good for everyone. There was no conflict between labor and capital; capital was simply “pre-exerted labor.” Except for a few unproductive financiers and those who wasted their wealth on luxuries, everyone was part of the same harmonious system.</blockquote><blockquote id="b13528f0-2273-4ee5-a51b-585b834929d6" class="">If a few people took over most of a country’s money or resources, rising laborers would be forced to work for them forever or, at best, would have to pay exorbitant prices for the land or equipment they needed to become independent.</blockquote><figure id="0983cdc8-432c-4b97-b037-e37040df780b"><a href="https://open.substack.com/pub/heathercoxrichardson/p/september-2-2023?r=1qo7hh&amp;utm_medium=ios&amp;utm_campaign=post" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">September 2, 2023</div><div class="bookmark-description">On March 4, 1858, South Carolina senator James Henry Hammond rose to his feet to explain to the Senate how society worked. “In all social systems,” he said, “there must be a class to do the menial duties, to perform the drudgery of life.” That class, he said, needed little intellect and little skill, but it should be strong, docile, and loyal.</div></div><div class="bookmark-href"><img src="https://substackcdn.com/icons/substack/apple-touch-icon-1024x1024.png" class="icon bookmark-icon"/>https://open.substack.com/pub/heathercoxrichardson/p/september-2-2023?r=1qo7hh&amp;utm_medium=ios&amp;utm_campaign=post</div></div><img src="https://substackcdn.com/image/fetch/f_auto,q_auto:best,fl_progressive:steep/https%3A%2F%2Fheathercoxrichardson.substack.com%2Ftwitter%2Fsubscribe-card.jpg%3Fv%3D-508802965%26version%3D9" class="bookmark-image"/></a></figure><figure id="c268970d-f504-4bb3-a7ca-97e504426371"><a href="https://www.newscientist.com/article/mg25333703-200-the-happiness-revolution-how-to-boost-the-well-being-of-society/?utm_campaign=RSS|NSNS&amp;utm_source=NSNS&amp;utm_medium=RSS&amp;utm_content=currents" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">The happiness revolution: How to boost the well-being of society</div><div class="bookmark-description">We now know that economic growth doesn’t necessarily translate into greater well-being. A closer look at Nordic countries such as Finland reveals surprising truths about what really makes a happy society and how other governments can emulate their success</div></div><div class="bookmark-href"><img src="https://www.newscientist.com/build/images/layup/touch-icon/180x180.50b024f6.png" class="icon bookmark-icon"/>https://www.newscientist.com/article/mg25333703-200-the-happiness-revolution-how-to-boost-the-well-being-of-society/?utm_campaign=RSS|NSNS&amp;utm_source=NSNS&amp;utm_medium=RSS&amp;utm_content=currents</div></div><img src="https://images.newscientist.com/wp-content/uploads/2022/01/19105455/PRI_218920035.jpg" class="bookmark-image"/></a></figure><figure id="62c49dc7-fc68-4d89-bb2e-7e9bb100276b"><a href="https://www.newscientist.com/article/mg26034670-900-how-counting-the-true-cost-of-cheap-food-could-make-a-better-world/?utm_campaign=RSS|NSNS&amp;utm_source=NSNS&amp;utm_medium=RSS&amp;utm_content=currents" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">How counting the true cost of cheap food could make a better world</div><div class="bookmark-description">What we pay for food and other goods doesn’t reflect the environmental and social damage they cause. But a radical new approach to economics could change that</div></div><div class="bookmark-href"><img src="https://www.newscientist.com/build/images/layup/touch-icon/180x180.50b024f6.png" class="icon bookmark-icon"/>https://www.newscientist.com/article/mg26034670-900-how-counting-the-true-cost-of-cheap-food-could-make-a-better-world/?utm_campaign=RSS|NSNS&amp;utm_source=NSNS&amp;utm_medium=RSS&amp;utm_content=currents</div></div><img src="https://images.newscientist.com/wp-content/uploads/2023/11/28141209/SEI_181787269.jpg" class="bookmark-image"/></a></figure><p id="f2f9cbb4-32a5-47ad-b37e-90a389ea24e4" class="">
+</p><p id="64a6a9b5-f825-45b6-b0a4-2bbcd92eb85a" class="">the failure of language has impacted how we understand the economy and each other, ultimately eroding trust, the most expensive commodity in the world right now.</p><p id="c57832d9-4af9-4739-96b2-95656e896c5d" class="">Consumerism is a religion in the sense of salvation in the form of momentary reprieve.</p><p id="7c2f58b0-b4c6-4ba7-b871-5bc14b441fdc" class="">Progress can come from many different ways, but one that is often overlooked is the role of culture and language</p><p id="309731b2-43c3-40cd-82f5-20250ecadeab" class="">social media wants you to feel anxious and gives you the tools to feel anxious, because if you’re freaking out, it means you care, right? So freak out.</p><p id="ca1a7960-163d-4cc0-91ab-c4f5e7b3fc49" class="">we are busy with noise, moving along a timescale that is maybe just a little too fast!!</p><p id="16bbda7b-278f-43b6-9125-97489d74c62f" class="">we like to bond through anger and a common sense of threat, how status and belonging are conferred through negativity, and “apoplectic rigidity” which is “an inability to see the world as it is, but rather only those nightmarish elements that justify the hatred and rage that are the source of your self-worth.”</p><p id="1ed05c81-ae00-40ba-a233-6fe8cebcae49" class="">Appease the algorithm - if you don’t? Good luck out there.</p><p id="7e1a4ed1-fb11-442b-b3fe-6d9a9a9fb893" class="">people have easily 1000 virtual friends, but no one they can ask to feed their cat. That loneliness, which is really a depletion of the social capital, is extremely powerful</p><p id="6fd7792c-6366-4896-a23e-0fed7f4f7357" class="">Being around one another in a meaningful way. Sharing things. Sharing in each others stories in a real way. Recognizing that language is sometimes not enough - and that trust might be formed through just being around one another more.</p><figure id="b241c894-b62b-470b-8238-710cb61c9c70"><a href="https://open.substack.com/pub/kyla/p/why-we-dont-trust-each-other-anymore?selection=2a25fb55-e7ef-4b1b-b5f6-e60c0a7e06bc&amp;r=1qo7hh&amp;utm_medium=ios" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Why We Don&#x27;t Trust Each Other Anymore</div><div class="bookmark-description">language, narrative, storytelling, and housing</div></div><div class="bookmark-href"><img src="https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fdc668b3e-d83e-4e0f-862a-e166751a6e0e%2Fapple-touch-icon-1024x1024.png" class="icon bookmark-icon"/>https://open.substack.com/pub/kyla/p/why-we-dont-trust-each-other-anymore?selection=2a25fb55-e7ef-4b1b-b5f6-e60c0a7e06bc&amp;r=1qo7hh&amp;utm_medium=ios</div></div><img src="https://substackcdn.com/image/fetch/f_auto,q_auto:best,fl_progressive:steep/https%3A%2F%2Fkyla.substack.com%2Fapi%2Fv1%2Fpost_selection_preview%2F141934433%2F2a25fb55-e7ef-4b1b-b5f6-e60c0a7e06bc.jpg%3Fversion%3D9" class="bookmark-image"/></a></figure><p id="02530927-2257-47cc-9332-b84680be7373" class="">
+</p><p id="72211e6e-8c1a-4e82-896f-d09ed907af08" class="">We’re still being told to think as individuals, we’re still being told to pretend that our economic futures are entirely in our hands, we’re still being told that our decisions alone make us rich or poor. But when groceries cost too much, when the rent is too high, when corporations are raking in record profits, it becomes hard for anyone to continue believing this lie. As an individual I can’t control the biggest companies in the United States, in the world. As an individual I can’t do much about the housing market, whether it’s the cost of rent or the cost of buying a house. As an individual I can’t bring down the cost of food. We can all try to make decent financial decisions, but we can’t get around the cost of survival going up. At least, not alone. </p><figure id="b7a0f92b-1d5b-4af1-bac8-61fa02cb7e8b"><a href="https://open.substack.com/pub/newmeans/p/you-are-not-the-problem?r=1qo7hh&amp;utm_medium=ios" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">You are not The Problem</div><div class="bookmark-description">We’ve all been told that our own decisions are the reason we’ve ended up in whatever financial situation we’re in. Specifically, the financial struggles of working-class people are always our own fault. It’s because we buy too much coffee, too many avocados, whatever the latest thing is now. When prices go up, we’re told to cut back. Never mind the surging corporate profits or the tax cuts for the rich or the subsidies for their companies. What you need to do is cancel Netflix, or stop eating out so much, or skip breakfast.</div></div><div class="bookmark-href"><img src="https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fb133df8b-c255-4b9f-af4a-0342719d5430%2Fapple-touch-icon-1024x1024.png" class="icon bookmark-icon"/>https://open.substack.com/pub/newmeans/p/you-are-not-the-problem?r=1qo7hh&amp;utm_medium=ios</div></div><img src="https://substackcdn.com/image/fetch/f_auto,q_auto:best,fl_progressive:steep/https%3A%2F%2Fnewmeans.substack.com%2Fapi%2Fv1%2Fpost_preview%2F141915266%2Ftwitter.jpg%3Fversion%3D4" class="bookmark-image"/></a></figure><p id="3f819ac5-f270-49d0-975e-79ca28b4c066" class="">
+</p><p id="ca46c034-256f-464d-b002-afdd7c1abc58" class="">A relevant read for us as community builders, home makers, and gig workers.</p><p id="ef60d682-c98a-492c-bfb5-560f93d6b1e5" class="">=========</p><p id="17e5dd0c-5cd7-4bf7-9905-d75ca72369d2" class="">community isn’t what it used to be in so many ways.</p><p id="f349508b-4904-4db0-90b0-36ba1ece58be" class="">massive systems that have separated us from one another</p><p id="743d0654-69fb-4cf9-8e43-76490e3fef25" class="">we are cut off from our neighbors primarily because of policies, systems, ways the world works now.</p><p id="e7171c50-2428-4453-860f-5b7b779afe55" class="">People have to live farther from work, farther from friends and family, farther from the networks they know.</p><p id="f3c50982-d1a1-426e-a9ff-316a2d164be9" class="">There are ways we can move through this world that make us more connected, and less alone.</p><p id="decc6b4d-0a88-4ba8-b75e-b33ab4c402f5" class="">I want to be on my phone less, I want to spend more time deliberately connecting with the people around me. I want to spend a lot of my time organizing, getting to know my neighbors, teaching, learning, interacting with people face-to-face.</p><p id="97689427-3db4-4fdd-8768-e3cec6979fab" class="">we need a degree of housing and job stability. These foundations allow us to connect with one another, they lay the groundwork for us to engage in relationship building, in friendship, in community.</p><p id="d09b19bf-a8e0-44d0-b579-f6369e79907c" class="">Our work and our housing are the bedrock of financial stability, of the stability of our lives, and therefore the bedrock of our ability to be a part of networks and communities and relationships.</p><p id="18f1d879-0c65-4c98-bf47-9a6dd58e3ee0" class="">when you multiply this problem onto a societal scale, we find a society where the masses are living more isolated and unstable lives, while the networks of the rich and powerful remain strong and steady, and grow stronger.</p><p id="52e6238a-1b4e-4d63-9a04-b4ba1e34bd16" class="">We need the power to hold our communities together against the onslaught of profit-seeking enterprises that are more than willing to tear us apart from each other to make a buck. We also need the power to change how our economy works as a whole.</p><figure id="80e70b0d-a997-47eb-9675-f982b4db9207"><a href="https://open.substack.com/pub/newmeans/p/we-feel-disconnected-because-weve?r=1qo7hh&amp;utm_medium=ios" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">We feel disconnected because we&#x27;ve been forced apart</div><div class="bookmark-description">Algorithms, isolation, and systems of separation.</div></div><div class="bookmark-href"><img src="https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fb133df8b-c255-4b9f-af4a-0342719d5430%2Fapple-touch-icon-1024x1024.png" class="icon bookmark-icon"/>https://open.substack.com/pub/newmeans/p/we-feel-disconnected-because-weve?r=1qo7hh&amp;utm_medium=ios</div></div><img src="https://substackcdn.com/image/fetch/f_auto,q_auto:best,fl_progressive:steep/https%3A%2F%2Fnewmeans.substack.com%2Fapi%2Fv1%2Fpost_preview%2F142193753%2Ftwitter.jpg%3Fversion%3D4" class="bookmark-image"/></a></figure><p id="13288517-60b0-49f4-90f5-a2c1da89de2d" class="">Fueled by courage, the first virtue according to Aristotle, dissent is what lights the darkness and shines a light on injustice, cruelty, apathy and all of the diseases of the heart and human soul. Dissent is the righteous cry of the right against the wrong.  No matter where a voice has risen and declared, “Enough! No! Stop!” or cried out for fairness, peace or justice, no matter the bleakness, darkness or repression at hand, ultimately, it will be heard. <br/>Certain truths are immutable, and freedom is one. Freedom is misunderstood as a political philosophy. It is neither gentle nor tolerant about assaults on elemental truths around the dignity of the human being. Fierceness and non-violence are utterly compatible, just as are fear and violence. There is a difference between meanness and toughness, as there is between cowardice and bravery.</p><figure id="d505d67f-8b5d-4419-9ad2-812c88ddbfcf"><a href="https://open.substack.com/pub/steveschmidt/p/the-choice-that-will-define-the-next?r=1qo7hh&amp;utm_medium=ios" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">https://open.substack.com/pub/steveschmidt/p/the-choice-that-will-define-the-next?r=1qo7hh&amp;utm_medium=ios</div></div><div class="bookmark-href">https://open.substack.com/pub/steveschmidt/p/the-choice-that-will-define-the-next?r=1qo7hh&amp;utm_medium=ios</div></div></a></figure><figure id="585d0676-8efb-4f15-bf43-ad4e64b3a6b2"><a href="https://www.theatlantic.com/ideas/archive/2024/02/america-decline-hanging-out/677451/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Why Americans Suddenly Stopped Hanging Out</div><div class="bookmark-description">Too much aloneness is creating a crisis of social fitness.</div></div><div class="bookmark-href"><img src="https://cdn.theatlantic.com/_next/static/images/apple-touch-icon-152x152-aafde20dd981a38fcd549b29b2b3b785.png" class="icon bookmark-icon"/>https://www.theatlantic.com/ideas/archive/2024/02/america-decline-hanging-out/677451/</div></div><img src="https://cdn.theatlantic.com/thumbor/0HzHug-oYlHCXYdviIFmCiJMoGk=/0x102:4792x2598/1200x625/media/img/mt/2024/02/HR_NYC136246/original.jpg" class="bookmark-image"/></a></figure><p id="d9d40e27-332f-4220-96ec-3503ed413022" class="">The first explanation is so obvious that it scarcely needs mentioning; in fact, I’ve already mentioned it. Americans are spending less time with other people because they’re spending more time with their screens—televisions and phones. The evidence that young people have replaced friend time with phone time is strong.</p><p id="4a51c332-10a8-4b20-b78c-2e7c2b9a6892" class="">The second explanation is that people are hanging out less because we’re all so damn busy. </p><p id="abdc9030-8410-4612-aa33-216dffe995e2" class="">A third explanation for America’s cascading social mojo is the Putnam theory described in <em>Bowling Alone</em>: The rise of aloneness is a part of the erosion of America’s social infrastructure. </p><p id="ec59431d-fba8-4317-bd5d-d26c9394add0" class="">Someone once told me that the best definition of <em>community</em> is “where people keep showing up.” </p><p id="3dea91e7-878e-428f-aed4-aec910b3fae4" class="">When you put these three stories together, you get something like this: Face-to-face rituals and customs are pulling on our time less, and face-to-screen technologies are pulling on our attention more. The inevitable result is a hang-out depression.</p><p id="065052bd-0491-4022-98c0-55eb79fdf959" class="">And for young people, all this seems to clearly correlate with actual depression. Teen loneliness <a href="https://theconversation.com/teens-have-less-face-time-with-their-friends-and-are-lonelier-than-ever-113240#:~:text=In%20the%20late%201970s%2C%2052,graders%20in%20the%201980s%20did.">has surged</a> in the past decade, alongside <a href="https://www.theatlantic.com/newsletters/archive/2023/02/the-tragic-mystery-of-teenage-anxiety/673076/">teen hopelessness</a>, <a href="https://www.theatlantic.com/newsletters/archive/2022/04/american-teens-sadness-depression-anxiety/629524/">depression</a>, and suicidal thinking. </p><p id="fe0c4ffb-7036-43fc-a473-bd80c7bb2eba" class="">phones have driven an anxiety crisis among America’s youth, in part by reducing the presence of physical-world relationships that are necessary for healthy adolescent development. Swapping touches for screen taps, America’s kids are experiencing a more solitary, and melancholy, childhood than we’ve ever seen.</p><p id="04733ee0-860f-4063-a808-acf5607abe73" class="">I was reminded of the Harvard Study of Adult Development, which is the oldest longitudinal study on happiness and well-being ever conducted. Last year, its directors <a href="https://www.theatlantic.com/ideas/archive/2023/01/harvard-happiness-study-relationships/672753/">said</a> that the “simple and profound conclusion” of their work was that good relationships are the key to happiness. Just as many people are familiar with the concept of physical fitness, they said, we should be equally open to the concept of <em>social fitness</em>. We should care for our relationships as we’d care for our body.</p><p id="76096956-c6a6-4693-adb8-4f29a416e3e1" class="">Public-health experts are comfortable talking about the way several modern phenomena—such as caloric density and a built environment that discourages walking—have contributed to the surge in obesity. One interpretation of the rise in diet-related diseases is that humans are “dysevolved” for a modern food system so rich with carbs, sugars, and manufactured tastiness. Engineered to confront caloric scarcity, we’ve come up in a world of caloric abundance. The result of this mismatch is an obesity crisis and other calamities in physical fitness.</p><p id="0eeba989-801d-436d-86aa-c0c4cc8ef752" class="">
+</p><p id="862e245a-157d-497e-8d1c-c34003895117" class="">We need to recruit more young founders! This is concerning. It was already less than 1% of people that were willing to start a business in this modern context. We need more startups to challenge all these big monopolies! Young entrepreneurs need more coaching and all kinds of support.</p><p id="556290a7-abcc-4ca5-9dab-41a209eb885a" class="">Surveys show that members of Gen Z are shyer and more risk averse than previous generations, too, and risk aversion may make them less ambitious. In an interview last May, OpenAI co-founder Sam Altman and Stripe co-founder Patrick Collison noted that, for the first time since the 1970s, none of Silicon Valley’s preeminent entrepreneurs are under 30. “Something has really gone wrong,” Altman said. In a famously young industry, he was baffled by the sudden absence of great founders in their 20s.</p><figure id="3934b5f3-2fe9-4613-8bd1-c2053688898b" class="image"><a href="https://cdn.theatlantic.com/thumbor/qY-Xk5Y7XIVc6QqQO_KqhqMy0cE=/0x0:1240x1182/655x624/media/img/posts/2024/03/4CwM2_young_people_who_struggle_to_find_meaning_in_life/original.png"><img style="width:352px" src="https://cdn.theatlantic.com/thumbor/qY-Xk5Y7XIVc6QqQO_KqhqMy0cE=/0x0:1240x1182/655x624/media/img/posts/2024/03/4CwM2_young_people_who_struggle_to_find_meaning_in_life/original.png"/></a></figure><p id="b6487f39-bcbf-4407-81f9-4270789051b0" class=""><em>More independence, free play, and responsibility in the real world</em></p><p id="48dc4916-2ac1-40f5-a82b-30a1885fbd31" class="">Many parents are afraid to give their children the level of independence and responsibility they themselves enjoyed when they were young, even though rates of homicide, drunk driving, and other physical threats to children are way down in recent decades. Part of the fear comes from the fact that parents look at each other to determine what is normal and therefore safe, and they see few examples of families acting as if a 9-year-old can be trusted to walk to a store without a chaperone. But if many parents started sending their children out to play or run errands, then the norms of what is safe and accepted would change quickly. So would ideas about what constitutes “good parenting.” And if more parents trusted their children with more responsibility––for example, by asking their kids to do more to help out, or to care for others––then the pervasive sense of uselessness now found in surveys of high-school students might begin to dissipate.</p><p id="76f2b4c9-8901-4000-ba50-073ad6bfb4dc" class="">If parents don’t replace screen time with real-world experiences involving friends and independent activity, then banning devices will feel like deprivation, not the opening up of a world of opportunities.</p><p id="1cfcf5e7-4af1-4c0e-a21f-2a2eb21040eb" class="">The main reason why the phone-based childhood is so harmful is <em>because</em> it pushes aside everything else. Smartphones are experience blockers. Our ultimate goal should not be to remove screens entirely, nor should it be to return childhood to exactly the way it was in 1960. Rather, it should be to create a version of childhood and adolescence that keeps young people anchored in the real world while flourishing in the digital age.</p><p id="84b25bcf-fe4c-4e70-b323-d0df7a8b32d1" class="">
+</p><figure id="ad4f1ade-d8e8-4ed6-8f44-195800655cb8"><a href="https://www.theatlantic.com/technology/archive/2024/03/teen-childhood-smartphone-use-mental-health-effects/677722/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">End the Phone-Based Childhood Now</div><div class="bookmark-description">The environment in which kids grow up today is hostile to human development.</div></div><div class="bookmark-href"><img src="https://cdn.theatlantic.com/_next/static/images/apple-touch-icon-152x152-aafde20dd981a38fcd549b29b2b3b785.png" class="icon bookmark-icon"/>https://www.theatlantic.com/technology/archive/2024/03/teen-childhood-smartphone-use-mental-health-effects/677722/</div></div><img src="https://cdn.theatlantic.com/thumbor/wU7Wp_-2d42UE0Rb8v9uwgwXH9Q=/0x27:1251x679/1200x625/media/img/mt/2024/03/MS_GenzPhones344_copy_2/original.jpg" class="bookmark-image"/></a></figure><figure id="e37a2786-bdbe-490a-9dcf-58f9e0ab2979"><a href="https://anxiousgeneration.com/resources/aligned-organizations" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Aligned Organizations - The Anxious Generation</div><div class="bookmark-description">Organizations helping end the phone-based childhood and restore the play-based childhood.</div></div><div class="bookmark-href"><img src="https://www.anxiousgeneration.com/icon.png?6c895c001e2cab1c" class="icon bookmark-icon"/>https://anxiousgeneration.com/resources/aligned-organizations</div></div><img src="https://images.ctfassets.net/o6e8cqq8kv0k/1nh3n04thIBYpQR3CaGQkR/2a809d9363263ad3ff99679f7867fafb/Allies_Shutterstock-min.jpg" class="bookmark-image"/></a></figure><p id="bcaa532b-6180-4139-8bd2-c5b56c6b73ef" class="">Our residents embody the spirit of unity, cooperation, inclusivity, and whether it’s through numerous community events, volunteer initiatives, or neighborhood associations, our residents deeply are connected and are committed to supporting one another</p><figure id="d0fbbe61-36f1-487c-8ef2-ef2f4515499c"><a href="https://apple.news/A6NuhVZ9sTZG4LAVcx_X9HQ" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Why is this Bay Area city ranked America’s happiest? Its mayor reveals the secrets</div><div class="bookmark-description">This past week brought news that the United States failed to make it into the Top 20 happiest countries globally for the first time since the inaugural World Happiness Report over a decade ago.</div></div><div class="bookmark-href"><img src="https://apple.news/images/apple-touch-icon_v6.png" class="icon bookmark-icon"/>https://apple.news/A6NuhVZ9sTZG4LAVcx_X9HQ</div></div><img src="https://c.apple.news/AgEXQTZOdWhWWjlzVFpHNExBVmN4X1g5SFEAMA" class="bookmark-image"/></a></figure><p id="7a3867e0-54ce-4fb5-8045-238f77b11084" class="">
+</p><p id="29d1e4e9-478d-4b2a-b241-11052f8bca11" class="">Any individual’s wealth is dependent on the resources, effort, and cooperation of the society that surrounds them. Yet today, even though multibillionaires make their fortunes using the resources of a broader society—profiting off customers, employees, and public infrastructure; protected by government regulation and international accords—they are able to make unilateral decisions that shape society according to their desires, without that same society having much input at all.</p><figure id="d33d0718-572a-4b0d-a665-f223a7cd8deb"><a href="https://www.theatlantic.com/family/archive/2024/04/ingrid-robeyns-limitarianism-makes-case-capping-wealth/677925/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">What Would Society Look Like if Extreme Wealth Were Impossible?</div><div class="bookmark-description">Limitarianism questions the idea that individual wealth is ever individual.</div></div><div class="bookmark-href"><img src="https://cdn.theatlantic.com/_next/static/images/apple-touch-icon-152x152-aafde20dd981a38fcd549b29b2b3b785.png" class="icon bookmark-icon"/>https://www.theatlantic.com/family/archive/2024/04/ingrid-robeyns-limitarianism-makes-case-capping-wealth/677925/</div></div><img src="https://cdn.theatlantic.com/thumbor/manMrrTsXNOrwIauTyyYwfqzMFw=/0x150:4792x2646/1200x625/media/img/mt/2024/03/HR_GS1793731/original.jpg" class="bookmark-image"/></a></figure><figure id="fbba69d2-05af-4f1c-829c-5dbe23ef4a2d"><a href="https://open.substack.com/pub/ellegriffin/p/employee-ownership?r=1qo7hh&amp;utm_medium=ios" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Every company should be owned by its employees</div><div class="bookmark-description">Central States Manufacturing as a model for employee-ownership.</div></div><div class="bookmark-href"><img src="https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F8f8ad3b2-7789-4b1f-8b1e-3ee341ad2da7%2Fapple-touch-icon-1024x1024.png" class="icon bookmark-icon"/>https://open.substack.com/pub/ellegriffin/p/employee-ownership?r=1qo7hh&amp;utm_medium=ios</div></div><img src="https://substackcdn.com/image/fetch/f_auto,q_auto:best,fl_progressive:steep/https%3A%2F%2Fellegriffin.substack.com%2Fapi%2Fv1%2Fpost_preview%2F146780515%2Ftwitter.jpg%3Fversion%3D4" class="bookmark-image"/></a></figure><figure id="4c0dfa88-adc2-4114-87c9-32e05589e598"><a href="https://esca.us/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Home</div><div class="bookmark-description">featured in Op-Ed by Former Reps. Paulsen and Kind. The paper confirms the importance of regulatory certainty for ESOP creation.</div></div><div class="bookmark-href"><img src="https://esca.us/wp-content/themes/esca/favicons/apple-touch-icon.png" class="icon bookmark-icon"/>https://esca.us/</div></div></a></figure><figure id="d868d97f-0734-41e1-8954-7a919b7fa0af"><a href="https://www.theatlantic.com/ideas/archive/2024/04/america-religion-decline-non-affiliated/677951/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">The True Cost of the Churchgoing Bust</div><div class="bookmark-description">Many Americans seem to have found no alternative method to build a sense of community.</div></div><div class="bookmark-href"><img src="https://cdn.theatlantic.com/_next/static/images/apple-touch-icon-152x152-aafde20dd981a38fcd549b29b2b3b785.png" class="icon bookmark-icon"/>https://www.theatlantic.com/ideas/archive/2024/04/america-religion-decline-non-affiliated/677951/</div></div><img src="https://cdn.theatlantic.com/thumbor/dJ-FPPCeBYiveGswRNja-Lpwj5E=/0x115:5549x3005/1200x625/media/newsletters/2024/04/GS1828570/original.jpg" class="bookmark-image"/></a></figure><figure id="d5ff7a7c-df91-456c-8d51-2c2af99e2a6c"><a href="https://open.spotify.com/episode/3gmfx3dIf1NWWpy4IFMKgP?si=W6owvvwnTP61s8c2-WgSHQ&amp;t=335" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">What&#x27;s possible when the arts belong to everybody | Lear deBessonet with Brian Stokes Mitchell</div><div class="bookmark-description">Episode · TED Talks Daily · With huge, city-wide casts from an array of communities, theater director Lear deBessonet&#x27;s productions illuminate the unique power of the arts to transform our lives through collective expression. She explores the power of spectacle to inspire awe, connect individuals and heal loneliness with tangible, life-changing results. In a dramatic moment, deBessonet&#x27;s message comes to life when Broadway star Brian Stokes Mitchell takes the stage for a dazzling performance of &quot;The Impossible Dream (The Quest),&quot; accompanied by pianist Todd Almond, the MEI Screaming Eagles Marching Band and some surprise vocalists.</div></div><div class="bookmark-href"><img src="https://open.spotifycdn.com/cdn/images/favicon32.b64ecc03.png" class="icon bookmark-icon"/>https://open.spotify.com/episode/3gmfx3dIf1NWWpy4IFMKgP?si=W6owvvwnTP61s8c2-WgSHQ&amp;t=335</div></div><img src="https://i.scdn.co/image/ab6765630000ba8a4ead8d53a2abb7e8fe6b7bcb" class="bookmark-image"/></a></figure><p id="7f0e5f38-3f05-465f-91c4-aa6457042486" class="">The meritocratic class has mastered the old trick of consolidating wealth and passing privilege along at the expense of other people’s children. We are not innocent bystanders to the growing concentration of wealth in our time. We are the principal accomplices in a process that is slowly strangling the economy, destabilizing American politics, and eroding democracy. Our delusions of merit now prevent us from recognizing the nature of the problem that our emergence as a class represents. We tend to think that the victims of our success are just the people excluded from the club. But history shows quite clearly that, in the kind of game we’re playing, everybody loses badly in the end.</p><figure id="f0cc32ea-56f2-4acc-a95e-d70419bb3ad5"><a href="https://www.theatlantic.com/magazine/archive/2018/06/the-birth-of-a-new-american-aristocracy/559130/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">The 9.9 Percent Is the New American Aristocracy</div><div class="bookmark-description">The gilded future of the top 10 percent—and the end of opportunity for everyone else</div></div><div class="bookmark-href"><img src="https://cdn.theatlantic.com/_next/static/images/apple-touch-icon-152x152-aafde20dd981a38fcd549b29b2b3b785.png" class="icon bookmark-icon"/>https://www.theatlantic.com/magazine/archive/2018/06/the-birth-of-a-new-american-aristocracy/559130/</div></div><img src="https://cdn.theatlantic.com/thumbor/Wmh4nKvU7z6oX1CNpGIufWGUyX8=/0x40:2000x1082/1200x625/media/img/2018/05/WEL_Stewart_Opener/original.png" class="bookmark-image"/></a></figure><figure id="1adbb12d-8c5e-44e6-8eb5-da9b9474891f"><a href="https://www.citationneeded.news/we-can-have-a-different-web/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">We can have a different web</div><div class="bookmark-description">Many yearn for the “good old days” of the web. We could have those good old days back — or something even better — and if anything, it would be easier now than it ever was.</div></div><div class="bookmark-href"><img src="https://www.citationneeded.news/content/images/size/w256h256/2024/01/cn-blue-square.png" class="icon bookmark-icon"/>https://www.citationneeded.news/we-can-have-a-different-web/</div></div><img src="https://www.citationneeded.news/content/images/2024/05/Untitled_Artwork.png" class="bookmark-image"/></a></figure><p id="4b1ed395-8264-4969-b25a-63cf06803f1c" class="">
+</p><p id="78ec3ee6-b4ca-4700-809d-1bdead0e426d" class="">Schoolchildren in the 1950s were subject to a series of physical evaluations. Some 60% of kids failed at least one of the tests. President Eisenhower sought to address that problem, and his successor would pick up the mantle with his President’s Council on Youth Fitness, telling Sports Illustrated in 1960: “For physical fitness is not only one of the most important keys to a healthy body; it is the basis of dynamic and creative intellectual activity. … Intelligence and skill can only function at the peak of their capacity when the body is healthy and strong.”</p><p id="921d18f5-4ac6-4c50-9d83-3f6cc572c0dc" class="">
+</p><figure id="4bd0778a-b865-46a8-bf0c-ca29b5e5f7e3"><a href="https://open.substack.com/pub/walkingtheworld/p/europe-is-healthier-than-us?r=1qo7hh&amp;utm_medium=ios" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Europe is Healthier than US</div><div class="bookmark-description">It&#x27;s just harder to see that, because Americans look in the wrong place.</div></div><div class="bookmark-href"><img src="https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F83c4df50-9966-450d-8e19-06aa01573b47%2Fapple-touch-icon-1024x1024.png" class="icon bookmark-icon"/>https://open.substack.com/pub/walkingtheworld/p/europe-is-healthier-than-us?r=1qo7hh&amp;utm_medium=ios</div></div><img src="https://substackcdn.com/image/fetch/f_auto,q_auto:best,fl_progressive:steep/https%3A%2F%2Fwalkingtheworld.substack.com%2Fapi%2Fv1%2Fpost_preview%2F145444767%2Ftwitter.jpg%3Fversion%3D4" class="bookmark-image"/></a></figure><p id="2bdca771-0071-4f25-b111-74775c1e5363" class="">
+</p><figure id="0f55b045-5901-4bdf-8bd0-20ec22bb1d0b"><div class="source"><a href="https://assets.aeaweb.org/asset-server/articles-attachments/jep/app/2901/29010029_app.pdf">https://assets.aeaweb.org/asset-server/articles-attachments/jep/app/2901/29010029_app.pdf</a></div></figure><p id="672871cf-166f-412b-82c8-444f23d7664b" class="">
+</p><figure id="a0d973a3-9a1b-46c7-89a0-7714f9bf750b"><a href="https://assets.aeaweb.org/asset-server/articles-attachments/jep/app/2901/29010029_app.pdf" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">assets.aeaweb.org</div></div><div class="bookmark-href">https://assets.aeaweb.org/asset-server/articles-attachments/jep/app/2901/29010029_app.pdf</div></div></a></figure><p id="2bede4d2-1f71-4612-8b1b-a413b49ebe9e" class="">
+</p><figure id="9aa1f5af-8170-4a91-a729-6e835f3965a1"><div class="source"><a href="https://mae.ufl.edu/~uhk/PARETO.pdf">https://mae.ufl.edu/~uhk/PARETO.pdf</a></div></figure><p id="f3a01e2b-ee05-4a0b-a803-1982e7799f26" class="">
+</p><figure id="83e99a37-cef0-437b-9afb-51d2f12ea98c"><a href="https://open.substack.com/pub/brianklaas/p/why-the-world-isnt-as-bad-as-you?r=1qo7hh&amp;utm_medium=ios" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Why the world isn&#x27;t as bad as you think</div><div class="bookmark-description">News coverage is terrible at capturing the biggest good news stories: the long-term trends that show vast improvements in human living standards across long stretches of time. We need to fix that.</div></div><div class="bookmark-href"><img src="https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Ff1545a69-8dec-46c7-b369-c9def9f4acef%2Fapple-touch-icon-1024x1024.png" class="icon bookmark-icon"/>https://open.substack.com/pub/brianklaas/p/why-the-world-isnt-as-bad-as-you?r=1qo7hh&amp;utm_medium=ios</div></div><img src="https://substackcdn.com/image/fetch/f_auto,q_auto:best,fl_progressive:steep/https%3A%2F%2Fbrianklaas.substack.com%2Fapi%2Fv1%2Fpost_preview%2F100005719%2Ftwitter.jpg%3Fversion%3D4" class="bookmark-image"/></a></figure><p id="ec3ffa53-ab05-4e76-9c7e-9be634b8746a" class="">
+</p><figure id="9ffcb12f-21ee-440f-b00b-80dcffb449a2"><a href="https://mae.ufl.edu/~uhk/PARETO.pdf" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">mae.ufl.edu</div></div><div class="bookmark-href">https://mae.ufl.edu/~uhk/PARETO.pdf</div></div></a></figure><p id="16c4cb06-7325-8055-9992-c70f648f365a" class="">
+</p><figure id="16c4cb06-7325-8092-824a-e168cb843685"><a href="https://thewalrus.ca/how-the-1980s-engineered-the-collapse-of-the-working-class/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">How the 1980s Engineered the Collapse of the Working Class | The Walrus</div><div class="bookmark-description">Forty years later, policies to prop up the super rich are still going strong</div></div><div class="bookmark-href"><img src="https://walrus-assets.s3.amazonaws.com/img/favicon1.ico" class="icon bookmark-icon"/>https://thewalrus.ca/how-the-1980s-engineered-the-collapse-of-the-working-class/</div></div><img src="https://walrus-assets.s3.amazonaws.com/img/WAL_Web-Aengus-80s_Nov24-003.jpg" class="bookmark-image"/></a></figure><p id="1764cb06-7325-80c1-af48-ccf7ad65977f" class="">
+</p><figure id="1764cb06-7325-8003-89c8-f8ff98ad2429"><a href="https://www.theatlantic.com/magazine/archive/2025/02/american-loneliness-personality-politics/681091/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">The Anti-Social Century</div><div class="bookmark-description">Americans are now spending more time alone than ever. It’s changing our personalities, our politics, and even our relationship to reality.</div></div><div class="bookmark-href"><img src="https://cdn.theatlantic.com/_next/static/images/apple-touch-icon-152x152-aafde20dd981a38fcd549b29b2b3b785.png" class="icon bookmark-icon"/>https://www.theatlantic.com/magazine/archive/2025/02/american-loneliness-personality-politics/681091/</div></div><img src="https://cdn.theatlantic.com/thumbor/jFR0Fqb41zwCsi9O_PnypBhII7Y=/0x422:4718x2879/1200x625/media/img/2025/01/0225_AntiSocial_Openner/original.jpg" class="bookmark-image"/></a></figure><figure id="1b24cb06-7325-806a-b840-ea2619b82359"><a href="https://open.spotify.com/episode/1mG7aiEMu3mQ8vMJt193Cg?si=mZMzRtx7QRGRn4S2Yi-xPA" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Distributed Training, Decentralized AI: Prime Intellect&#x27;s Master Plan to Make AI Too Cheap to Meter</div><div class="bookmark-description">&quot;The Cognitive Revolution&quot; | AI Builders, Researchers, and Live Player Analysis · Episode</div></div><div class="bookmark-href"><img src="https://open.spotifycdn.com/cdn/images/favicon32.b64ecc03.png" class="icon bookmark-icon"/>https://open.spotify.com/episode/1mG7aiEMu3mQ8vMJt193Cg?si=mZMzRtx7QRGRn4S2Yi-xPA</div></div><img src="https://i.scdn.co/image/ab6765630000ba8ad39055284f91d6054cc50521" class="bookmark-image"/></a></figure><figure id="16a4cb06-7325-80c6-b1f9-c2c14efb6cc9"><a href="https://medium.com/@colingajewski/americas-coolie-economy-feaf95b0303c" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">America&#x27;s Coolie Economy.</div><div class="bookmark-description">The concept of a &quot;Debt-Based Coolie Economy&quot; refers to a systemic and intentional design within the U.S. economy that relies heavily on…</div></div><div class="bookmark-href"><img src="https://miro.medium.com/v2/resize:fill:304:304/10fd5c419ac61637245384e7099e131627900034828f4f386bdaa47a74eae156" class="icon bookmark-icon"/>https://medium.com/@colingajewski/americas-coolie-economy-feaf95b0303c</div></div><img src="https://miro.medium.com/v2/resize:fit:1200/1*CBANlFl9u2FY6TiuNK4zyw.jpeg" class="bookmark-image"/></a></figure><figure id="470e6535-76a6-4d33-a968-e76f44c89849"><a href="https://youtu.be/KLfO-2t1qPQ?si=zMmm0dLoaR8nIKOC" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">The Monopolization of America | Robert Reich</div><div class="bookmark-description">Robert Reich looks at antitrust laws and corporate giants.
+Watch More: 3 The Failure of Trickle Down Economics ►► https://youtu.be/cABuFmA3nhY
+
+For more videos like these, be sure to subscribe. If you&#x27;d like to support our work, you can do so here: www.inequalitymedia.org/donate
+
+Follow Robert Reich: 
+Facebook: facebook.com/RBReich
+Twitter: twitter.com/RBReich
+Instagram: instagram.com/rbreich/</div></div><div class="bookmark-href"><img src="https://www.youtube.com/s/desktop/49be3691/img/favicon_144x144.png" class="icon bookmark-icon"/>https://youtu.be/KLfO-2t1qPQ?si=zMmm0dLoaR8nIKOC</div></div><img src="https://i.ytimg.com/vi/KLfO-2t1qPQ/maxresdefault.jpg" class="bookmark-image"/></a></figure><figure id="5a1e4e37-20be-485d-acf5-e825fffeeffe"><a href="https://open.spotify.com/episode/5u9JVC6nKgV53G5Rc2l9JI?si=y15a5Z12ShW4Mfx8DWvqrA" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">587. Should Companies Be Owned by Their Workers?</div><div class="bookmark-description">Episode · Freakonomics Radio · The employee ownership movement is growing, and one of its biggest champions is also a private equity heavyweight. Is this meaningful change, or just window dressing? SOURCES:Marjorie Kelly, distinguished senior fellow at The Democracy Collaborative.Corey Rosen, founder and senior staff member of the National Center for Employee Ownership.Pete Stavros, co-head of Global Private Equity at KKR. RESOURCES:&quot;Private Equity Is Starting to Share With Workers, Without Taking a Financial Hit,&quot; by Lydia DePillis (The New York Times, 2024).&quot;Private Equity Heavyweight Pushing Employee Ownership,&quot; (60 Minutes, 2024).&quot;Ownership Works: Scaling a Profitable Social Mission,&quot; by Ethan Rouen, Dennis Campbell, and Andrew Robinson (HBS Case Collection, 2023).&quot;Research on Employee Ownership,&quot; by the National Center for Employee Ownership (2023).Wealth Supremacy: How the Extractive Economy and the Biased Rules of Capitalism Drive Today’s Crises, by Marjorie Kelly (2023).&quot;Is Private Equity Joining — or Co-Opting—the Employee Ownership Movement?&quot; by Marjorie Kelly and Karen Kahn (Fast Company, 2022).&quot;How Well Is Employee Ownership Working?&quot; by Corey Rosen and Michael Quarrey (Harvard Business Review, 1987). EXTRAS:&quot;Are Private Equity Firms Plundering the U.S. Economy?&quot; by Freakonomics Radio (2023).&quot;Do You Know Who Owns Your Vet?&quot; by Freakonomics Radio (2023).&quot;Should You Trust Private Equity to Take Care of Your Dog?&quot; by Freakonomics Radio (2023).</div></div><div class="bookmark-href"><img src="https://open.spotifycdn.com/cdn/images/favicon32.b64ecc03.png" class="icon bookmark-icon"/>https://open.spotify.com/episode/5u9JVC6nKgV53G5Rc2l9JI?si=y15a5Z12ShW4Mfx8DWvqrA</div></div><img src="https://i.scdn.co/image/ab6765630000ba8ad8cbc1b0e35fb151ae472695" class="bookmark-image"/></a></figure><figure id="685aa0f8-1a5c-4ec1-a7cb-797a1a5c6ab0"><a href="https://open.substack.com/pub/michelleteheux/p/morality-and-money-are-not-best-friends?r=1qo7hh&amp;utm_medium=ios" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Morality and Money Are Not Best Friends</div><div class="bookmark-description">I mean, they’ve met a few times</div></div><div class="bookmark-href"><img src="https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fce6d7898-26ba-422a-bd9b-7aa80fe0efb4%2Fapple-touch-icon-1024x1024.png" class="icon bookmark-icon"/>https://open.substack.com/pub/michelleteheux/p/morality-and-money-are-not-best-friends?r=1qo7hh&amp;utm_medium=ios</div></div><img src="https://substackcdn.com/image/fetch/f_auto,q_auto:best,fl_progressive:steep/https%3A%2F%2Fmichelleteheux.substack.com%2Fapi%2Fv1%2Fpost_preview%2F143952918%2Ftwitter.jpg%3Fversion%3D4" class="bookmark-image"/></a></figure></div></details><p id="1d74cb06-7325-8044-81ac-ec167574d5c9" class="">
+</p><p id="1d74cb06-7325-80aa-a059-c5ebbbace57d" class="">This information was formerly curated on <a href="https://www.notion.so/Paul-Prae-solutions-architect-0d01230204024ed6baadd733fa3c827d?pvs=21"><span class="icon">🐒</span>- Paul Prae (solutions architect)</a> </p><p id="1d74cb06-7325-8088-ab54-c8d84ca2d503" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
