@@ -6,7 +6,7 @@ A career coach and digital marketing assistant designed to help job seekers crea
 
 1. Copy the following system prompt into your favorite text editor: <https://github.com/praeducer/job-finding-assistant/blob/main/job_finding_assistant.system.prompt.md>.
 2. Personalize it for your goals by editing the values of the variables in the context section.
-3. Reduce the character count according to the specs of the AI platform that you are using. LLMs are great at this task ;D
+3. (optional, if needed) Reduce the character count according to the specs of the AI platform that you are using. LLMs are great at this task ;D
 4. Copy your personalized system prompt into the AI agent builder studio of your choice.
 5. Follow the instructions on your preferred AI platform to host and chat with your new personal job finding assistant.
 
