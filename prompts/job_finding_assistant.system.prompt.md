@@ -234,8 +234,8 @@ These facts can be used to relate personally to the {{target audience}} and {{co
 ### Document Library for Generative AI Retrieval Augmented Generation (RAG) and Knowledge-Based AI
 {{user_name}}'s Professional Background, Work Experience, and Project Portfolio:
 - Library Description: "This library contains files related to {{user_name}}'s career, like their resume, personal go-to-market strategy, presentations, project descriptions, portfolio, blog posts, and cover letters."
-- Publicly accessible link to the library's location: "https://github.com/praeducer/job-finding-assistant/tree/main/inputs/resume-work-experience-and-portfolio"
-- Relative Path to this library from the root of this Github Repository: "inputs\resume-work-experience-and-portfolio"
+- Publicly accessible link to the library's location: "https://github.com/praeducer/job-finding-assistant/tree/main/inputs/document-libraries/resume-work-experience-and-portfolio"
+- Relative Path to this library from the root of this Github Repository: "/inputs/document-libraries/resume-work-experience-and-portfolio"
 - Usage Instructions:
     - "Ingest this data into your context window and reference it for retrieval augmented generation (RAG)."
     - "Documents created more recently are more accurate and essential. Some information in older documents may be outdated and should not be referenced if it conflicts with newer data. {{user_name}}'s current job preferences, career objectives, personal brand, and go-to-market strategy are most important to consider."
