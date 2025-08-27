@@ -12,15 +12,19 @@ A career coach and digital marketing assistant designed to help job seekers crea
 ## Repository Information
 
 ### Programming Languages
+
 - Authoring: Markdown, YAML, CSV. Keep examples language-agnostic unless code is required.
 
 ### File Formats
+
 - Markdown (`.md`) for narrative and templates
 - YAML code-fences for variable schemas and config
 - CSV code-fences for tabular source data
 
 ## Synthesizing Best Practice Prompt Engineering: Key Takeaways for Builders
+
 Analyzing these diverse prompts reveals a set of converging best practices for building reliable agentic AI systems:
+
 1.  **Define the Agent Clearly:** Start with an explicit role, purpose, and scope. Include contextual grounding like date or environment specifics.
 2.  **Structure for Clarity:** Break down complex instructions using headings, lists, or tags. Organize rules logically (e.g., group tool instructions, safety rules).
 3.  **Be Explicit About Tools:** Detail *what* each tool does, *how* to call it (syntax, parameters, format), and *when* (and when not) to use it. Provide examples. Embed usage policies directly.
@@ -34,6 +38,7 @@ Analyzing these diverse prompts reveals a set of converging best practices for b
 Essentially, an effective agentic prompt acts as a comprehensive, well-structured operational manual that leaves little room for ambiguity while empowering the AI with the knowledge and procedures needed to act effectively and safely using its tools.
 
 ## Sources leveraged when writing prompts.
+
 - Snippets from GitHub Copilot prompt files from the awesome-copilot repository: https://github.com/github/awesome-copilot
 - Mistral's guidance on prompt engineering:
   - https://docs.mistral.ai/guides/prompting_capabilities
@@ -59,5 +64,7 @@ This license aligns with Modular Earth's mission to support social good through 
 The MIT License effectively supports Modular Earth's mission and principles. It allows this AI assistant to be accessible to all.
 
 ## Troubleshooting
+
 ### The prompt is too long
+
 Reduce the character count according to the specs of your own preferences or the AI platform that you are using. LLMs are great at this task ;D
