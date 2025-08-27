@@ -9,6 +9,39 @@ A career coach and digital marketing assistant designed to help job seekers crea
 3. Copy your personalized system prompt into the AI agent builder studio of your choice.
 4. Follow the instructions on your preferred AI platform to host and chat with your new personal job finding assistant.
 
+## Repository Information
+
+### Programming Languages
+- Authoring: Markdown, YAML, CSV. Keep examples language-agnostic unless code is required.
+
+### File Formats
+- Markdown (`.md`) for narrative and templates
+- YAML code-fences for variable schemas and config
+- CSV code-fences for tabular source data
+
+## Synthesizing Best Practice Prompt Engineering: Key Takeaways for Builders
+Analyzing these diverse prompts reveals a set of converging best practices for building reliable agentic AI systems:
+1.  **Define the Agent Clearly:** Start with an explicit role, purpose, and scope. Include contextual grounding like date or environment specifics.
+2.  **Structure for Clarity:** Break down complex instructions using headings, lists, or tags. Organize rules logically (e.g., group tool instructions, safety rules).
+3.  **Be Explicit About Tools:** Detail *what* each tool does, *how* to call it (syntax, parameters, format), and *when* (and when not) to use it. Provide examples. Embed usage policies directly.
+4.  **Mandate Step-by-Step Execution:** Encourage or enforce planning, iteration, and waiting for results/confirmation. Prevent the AI from attempting too much at once. Consider explicit thinking phases or loops.
+5.  **Embed Domain Knowledge & Constraints:** Include relevant style guides, library usage rules, file conventions, platform limitations, and best practices for the agent's specific domain.
+6.  **Integrate Safety and Alignment:** Define unacceptable requests and provide clear refusal protocols. Embed specific policies for sensitive operations (data handling, image generation).
+7.  **Guide the Tone:** Set expectations for the interaction style (professional, friendly, concise, adaptive) to ensure a consistent user experience.
+8.  **Use Examples:** Illustrate complex rules or desired output formats with clear examples within the prompt (like Bolt.new and v0 do extensively).
+9.  **Optimize Context Usage:** Structure information hierarchically, compress without losing meaning, and maintain coherence across interactions.
+
+Essentially, an effective agentic prompt acts as a comprehensive, well-structured operational manual that leaves little room for ambiguity while empowering the AI with the knowledge and procedures needed to act effectively and safely using its tools.
+
+## Sources leveraged when writing prompts.
+- Snippets from GitHub Copilot prompt files from the awesome-copilot repository: https://github.com/github/awesome-copilot
+- Mistral's guidance on prompt engineering:
+  - https://docs.mistral.ai/guides/prompting_capabilities
+  - https://blog.promptlayer.com/mistral-system-prompt/
+- This comprehensive guide on prompt engineering: https://www.lakera.ai/blog/prompt-engineering-guide
+- OpenAI's' perspective: https://help.openai.com/en/articles
+- These prompts are often ran in chatmode in GitHub Copilot in VS Code. This page has instructions about how to use CoPilot: https://docs.github.com/en/copilot/how-tos
+
 ## Why I chose the MIT License
 
 This license aligns with Modular Earth's mission to support social good through open-source AI-driven applications and our commitment to accessibility, privacy, trust, and minimizing costs.
