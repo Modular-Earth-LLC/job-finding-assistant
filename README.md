@@ -12,11 +12,16 @@ A career coach and digital marketing assistant designed to help job seekers crea
 1. Ask the agent to generate outreach content for a specific job description and target audience at a company. Include the marketing channel and content length.
 2. Attach a file of, or share a link to, a knowledge base of facts about your job preferences, career objectives, personal brand, and go-to-market strategy, e.g., <inputs\knowledge-bases\job_search_knowledge_base.yaml>.
 
+## How to use this agent to generate a personal website in Notion.
+
+Prompt your personalized job finding assistant with this prompt, while attaching your knowledge base: [prompts/notion_website_generation.user.prompt.md](https://github.com/Modular-Earth-LLC/job-finding-assistant/blob/main/prompts/notion_website_generation.user.prompt.md)
+
 ## Repository Information
 
 ### Knowledge Base
 
 A knowledge base of facts about my job preferences, career objectives, personal brand, and go-to-market strategy:
+
 - Public web link: <https://github.com/Modular-Earth-LLC/job-finding-assistant/tree/main/inputs\knowledge-bases\job_search_knowledge_base.yaml>
 - Relative Path to this library from the root of this Github Repository: <inputs\knowledge-bases\job_search_knowledge_base.yaml>
 
@@ -30,7 +35,7 @@ You can use this as a template. Customize it and then use as input to your job f
 - Relative Path to this library from the root of this Github Repository: </inputs/document-libraries/resume-work-experience-and-portfolio">
 - Usage Instructions:
   - Index and reference these files as needed, such as for retrieval augmented generation (RAG).
-  - Documents created more recently are more accurate and essential. Some information in older documents may be outdated and should not be referenced if it conflicts with newer data. The user's current job preferences, career objectives, personal brand, and go-to-market strategy are most important to consider.
+  - Documents created more recently are more accurate and essential. Some information in older documents may be outdated and should not be referenced if it conflicts with newer data. Current job preferences, career objectives, personal brand, and go-to-market strategy are most important to consider.
 
 ### Programming Languages
 
@@ -47,26 +52,26 @@ You can use this as a template. Customize it and then use as input to your job f
 Analyzing these diverse prompts reveals a set of converging best practices for building reliable agentic AI systems:
 
 1. **Define the Agent Clearly:** Start with an explicit role, purpose, and scope. Include contextual grounding like date or environment specifics.
-2. **Structure for Clarity:** Break down complex instructions using headings, lists, or tags. Organize rules logically (e.g., group tool instructions, safety rules).
-3. **Be Explicit About Tools:** Detail *what* each tool does, *how* to call it (syntax, parameters, format), and *when* (and when not) to use it. Provide examples. Embed usage policies directly.
-4. **Mandate Step-by-Step Execution:** Encourage or enforce planning, iteration, and waiting for results/confirmation. Prevent the AI from attempting too much at once. Consider explicit thinking phases or loops.
-5. **Embed Domain Knowledge & Constraints:** Include relevant style guides, library usage rules, file conventions, platform limitations, and best practices for the agent's specific domain.
-6. **Integrate Safety and Alignment:** Define unacceptable requests and provide clear refusal protocols. Embed specific policies for sensitive operations (data handling, image generation).
-7. **Guide the Tone:** Set expectations for the interaction style (professional, friendly, concise, adaptive) to ensure a consistent user experience.
-8. **Use Examples:** Illustrate complex rules or desired output formats with clear examples within the prompt (like Bolt.new and v0 do extensively).
-9. **Optimize Context Usage:** Structure information hierarchically, compress without losing meaning, and maintain coherence across interactions.
+2. **Optimize Context Usage:** Structure information hierarchically, compress without losing meaning, and maintain coherence across interactions.
+3. **Structure for Clarity:** Break down complex instructions using headings, lists, or tags. Organize rules logically (e.g., group tool instructions, safety rules).
+4. **Be Explicit About Tools:** Detail *what* each tool does, *how* to call it (syntax, parameters, format), and *when* (and when not) to use it. Provide examples. Embed usage policies directly.
+5. **Mandate Step-by-Step Execution:** Encourage or enforce planning, iteration, and waiting for results/confirmation. Prevent the AI from attempting too much at once. Consider explicit thinking phases or loops.
+6. **Embed Domain Knowledge & Constraints:** Include relevant style guides, library usage rules, file conventions, platform limitations, and best practices for the agent's specific domain.
+7. **Integrate Safety and Alignment:** Define unacceptable requests and provide clear refusal protocols. Embed specific policies for sensitive operations (data handling, image generation).
+8. **Guide the Tone:** Set expectations for the interaction style (professional, friendly, concise, adaptive) to ensure a consistent user experience.
+9. **Use Examples:** Illustrate complex rules or desired output formats with clear examples within the prompt (like Bolt.new and v0 do extensively).
 
 Essentially, an effective agentic prompt acts as a comprehensive, well-structured operational manual that leaves little room for ambiguity while empowering the AI with the knowledge and procedures needed to act effectively and safely using its tools.
 
-## Sources leveraged when writing prompts.
+## Sources leveraged when writing prompts
 
-- Snippets from GitHub Copilot prompt files from the awesome-copilot repository: https://github.com/github/awesome-copilot
+- Snippets from GitHub Copilot prompt files from the awesome-copilot repository: <https://github.com/github/awesome-copilot>
 - Mistral's guidance on prompt engineering:
-  - https://docs.mistral.ai/guides/prompting_capabilities
-  - https://blog.promptlayer.com/mistral-system-prompt/
-- This comprehensive guide on prompt engineering: https://www.lakera.ai/blog/prompt-engineering-guide
-- OpenAI's' perspective: https://help.openai.com/en/articles
-- These prompts are often ran in chatmode in GitHub Copilot in VS Code. This page has instructions about how to use CoPilot: https://docs.github.com/en/copilot/how-tos
+  - <https://docs.mistral.ai/guides/prompting_capabilities>
+  - <https://blog.promptlayer.com/mistral-system-prompt/>
+- This comprehensive guide on prompt engineering: <https://www.lakera.ai/blog/prompt-engineering-guide>
+- OpenAI's' perspective: <https://help.openai.com/en/articles>
+- These prompts are often ran in chatmode in GitHub Copilot in VS Code. This page has instructions about how to use CoPilot: <https://docs.github.com/en/copilot/how-tos>
 
 ## Why I chose the MIT License
 
