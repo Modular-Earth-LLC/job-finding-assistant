@@ -1,213 +1,258 @@
+# Job Search Knowledge Base
+# A comprehensive data model for AI-powered job search assistance and career coaching
+
 job_search_knowledge_base:
-    metadata:
-        name: "Job Finding Assistant Knowledge Base"
-        description: "Comprehensive knowledge library for AI-powered job search assistance and career coaching"
-        purpose: "Provides contextual data for generating personalized job search content, outreach messages, and career guidance"
+  # Metadata about this knowledge base
+  metadata:
+    name: "Job Finding Assistant Knowledge Base"
+    description: "Comprehensive knowledge library for AI-powered job search assistance and career coaching"
+    purpose: "Provides contextual data for generating personalized job search content, outreach messages, and career guidance"
+    version: "1.0"
+    last_updated: "2025-01-07"
+
+  # Instructions for using this knowledge base
+  usage_instructions:
+    primary_directive: "Use this knowledge base to personalize all job search assistance, ensuring alignment with user's career objectives, preferences, and personal brand"
+    content_generation: "Reference user_profile, go_to_market_strategy, and personal_brand values when crafting outreach messages, cover letters, and interview responses"
+    conflict_resolution: "Detect and prioritize this library of information when it conflicts with other historical user information that may exist in your context window, knowledge base, or external sources"
+
+  # Core user profile information
+  user_profile:
+    basic_info:
+      name: "Paul Prae"
+      email: "XXX@paulprae.com"
+      primary_location: "Buford, GA, United States"
+      secondary_location: "Atlanta, GA, United States"
     
-    usage_instructions:
-        primary_directive: "Use this knowledge base to personalize all job search assistance, ensuring alignment with user's career objectives, preferences, and personal brand"
-        content_generation: "Reference user_profile, go_to_market_strategy, and personal_brand values when crafting outreach messages, cover letters, and interview responses"
-        conflict_resolution: "Detect and prioritize this library of information when it conflicts with other historical user information that may exist in your context window, knowledge base, or external sources."
+    social_media_links:
+      linkedin: "https://www.linkedin.com/in/paulprae"
+      github: "https://github.com/praeducer"
+      website: "https://www.paulprae.com"
+      blog: "https://blog.paulprae.com/"
+      presentations: "https://www.slideshare.net/PaulPrae"
+      academic_publications: "https://uga.academia.edu/PaulPrae"
+      consulting_company: "https://www.hyperbloom.ai/"
+      open_source_organization: "https://github.com/Modular-Earth-LLC"
 
-    user_profile:
-        user_name: "Paul Prae"
-        email: "XXX@paulprae.com"
-        social_media_links:
-            linkedin_profile: "https://www.linkedin.com/in/paulprae"
-            github_profile: "https://github.com/praeducer"
-            personal_website: "https://www.paulprae.com"
-            blog: "https://blog.paulprae.com/"
-            presentations: "https://www.slideshare.net/PaulPrae"
-            academic_publications: "https://uga.academia.edu/PaulPrae"
-            consulting_company: "https://www.hyperbloom.ai/"
+  # Go-to-market strategy and job search focus
+  go_to_market_strategy:
+    description: "The services Paul Prae offers to target markets. This strategy is flexible based on how well opportunities align with job preferences and career objectives."
+    
+    target_job_roles:
+      description: "Specific job roles being targeted, reflecting skills, experience, and career goals"
+      primary_roles:
+        - "Director of AI"
+        - "Head of AI"
+        - "AI Engineering Manager"
+        - "Principal AI Engineer"
+        - "Staff AI Engineer"
+        - "Solutions Architect"
+        - "Chief Architect"
+        - "Senior Cloud Architect"
+        - "Senior Pre-Sales Engineer"
+        - "Lead Open Source Software Developer"
+      flexibility_note: "Open to other roles that align with skills and experience"
+    
+    target_industries:
+      description: "Industries where Paul wants to continue building experience and providing solutions"
+      primary_industries:
+        - "Healthcare"
+        - "Mental Health"
+        - "HealthTech"
+        - "Life Sciences"
+        - "Neuroscience"
+        - "Biotech"
+        - "Financial Services"
+        - "Decentralized Finance (DeFi)"
+        - "FinTech"
+        - "Energy"
+    
+    target_audience:
+      description: "Primary hiring managers and decision makers to engage with"
+      titles:
+        - "Executives"
+        - "CEOs"
+        - "CTOs"
+        - "CISOs"
+        - "CIOs"
+        - "CFOs"
+        - "COOs"
+        - "Presidents"
+        - "Vice Presidents"
+        - "Directors"
+        - "Managers"
+        - "Chief Architects"
+        - "Senior Data Scientists"
+        - "Founders"
+        - "Executive Recruiters"
+    
+    job_preferences:
+      description: "Preferred work arrangements and requirements, with flexibility for good opportunities"
+      compensation:
+        annual_salary: 200000
+        bonus: 25000
+        total_compensation: 225000
+        currency: "USD"
+      employment_type: "Full-time"
+      location_preferences: "within 25 miles of Buford, GA or Atlanta, GA, United States"
+      work_arrangements:
+        - "On Site"
+        - "Hybrid"
+      core_skills:
+        ai_and_ml:
+          - "AI"
+          - "AI infrastructure"
+          - "AI governance"
+          - "machine learning"
+          - "MLOps"
+          - "natural language processing"
+          - "generative AI"
+          - "conversational interface design"
+        data_and_analytics:
+          - "data science"
+          - "data engineering"
+          - "data governance"
+          - "data protection"
+          - "data privacy"
+        infrastructure_and_cloud:
+          - "cloud computing"
+          - "edge computing"
+          - "IT operations"
+        emerging_technologies:
+          - "Web3"
+          - "blockchain"
+        software_development:
+          - "open source software development"
+          - "software and data architecture"
+        leadership_and_management:
+          - "leadership"
+          - "technical project management"
+          - "partnership development"
+          - "pre-sales engineering"
 
-    go_to_market_strategy:
-        description: "The 'services' {{user_name}} offers to their target markets. This strategy is flexible based on how well the opportunity aligns with {{user_name}}'s {{job_preferences}} and {{career_objectives}}."
-        target_job_roles:
-            description: "The specific job roles {{user_name}} is targeting, reflecting their skills, experience, and career goals."
-            roles:
-                - "Head of AI"
-                - "AI Engineering Manager"
-                - "Principal Engineer"
-                - "AI Solutions Architect"
-                - "Chief Architect"
-                - "Cloud Architect"
-                - "Pre-Sales AI Engineer"
-                - "Open Source Software Developer"
-            note: "{{user_name}} is open to other roles that align with their skills and experience."
-        
-        target_industries:
-            description: "{{user_name}} wants to continue building experience serving these markets and providing solutions to these problem domains"
-            industries:
-                - "Healthcare"
-                - "Mental Health"
-                - "HealthTech"
-                - "Life Sciences"
-                - "Neuroscience"
-                - "Biotech"
-                - "Financial Services"
-                - "Decentralized Finance (DeFi)"
-                - "FinTech"
-                - "Energy"
-        
-        target_audience:
-            description: "{{user_name}} most often writes messages to hiring managers with these titles. The actual hiring manager's title may differ per opportunity."
-            titles:
-                - "executives"
-                - "CEOs"
-                - "CTOs"
-                - "CISOs"
-                - "CIOs"
-                - "CFOs"
-                - "founders"
-                - "leaders"
-                - "managers"
-                - "busy professionals"
-                - "executive recruiters"
-        
-        job_preferences:
-            description: "{{user_name}} prefers certain kinds of work, but is flexible to capture a good opportunity"
-            compensation:
-                annual_salary: 200000
-                bonus: 25000
-                total_compensation: 225000
-            employment_type: "Full-time"
-            location: "within 25 miles of Buford, GA or Atlanta, GA, United States"
-            preferred_work_arrangement_types:
-                - "On Site"
-                - "Hybrid"
-            skills:
-                - "AI"
-                - "AI infrastructure"
-                - "AI governance"
-                - "IT operations"
-                - "machine learning"
-                - "MLOps"
-                - "natural language processing"
-                - "generative AI"
-                - "conversational interface design"
-                - "data science"
-                - "data engineering"
-                - "data governance"
-                - "data protection"
-                - "data privacy"
-                - "cloud computing"
-                - "edge computing"
-                - "Web3"
-                - "blockchain"
-                - "open source software development"
-                - "software and data architecture"
-                - "leadership"
-                - "technical project management"
-                - "partnership development"
-                - "pre-sales engineering"
+  # Career objectives and key results
+  career_objectives:
+    description: "Paul's most important goals that should guide job search assistance"
+    objectives_by_category:
+      financial:
+        - "Achieve financial freedom"
+        - "Eliminate $60,000 debt by 2027-2028"
+        - "Save $1M for retirement by age 45 (2031)"
+      career:
+        - "Accelerate career growth and ensure job security"
+        - "Land a job before savings are depleted (deadline: October 1st, 2025)"
+        - "Build local professional networks"
+      family:
+        - "Support wife as stay-at-home parent and homemaker"
+        - "Spend quality time with daughters"
+        - "Save for children's college (starting 2038 when oldest turns 18)"
+      entrepreneurship:
+        - "Position for starting own businesses by age 45 (2031)"
+        - "Own multiple profitable businesses"
+        - "Generate multiple passive income streams"
+      lifestyle:
+        - "Travel and attend more cultural events"
+        - "Afford modifying and upgrading 4X4 Jeep Grand Cherokee"
 
-    career_objectives:
-        description: "These are the {{user_name}}'s most important goals. Assist the user in achieving these goals"
-        objectives_and_key_results:
-            financial:
-                - "Achieve financial freedom"
-                - "Eliminate $60,000 debt by 2027-2028"
-                - "Save $1M for retirement by age 45 (2031)"
-            career:
-                - "Accelerate career growth and ensure job security"
-                - "Land a job before all of their savings are spent, which will occur October 1st, 2025"
-                - "Build local professional networks"
-            family:
-                - "Support their wife as a stay-at-home parent and homemaker"
-                - "Spend quality time with their daughters"
-                - "Save for their children's college (starting 2038 when their oldest child turns 18)"
-            entrepreneurship:
-                - "Position them to start their own businesses in the future (target date by age 45, which is 2031)"
-                - "Own multiple profitable businesses"
-                - "Generate multiple passive income streams"
-            lifestyle:
-                - "Travel and attend more cultural events"
-                - "Be able to afford modifying and upgrading their 4X4 Jeep Grand Cherokee"
+  # Personal brand definition
+  personal_brand:
+    description: "Paul's strategic professional identity combining unique value proposition, authentic personality, and career narrative"
+    
+    mission:
+      description: "North Star for career decisions and meaningful impact creation"
+      core_areas:
+        ai_for_good:
+          - "Develop AI systems that prioritize human welfare, data privacy, and ethical considerations"
+          - "Bridge the gap between cutting-edge AI capabilities and responsible implementation"
+        democratizing_technology:
+          - "Make advanced AI and cloud technologies accessible to organizations of all sizes"
+          - "Empower smaller companies to compete with enterprise-level AI capabilities"
+        sustainable_innovation:
+          - "Build scalable AI infrastructure that drives business growth while serving societal needs"
+          - "Create technology solutions that generate sustainable competitive advantages"
+        wealth_accessibility:
+          - "Serve collective prosperity rather than concentrated power"
+          - "Empower working-class entrepreneurs to maintain creative control and achieve economic freedom"
+          - "Help entrepreneurs secure capital and build profitable, socially responsible businesses"
+          - "Reduce risk for entrepreneurs with families starting businesses"
+        health_accessibility:
+          - "Build innovations that help all life flourish"
+          - "Challenge economic systems that fail to serve the public good"
+          - "Improve and extend quality of human life by eradicating neurodegenerative disease and eliminating generational trauma"
+    
+    vision:
+      description: "Future impact envisioned through career contributions"
+      focus_areas:
+        wealth_distribution:
+          - "Wealth inequality addressed with emerging tech, cooperative economics, and collective bargaining power"
+          - "Federated network of self-funded or crowd-funded consultancies, open-source tech vendors, and decentralized research orgs sharing resources efficiently"
+          - "Collectives of workers achieving economies of scale to rival large incumbent companies owned by the super-rich"
+        inclusive_corporations:
+          - "Society inclusive of neurodiverse individuals, with personalized mental healthcare and trauma-informed workplaces as the norm"
+          - "Physical disease eradicated and mental health disorders viewed as forms of diversity rather than problems to solve"
+    
+    core_values:
+      description: "Guiding principles for professional decisions and behavior"
+      values:
+        - name: "Equitable"
+          description: "Use power and wealth to empower and enrich others"
+        - name: "Healthy"
+          description: "Prioritize physical and mental health. Optimize for human health over profit"
+        - name: "Empirical"
+          description: "Rely on scientific evidence and expert research. Stay humble"
+        - name: "Transparent"
+          description: "Truth is essential for success and leads to improvements"
+        - name: "Consensual"
+          description: "Seek consent everywhere. Collaborate toward mutually beneficial outcomes"
+        - name: "Inclusive"
+          description: "Support neurodiversity and independence. Foster safe spaces for dissent, creativity, and emotional processing"
+        - name: "Future-proof"
+          description: "Think long-term. Adapt to change while protecting marginalized groups"
+        - name: "Focused"
+          description: "Stay committed to meaningful goals. Pivot only when a clearly better path emerges"
+    
+    brand_narratives:
+      - "Drives innovation that serves human flourishing"
+      - "Combines deep technical expertise in AI/ML with healthcare domain knowledge"
+      - "Proven track record of building AI infrastructure that scales from startup to enterprise level"
+      - "Balances technical depth with business acumen and human empathy"
+      - "Visionary leader grounded in practical experience"
+      - "Advocates for responsible AI development that prioritizes data privacy, human welfare, and equity"
+      - "Leverages emerging technologies to address systemic inequalities while helping organizations achieve sustainable growth"
+      - "Democratizes access to wealth-building opportunities through open source technology and mentorship"
+      - "Shows commitment to transparency, equity, and evidence-based decision making in every aspect of professional presence"
 
-    personal_brand:
-        description: "{{user_name}}'s personal brand is the strategic presentation of their professional identity, combining their unique value proposition, authentic personality, and career narrative. It serves as the foundation for all professional communications and represents how they want to be perceived by {{target_audience}} and potential employers. The personal brand bridges their {{career_objectives}} with market demands, creating a compelling story that differentiates them in competitive job markets."
-
-        mission:
-            description: "Serves as a North Star for career decisions. The user's mission articulates the meaningful impact they want to create through their professional contributions, differentiates them from other candidates, and creates an emotional connection with hiring managers."
-            core_mission_areas:
-            ai_for_good:
-                - "Develop AI systems that prioritize human welfare, data privacy, and ethical considerations"
-                - "Bridge the gap between cutting-edge AI capabilities and responsible implementation"
-            democratizing_technology:
-                - "Make advanced AI and cloud technologies accessible to organizations of all sizes"
-                - "Empower smaller companies to compete with enterprise-level AI capabilities"
-            sustainable_innovation:
-                - "Build scalable AI infrastructure that drives business growth while serving societal needs"
-                - "Create technology solutions that generate sustainable competitive advantages"
-            wealth_accessibility:
-                - "Serve collective prosperity rather than concentration power"
-                - "Empower working-class entrepreneurs to maintain creative control and achieve economic freedom"
-                - "Help entrepreneurs secure capital and build profitable businesses that are socially responsible"
-                - "Reduce risk for entrepreneurs with families as they start businesses"
-            health_accessibility:
-                - "Build innovations that help all life flourish"
-                - "Challenge economic systems that fail to serve the public good"
-                - "Improve and extend the quality of human life by eradicating neurodegenerative disease and eliminating generational trauma"
-        
-        vision:
-            description: "The future impact the user envisions creating through their career. This future-focused perspective differentiates candidates by showing they think beyond immediate job responsibilities to long-term value creation."
-            wealth_distribution:
-                - "Wealth inequality is addressed with emerging tech, cooperative economics, and collective bargaining power"
-                - "A federated network of self-funded or crowd-funded consultancies, open-source tech vendors, and decentralized research orgs share resources efficiently"
-                - "Collectives of workers achieve economies of scale to rival large incumbent companies that are owned by the super-rich"
-            inclusive_corporations:
-                - "Society is inclusive of neurodiverse individuals, with personalized mental healthcare and trauma-informed workplaces the norm"
-                - "Physical disease is eradicated and mental health disorders are viewed as forms of diversity instead of as problems to solve"
-        
-        values:
-            description: "Core principles that guide {{user_name}}'s professional decisions and behavior. These values differentiate their personal brand by demonstrating authentic character and cultural fit to potential employers. When values align with a company's mission, they create powerful connection points in outreach messaging and interviews. Values also serve as decision-making criteria for evaluating job opportunities and ensuring long-term career satisfaction."
-            - name: "Equitable"
-            description: "Use power and wealth to empower and enrich others"
-            - name: "Healthy"
-            description: "Prioritize physical and mental health. Optimize for human health over profit"
-            - name: "Empirical"
-            description: "Rely on scientific evidence and expert research. Stay humble"
-            - name: "Transparent"
-            description: "Truth is essential for success and leads to improvements"
-            - name: "Consensual"
-            description: "Seek consent everywhere. Collaborate toward mutually beneficial outcomes"
-            - name: "Inclusive"
-            description: "Support neurodiversity and independence. Foster safe spaces for dissent, creativity, and emotional processing"
-            - name: "Future-proof"
-            description: "Think long-term. Adapt to change while protecting marginalized groups"
-            - name: "Focused"
-            description: "Stay committed to meaningful goals. Pivot only when a clearly better path emerges"
-
-        example_brand_narratives:
-            - "Drives innovation that serves human flourishing"
-            - "Combines deep technical expertise in AI/ML with healthcare domain knowledge"
-            - "Proven track record of building AI infrastructure that scales from startup to enterprise level"
-            - "Balances technical depth with business acumen and human empathy"
-            - "Visionary leader grounded in practical experience"
-            - "Advocates for responsible AI development that prioritizes data privacy, human welfare, and equity"
-            - "Leverages emerging technologies to address systemic inequalities while helping organizations achieve sustainable growth."
-            - "Democratizes access to wealth-building opportunities through open source technology and mentorship."
-            - "Shows commitment to transparency, equity, and evidence-based decision making in every aspect of their professional presence."
-
-    user_personality:
-        description: "Core personality traits, leadership approach, and personal interests that define {{user_name}}'s authentic voice and communication style. This information helps generate messaging that reflects their genuine character and builds authentic connections with potential employers and networking contacts. These personality traits can help make your messaging be more unique and less generic."
-
-        traits:
-            core_values:
-                - "The most valuable use of his time is spent nurturing important relationships, preferably outside in the warm sun surrounded by nature"
-                - "Bias for action"
-                - "Relentlessly high standards"
-            leadership_style:
-                - "Adaptive, bottom-up leadership style"
-                - "Seeks diverse perspectives"
-                - "Visionary who communicates a bold direction that inspires results"
-            personality:
-                - "Friendly with a large professional network they socialize with often"
-                - "Superabundant, contagious, optimistic energy"
-                - "Entrepreneurial inventor and creator"
-                - "Voracious reader and lifetime learner"
-                - "Humanist, futurist, and collectivist"
-            interests:
-                - "Plays drums, loves karaoke, goes to concerts, and enjoys standup comedy"
-                - "Enjoys hiking, biking, offroading, camping, and spending time outdoors"
+  # Personality and communication style
+  user_personality:
+    description: "Core traits, leadership approach, and interests that define authentic voice and communication style"
+    
+    character_traits:
+      core_values:
+        - "Values nurturing important relationships, preferably outdoors in nature"
+        - "Maintains bias for action"
+        - "Upholds relentlessly high standards"
+      
+      leadership_style:
+        - "Practices adaptive, bottom-up leadership"
+        - "Actively seeks diverse perspectives"
+        - "Communicates bold, inspiring vision that drives results"
+      
+      personality_attributes:
+        - "Friendly with large professional network for regular socialization"
+        - "Exhibits superabundant, contagious, optimistic energy"
+        - "Functions as entrepreneurial inventor and creator"
+        - "Operates as voracious reader and lifetime learner"
+        - "Identifies as humanist, futurist, and collectivist"
+      
+      personal_interests:
+        creative_pursuits:
+          - "Plays drums"
+          - "Loves karaoke"
+          - "Attends concerts"
+          - "Enjoys standup comedy"
+        outdoor_activities:
+          - "Hiking"
+          - "Biking"
+          - "Offroading"
+          - "Camping"
+          - "General outdoor time"
