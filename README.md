@@ -2,14 +2,35 @@
 
 A career coach and digital marketing assistant designed to help job seekers create personalized go-to-market strategies and outreach content for building professional networks and securing job opportunities. The assistant develops a strategy with you and then helps to craft tailored connection requests and introductory messages by analyzing company needs. It treats you like a business, helping to market and sell yourself.
 
-## How to use this agent
+## How to host this agent
 
-1. Copy the following system prompt into your favorite text editor: <https://github.com/praeducer/job-finding-assistant/blob/main/job_finding_assistant.system.prompt.md>.
-2. Personalize it for your goals by editing the values of the variables in the context section.
-3. Copy your personalized system prompt into the AI agent builder studio of your choice.
-4. Follow the instructions on your preferred AI platform to host and chat with your new personal job finding assistant.
+1. Copy the following system prompt into your favorite AI agent builder studio (like the 'Agents' feature in Mistral Le Chat Pro): <https://github.com/praeducer/job-finding-assistant/blob/main/prompts/job_finding_assistant.system.prompt.md>.
+2. Follow the instructions on your preferred AI platform to host and chat with your new personal job finding assistant.
+
+## How to use this agent to find jobs
+
+1. Ask the agent to generate outreach content for a specific job description and target audience at a company. Include the marketing channel and content length.
+2. Attach a file of, or share a link to, a knowledge base of facts about your job preferences, career objectives, personal brand, and go-to-market strategy, e.g., <inputs\knowledge-bases\job_search_knowledge_base.yaml>.
 
 ## Repository Information
+
+### Knowledge Base
+
+A knowledge base of facts about my job preferences, career objectives, personal brand, and go-to-market strategy:
+- Public web link: <https://github.com/Modular-Earth-LLC/job-finding-assistant/tree/main/inputs\knowledge-bases\job_search_knowledge_base.yaml>
+- Relative Path to this library from the root of this Github Repository: <inputs\knowledge-bases\job_search_knowledge_base.yaml>
+
+You can use this as a template. Customize it and then use as input to your job finding assistant. The facts in this knowledge base are required for the agent to personalize content.
+
+### Document Library for Generative AI Retrieval Augmented Generation (RAG)
+
+- Title: Professional Background, Work Experience, and Project Portfolio
+- Description: This library contains files related to the user's career, including their resume, personal go-to-market strategy, presentations, project descriptions, portfolio, blog posts, and cover letters.
+- Publicly accessible link to the library's location: <https://github.com/praeducer/job-finding-assistant/tree/main/inputs/document-libraries/resume-work-experience-and-portfolio>
+- Relative Path to this library from the root of this Github Repository: </inputs/document-libraries/resume-work-experience-and-portfolio">
+- Usage Instructions:
+  - Index and reference these files as needed, such as for retrieval augmented generation (RAG).
+  - Documents created more recently are more accurate and essential. Some information in older documents may be outdated and should not be referenced if it conflicts with newer data. The user's current job preferences, career objectives, personal brand, and go-to-market strategy are most important to consider.
 
 ### Programming Languages
 
@@ -25,15 +46,15 @@ A career coach and digital marketing assistant designed to help job seekers crea
 
 Analyzing these diverse prompts reveals a set of converging best practices for building reliable agentic AI systems:
 
-1.  **Define the Agent Clearly:** Start with an explicit role, purpose, and scope. Include contextual grounding like date or environment specifics.
-2.  **Structure for Clarity:** Break down complex instructions using headings, lists, or tags. Organize rules logically (e.g., group tool instructions, safety rules).
-3.  **Be Explicit About Tools:** Detail *what* each tool does, *how* to call it (syntax, parameters, format), and *when* (and when not) to use it. Provide examples. Embed usage policies directly.
-4.  **Mandate Step-by-Step Execution:** Encourage or enforce planning, iteration, and waiting for results/confirmation. Prevent the AI from attempting too much at once. Consider explicit thinking phases or loops.
-5.  **Embed Domain Knowledge & Constraints:** Include relevant style guides, library usage rules, file conventions, platform limitations, and best practices for the agent's specific domain.
-6.  **Integrate Safety and Alignment:** Define unacceptable requests and provide clear refusal protocols. Embed specific policies for sensitive operations (data handling, image generation).
-7.  **Guide the Tone:** Set expectations for the interaction style (professional, friendly, concise, adaptive) to ensure a consistent user experience.
-8.  **Use Examples:** Illustrate complex rules or desired output formats with clear examples within the prompt (like Bolt.new and v0 do extensively).
-9.  **Optimize Context Usage:** Structure information hierarchically, compress without losing meaning, and maintain coherence across interactions.
+1. **Define the Agent Clearly:** Start with an explicit role, purpose, and scope. Include contextual grounding like date or environment specifics.
+2. **Structure for Clarity:** Break down complex instructions using headings, lists, or tags. Organize rules logically (e.g., group tool instructions, safety rules).
+3. **Be Explicit About Tools:** Detail *what* each tool does, *how* to call it (syntax, parameters, format), and *when* (and when not) to use it. Provide examples. Embed usage policies directly.
+4. **Mandate Step-by-Step Execution:** Encourage or enforce planning, iteration, and waiting for results/confirmation. Prevent the AI from attempting too much at once. Consider explicit thinking phases or loops.
+5. **Embed Domain Knowledge & Constraints:** Include relevant style guides, library usage rules, file conventions, platform limitations, and best practices for the agent's specific domain.
+6. **Integrate Safety and Alignment:** Define unacceptable requests and provide clear refusal protocols. Embed specific policies for sensitive operations (data handling, image generation).
+7. **Guide the Tone:** Set expectations for the interaction style (professional, friendly, concise, adaptive) to ensure a consistent user experience.
+8. **Use Examples:** Illustrate complex rules or desired output formats with clear examples within the prompt (like Bolt.new and v0 do extensively).
+9. **Optimize Context Usage:** Structure information hierarchically, compress without losing meaning, and maintain coherence across interactions.
 
 Essentially, an effective agentic prompt acts as a comprehensive, well-structured operational manual that leaves little room for ambiguity while empowering the AI with the knowledge and procedures needed to act effectively and safely using its tools.
 
