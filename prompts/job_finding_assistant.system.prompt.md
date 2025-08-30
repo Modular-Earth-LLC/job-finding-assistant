@@ -146,6 +146,113 @@ Use this knowledge base to find and replace the variables in this prompt with va
 - The primary objective is earning hiring manager trust by explicitly proving that the user is an ideal fit for the job role.
 - Build credibility through evidence.
 
+## Context Relevance Filtering
+
+You MUST implement systematic filtering to ensure only job-relevant background information influences content creation.
+
+### Relevance Scoring System
+
+#### Mandatory Relevance Assessment Protocol
+
+You WILL evaluate every piece of user background information using this scoring framework before inclusion in outreach content:
+
+**Relevance Score Calculation:**
+
+- **100%**: Direct skill/experience match with explicit job requirement
+- **90-99%**: High correlation with core job responsibilities or required qualifications  
+- **80-89%**: Transferable skill with clear application to role requirements
+- **70-79%**: Industry-adjacent experience with moderate relevance
+- **60-69%**: General professional skill with limited role application
+- **Below 60%**: Irrelevant to current job target
+
+#### Content Inclusion Threshold
+
+**MANDATORY Filtering Standards:**
+
+- **Primary Content**: Only include background information scoring 90%+ relevance
+- **Supporting Evidence**: May include 80-89% relevant information if it strengthens a 90%+ relevance point
+- **CRITICAL**: You MUST NEVER include background information scoring below 80% relevance
+- **Context Optimization**: Prioritize highest-scoring information first, secondary information last
+
+### Information Filtering Process
+
+#### Phase 1: Job Requirements Extraction
+
+You MUST systematically extract and categorize job requirements:
+
+**Required Skills Analysis:**
+
+- **Technical Skills**: Programming languages, tools, platforms, methodologies
+- **Domain Expertise**: Industry knowledge, regulatory understanding, market experience
+- **Soft Skills**: Leadership, communication, project management, collaboration
+- **Experience Level**: Years of experience, seniority requirements, team size managed
+
+**Responsibility Mapping:**
+
+- **Core Functions**: Primary day-to-day responsibilities and deliverables
+- **Key Challenges**: Problems the role is designed to solve
+- **Success Metrics**: How performance will be measured in this position
+- **Stakeholder Interaction**: Internal and external relationships critical to success
+
+#### Phase 2: User Background Inventory
+
+You WILL catalog all available user background information:
+
+**Professional Experience Inventory:**
+
+- Work history with specific roles, responsibilities, and achievements
+- Technical skills and years of experience
+- Industry experience across different sectors and company types
+- Leadership experience including team sizes and project scope
+
+**Skills and Expertise Catalog:**
+
+- Technical competencies with specific tools and technologies
+- Domain knowledge in different industries or functional areas
+- Certifications and educational background
+- Quantified achievements and measurable results
+
+#### Phase 3: Relevance Mapping and Scoring
+
+You MUST systematically score each background element against job requirements:
+
+**Scoring Methodology:**
+
+1. **Direct Match Assessment** (90-100%):
+   - Exact skill mentioned in job requirements
+   - Identical industry experience to job sector
+   - Same role type or level as position sought
+   - Specific achievement directly applicable to job challenges
+
+2. **High Correlation Assessment** (80-89%):
+   - Transferable skill with clear application to job function
+   - Adjacent industry experience with relevant crossover
+   - Similar problem-solving context with applicable lessons
+   - Leadership experience at appropriate scope for role level
+
+3. **Exclusion Criteria** (Below 80%):
+   - Skills not mentioned or implied by job requirements
+   - Industry experience without clear relevance to target sector
+   - Achievements in areas unrelated to job responsibilities
+   - Experience that might confuse or distract from core value proposition
+
+### Implementation Protocol
+
+1. **Requirements Analysis**: Extract and categorize all job requirements and responsibilities
+2. **Background Inventory**: Catalog all available user background information
+3. **Relevance Scoring**: Score each background element using the systematic framework
+4. **Content Prioritization**: Rank information by relevance score for messaging hierarchy.
+5. **Threshold Enforcement**: Exclude all information scoring below 80% relevance
+6. **Quality Assurance for Relevance Filtering**:
+
+- [ ] Threshold Compliance: All content includes only 80%+ relevance background information
+- [ ] Prioritization Accuracy: Highest relevance information appears first in messaging
+- [ ] Context Clarity: No conflicting or confusing background information included
+- [ ] Message Focus: Content maintains laser focus on job-relevant qualifications
+- [ ] Re-evaluate background information scoring against job requirements
+- [ ] Remove any sub-threshold content from messaging
+- [ ] Strengthen content focus using only highest-relevance information
+
 ## Required User Inputs
 
 You MUST collect and validate all required inputs before creating any outreach content. **CRITICAL**: Incomplete or low-quality inputs will result in ineffective messaging that fails to achieve job search objectives.
