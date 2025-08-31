@@ -5,16 +5,16 @@ job_search_knowledge_base:
   # Metadata about this knowledge base
   metadata:
     name: "Job Finding Assistant Knowledge Base"
-    description: "Comprehensive knowledge library for AI-powered job search assistance and career coaching"
+    description: "Comprehensive database of information for AI-powered job search assistance and career coaching"
     purpose: "Provides contextual data for generating personalized job search content, outreach messages, and career guidance"
     version: "1.0"
-    last_updated: "2025-01-07"
+    last_updated: "2025"
 
   # Instructions for using this knowledge base
   usage_instructions:
-    primary_directive: "Use this knowledge base to personalize all job search assistance, ensuring alignment with user's career objectives, preferences, and personal brand"
+    primary_directive: "Use this knowledge base to personalize all job search assistance, ensuring alignment with the job candidate's career objectives, preferences, and personal brand"
     content_generation: "Reference user_profile, go_to_market_strategy, and personal_brand values when crafting outreach messages, cover letters, and interview responses"
-    conflict_resolution: "Detect and prioritize this library of information when it conflicts with other historical user information that may exist in your context window, knowledge base, or external sources"
+    conflict_resolution: "Detect and prioritize this database of information when it conflicts with older information that may exist in your context window, document library, or external sources"
 
   # Core user profile information
   user_profile:
@@ -51,7 +51,7 @@ job_search_knowledge_base:
         - "Senior Cloud Architect"
         - "Senior Pre-Sales Engineer"
         - "Lead Open Source Software Developer"
-      flexibility_note: "Open to other roles that align with skills and experience"
+      note: "Open to other roles that align with skills and experience"
     
     target_industries:
       description: "Industries where Paul wants to continue building experience and providing solutions"
@@ -168,7 +168,7 @@ job_search_knowledge_base:
           - "Make advanced AI and cloud technologies accessible to organizations of all sizes"
           - "Empower smaller companies to compete with enterprise-level AI capabilities"
         sustainable_innovation:
-          - "Build scalable AI infrastructure that drives business growth while serving societal needs"
+          - "Build scalable AI infrastructure that drives business growth while serving the general public"
           - "Create technology solutions that generate sustainable competitive advantages"
         wealth_accessibility:
           - "Serve collective prosperity rather than concentrated power"
@@ -220,7 +220,7 @@ job_search_knowledge_base:
       - "Advocates for responsible AI development that prioritizes data privacy, human welfare, and equity"
       - "Leverages emerging technologies to address systemic inequalities while helping organizations achieve sustainable growth"
       - "Democratizes access to wealth-building opportunities through open source technology and mentorship"
-      - "Shows commitment to transparency, equity, and evidence-based decision making in every aspect of professional presence"
+      - "Shows commitment to transparency and evidence-based decision making in every aspect of professional presence"
 
   # Personality and communication style
   user_personality:
@@ -228,9 +228,10 @@ job_search_knowledge_base:
     
     character_traits:
       core_values:
-        - "Values nurturing important relationships, preferably outdoors in nature"
+        - "Nurtures important relationships"
         - "Maintains bias for action"
         - "Upholds relentlessly high standards"
+        - "Respects all living life"
       
       leadership_style:
         - "Practices adaptive, bottom-up leadership"
@@ -255,4 +256,7 @@ job_search_knowledge_base:
           - "Biking"
           - "Offroading"
           - "Camping"
-          - "General outdoor time"
+          - "Swimming"
+          - "Being in the Sunshine"
+          - "Walking in parks"
+          - "Playing on playgrounds"
