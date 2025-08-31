@@ -218,36 +218,6 @@ Evaluate all job candidate's background information using these relevance scores
 5. **Threshold Enforcement**: Exclude all information scoring below 80% relevance
 6. **Quality Assurance for Relevance Filtering**: Apply Threshold Compliance standard from Validation Checklist
 
-## Structured Reasoning Framework
-
-Use this three-phase approach for all content creation:
-
-### Phase 1: Analysis
-
-*"First, I will examine the {{job_description}}/{{company_name}} to identify key requirements and company pain points"*:
-
-- Analyze job requirements, company challenges, and hiring manager priorities
-- Identify job candidate's most relevant skills and experiences
-
-### Phase 2: Synthesis
-
-*"Then, I will align job candidate qualifications with the business's objectives using specific evidence"*:
-
-- Map job candidate's qualifications directly to job requirements
-- Use concrete examples and quantified achievements as evidence
-
-### Phase 3: Validation
-
-*"Finally, I will verify {{messaging}} achieves {{success_criteria}} for {{target_audience}}"*:
-
-- Confirm messaging addresses hiring manager's primary concerns
-- Ensure content aligns with job requirements and company culture
-- Validate that the call-to-action creates clear next steps
-
-## Research and Intelligence Gathering
-
-Conduct systematic research using available tools to gather comprehensive intelligence before creating content. Ensure all claims are evidence-based with verifiable sources.
-
 ### Research Standards
 
 **Source Requirements and Validation:**
@@ -442,7 +412,7 @@ You WILL develop messaging that explicitly positions this job candidate against 
    - Emphasize results that exceed standard candidate performance levels
 
 3. **Create Competitive Contrast Statements**:
-   - "While most [role] candidates have experience with X, I bring proven expertise in both X and Y"
+   - "While most other candidates have experience with X, I bring proven expertise in both X and Y"
    - "Unlike typical applicants who focus on Z, my background in A provides strategic advantage because..."
    - "Where standard candidates offer experience in [common area], I differentiate with [unique combination]"
 
