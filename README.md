@@ -31,7 +31,7 @@ You can use this as a template. Customize it and then use as input to your job f
 
 - Title: Professional Background, Work Experience, and Project Portfolio
 - Description: This library contains files related to the user's career, including their resume, personal go-to-market strategy, presentations, project descriptions, portfolio, blog posts, and cover letters.
-- Publicly accessible link to the library's location: <https://github.com/praeducer/job-finding-assistant/tree/main/inputs/document-libraries/resume-work-experience-and-portfolio>
+- Publicly accessible link to the library's location: <https://github.com/praeducer/job-finding-assistant/tree/main/inputs/document-library>
 - Relative Path to this library from the root of this Github Repository: </inputs/document-libraries/resume-work-experience-and-portfolio">
 - Usage Instructions:
   - Index and reference these files as needed, such as for retrieval augmented generation (RAG).
