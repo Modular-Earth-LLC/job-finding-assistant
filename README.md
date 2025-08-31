@@ -22,7 +22,7 @@ Prompt your personalized job finding assistant with this prompt, while attaching
 
 A knowledge base of facts about my job preferences, career objectives, personal brand, and go-to-market strategy:
 
-- Public web link: <https://github.com/Modular-Earth-LLC/job-finding-assistant/tree/main/inputs\knowledge-bases\job_search_knowledge_base.yaml>
+- Public web link: <https://github.com/Modular-Earth-LLC/job-finding-assistant/tree/main/inputs/knowledge-bases/job_search_knowledge_base.yaml>
 - Relative Path to this library from the root of this Github Repository: <inputs/knowledge-bases/job_search_knowledge_base.yaml>
 
 You can use this as a template. Customize it and then use as input to your job finding assistant. The facts in this knowledge base are required for the agent to personalize content.
