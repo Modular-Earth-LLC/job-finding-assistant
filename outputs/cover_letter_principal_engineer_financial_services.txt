@@ -1,0 +1,29 @@
+Dear Hiring Manager,
+
+I am excited to apply for the Principal Data Engineer position at MeridianLink. With over 13 years of experience in AI, data engineering, and platform architecture—particularly in privacy-sensitive industries such as healthcare, life sciences, and financial services—I am confident in my ability to contribute to your mission of humanizing lending through innovative data solutions.
+
+Why MeridianLink?
+
+MeridianLink’s commitment to transforming lending and account opening through a single, configurable platform resonates with my passion for leveraging technology to create meaningful impact. Your focus on empowering financial institutions with faster decisions, more intelligent engagement, and personalized experiences aligns perfectly with my expertise in building scalable data platforms and AI-driven solutions.
+
+How I Can Contribute:
+
+- Data Pipeline Expertise: At Booz Allen Hamilton, I led the development of AI and analytics solutions for healthcare and life science clients, ensuring data integrity, privacy, and compliance—skills directly transferable to your financial services context.
+- Cloud and AI Leadership: As an Enterprise AI and ML Solutions Architect at AWS, I designed and operationalized secure, scalable data pipelines and cloud-based solutions, meeting your need for expertise in AWS, Python, SQL, and distributed processing frameworks such as Spark and Databricks.
+- Financial Services Focus: My work at Hyperbloom and Modular Earth involved architecting decentralized, autonomous platforms for financial operations, demonstrating my ability to democratize data and drive innovation in SaaS environments.
+- Governance and Compliance: I’ve consistently enforced high standards for data governance, quality, and security, ensuring compliance with industry regulations—a priority for MeridianLink’s financial forecasting and risk analytics.
+
+Relevant Achievements:
+
+- AI-Driven Platforms: Built a machine learning platform for detecting mental health disorders and a data lake for genomics, showcasing my ability to handle complex, sensitive data at scale.
+- Open-Source Leadership: As the Founder of Modular Earth, I developed AI-driven applications for social good, emphasizing accessibility, privacy, and cost efficiency—principles that align with your goal of putting people first in digital lending.
+- Cross-Functional Collaboration: My roles at AWS, Microsoft, and Slalom Consulting required close partnership with stakeholders to translate business needs into technical solutions, a skill critical for your team’s success.
+
+Why Me?
+
+I thrive in environments where technology and social impact intersect. My background in AI, cloud architecture, and financial services positions me to make immediate contributions to your data infrastructure, enhance real-time processing, and champion a culture of security and automation.
+I’d welcome the opportunity to discuss how my experience can support MeridianLink’s vision. Thank you for your time and consideration—I look forward to your reply.
+
+Best regards,
+
+Paul Prae
