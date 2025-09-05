@@ -1,4 +1,4 @@
-Improve this {{set career objectives prompt}} across all files in this repository, with a focus on complementing the other prompts in this repository's prompt folder. The prompts in the prompts folder are designed to run in a workflow as a single, cohesive system. The job-finding assistant system prompt is what defines the agent. The rest of the user prompts are sent to that agent to perform the task specified within each prompt. 
+Improve this {{set career objectives prompt}} given the context of the overall job-finding strategy and workflow. Take into account the context from all files in this repository, with a focus on complementing the other prompts in this repository's prompt folder. The prompts in the prompts folder are designed to run in a workflow as a single, cohesive system. The job-finding assistant system prompt is what defines the job finding assistant AI agent when it is hosted in an AI chat platform. The rest of the user prompts are sent to the agent to perform the task specified within each prompt. Reduce redundancy.
 
 These prompts are part of a comprehensive job-finding system that consists of multiple stages. This workflow typically follows this order:
 
@@ -18,3 +18,12 @@ Improve the {{set career objectives prompt}} so it makes sense to occur **before
 All prompts should follow the principles and guidelines outlined in the job assistant and incorporate input or attachments, such as the career knowledge base YAML file, the user's resume, the user's portfolio, and any other existing content necessary to populate the website template. 
 
 Make sure this prompt fits into this system of prompts and will function as expected when ran. Ensure any changes follow all best practices for prompt and context engineering. 
+
+Ensure that the overall process and logical flow are clearly understood by the agent who receives this prompt. Part of this task involves ensuring we follow best practices in context engineering, so the agent stays focused on its task and creates a best-in-class, professional, and personalized website to help candidates find a job.
+
+For example:
+1. Make sure there is an explicit self-validation and improvement loop.
+2. Clarify to the agent that the primary output is a complete Markdown website that is ready to deploy to Notion. The response output section does not sound clear to me.
+3. Organize and reference sections like quality standards, guidelines, and validation together, eliminating any that are repeated.
+
+Overall, make the instructions clear and understandable. 
