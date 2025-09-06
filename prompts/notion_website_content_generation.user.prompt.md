@@ -334,17 +334,24 @@ If not found in your knowledge base, ask these questions:
 
 **MANDATORY Process for Website Completion:**
 
-1. **Apply Content Quality Framework**: Validate all content against the framework in Section 5 (Workflow Alignment, Content Quality, Professional Standards)
-2. **Verify Complete Website Delivery**:
-   - [ ] All template placeholders populated with personalized content
+1. **Generate Initial Content**: Create complete website with all sections populated
+2. **Apply Content Quality Framework**: Validate all content against the framework in Section 5 (Workflow Alignment, Content Quality, Professional Standards)
+3. **Self-Review and Critical Analysis**:
+   - [ ] Identify specific areas needing improvement (weak messaging, unclear value propositions, missing keywords)
+   - [ ] Evaluate content impact: "Would this convince a hiring manager to interview this candidate?"
+   - [ ] Check for missed opportunities to strengthen positioning or demonstrate value
+4. **Iterate and Enhance** (MANDATORY - Do not skip):
+   - [ ] Refine weak sections identified in self-review
+   - [ ] Strengthen value propositions and career objective alignment
+   - [ ] Enhance keyword integration and professional presentation
+   - [ ] Improve content flow and engagement quality
+5. **Final Validation of Improved Content**:
+   - [ ] All template placeholders populated with enhanced, personalized content
    - [ ] Ready-to-deploy Notion-compatible Markdown formatting
-   - [ ] No additional editing required for immediate use
-3. **Confirm Strategic Alignment**:
-   - [ ] Every section advances defined career objectives
-   - [ ] Authentic personal brand expression throughout
-   - [ ] Knowledge base data accurately reflected
-4. **Final Quality Check**: Apply chain-of-thought validation: "Does this complete website achieve [career objectives] because [reasoning]?"
-5. **Document Rationale**: Record why this website best serves the candidate's job search goals
+   - [ ] Every section advances defined career objectives with authentic brand expression
+   - [ ] Knowledge base data accurately reflected and strategically presented
+6. **Quality Confirmation**: Apply chain-of-thought validation: "Does this improved website achieve [career objectives] because [reasoning]?"
+7. **Document Enhancement Rationale**: Record what improvements were made and why this final version best serves the candidate's job search goals
 
 ### 5. Post-Population Guidance
 
