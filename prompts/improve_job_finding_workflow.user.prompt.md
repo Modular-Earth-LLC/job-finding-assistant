@@ -21,9 +21,4 @@ Make sure this prompt fits into this system of prompts and will function as expe
 
 Ensure that the overall process and logical flow are clearly understood by the agent who receives this prompt. Part of this task involves ensuring we follow best practices in context engineering, so the agent stays focused on its task and creates a best-in-class, professional, and personalized website to help candidates find a job.
 
-For example:
-1. Make sure there is an explicit self-validation and improvement loop.
-2. Clarify to the agent that the primary output is a complete Markdown website that is ready to deploy to Notion. The response output section does not sound clear to me.
-3. Organize and reference sections like quality standards, guidelines, and validation together, eliminating any that are repeated.
-
-Overall, make the instructions clear and understandable. 
+Overall, make the instructions clear and understandable.
