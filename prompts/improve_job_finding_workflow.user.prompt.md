@@ -1,3 +1,5 @@
+# Your Task
+
 Improve this {{set career objectives prompt}} given the context of the overall job-finding strategy and workflow. Take into account the context from all files in this repository, with a focus on complementing the other prompts in this repository's prompt folder. The prompts in the prompts folder are designed to run in a workflow as a single, cohesive system. The job-finding assistant system prompt is what defines the job finding assistant AI agent when it is hosted in an AI chat platform. The rest of the user prompts are sent to the agent to perform the task specified within each prompt. Reduce redundancy.
 
 These prompts are part of a comprehensive job-finding system that consists of multiple stages. This workflow typically follows this order:
@@ -10,6 +12,7 @@ These prompts are part of a comprehensive job-finding system that consists of mu
 The job finding assistant system prompt has more general capabilities to help the job candidate generate content for a variety of situations. The other prompts are for more strategic and specific multimedia creation tasks.
 
 Improve the {{set career objectives prompt}} so it makes sense to occur **before** the job finding assistant runs the other prompts. Here is the order of the prompts:
+
 1. Set career objectives: this defines the goals and purpose of the job-finding assistant and any content it develops, like for cover letters and the job candidate's website.
 2. Develop personal brand: This acts as the cornerstone for all content developed, as it represents the mission, vision, and values of the user. 
 3. Notion website template generation: this provides the structure, framework, and boilerplate code for the website that the content needs to be populated into.
