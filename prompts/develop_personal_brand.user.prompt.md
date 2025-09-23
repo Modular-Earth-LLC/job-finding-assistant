@@ -10,7 +10,7 @@ I need assistance crafting my personal brand narrative that authentically repres
 
 ## Knowledge Base Integration
 
-Reference the following sections from my knowledge base located at `inputs/knowledge-bases/job_search_knowledge_base.yaml`:
+Reference the following sections from my knowledge base located at `inputs/knowledge-bases/job_search_knowledge_base.json`:
 
 - `personal_brand` - Core brand definition and strategic positioning
 - `personal_brand.mission` - Purpose and impact focus areas  

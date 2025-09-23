@@ -5,27 +5,25 @@
 ### 1. **Stage-Specific Improvements**
 
 - [ ] **Stage 1 Enhancement**: Improve `set_career_objectives.user.prompt.md` based on actual usage patterns and user feedback
+- [ ] **Stage 1 System Prompt Conversion**: Turn `set_career_objectives.user.prompt.md` into a dedicated system prompt assistant with intake, validation, and knowledge base update workflow
 - [ ] **Stage 2 Enhancement**: Refine `develop_personal_brand.user.prompt.md` with real-world application insights
-- [ ] **Stage 3 Enhancement**: Optimize `notion_website_template_generation.user.prompt.md` with better UX understanding
-- [ ] **Stage 4 Enhancement**: Improve `notion_website_content_generation.user.prompt.md` based on output quality
+- [ ] **Stage 2 System Prompt Conversion**: Convert `develop_personal_brand.user.prompt.md` into an independent system prompt assistant with clear success criteria
+- [ ] **Stage 3 Optimization**: Tune `job_market_positioning.system.prompt.md` using real-world usage data and UX feedback
+- [ ] **Stage 4 Optimization**: Strengthen `job_finding_assistant.system.prompt.md` validation gates and output quality based on recent updates
 
 ### 2. **Workflow Integration**
 
 - [ ] **Cross-Stage Optimization**: Ensure all 4 stages work seamlessly when run back-to-back
+- [ ] **Stage Handoff Automation**: Document and automate the knowledge base handoff process between newly systemized Stages 1-3 and Stage 4 execution
+- [ ] **Workflow Playbook Refresh**: Update `README.md` and supporting docs once Stage 1 & 2 assistants are live to reflect the revised orchestration
 - [ ] **System Prompt Fine-Tuning**: Optimize the main `job_finding_assistant.system.prompt.md` to handle cover letters, outreach requests, and website content generation effectively
 
 ## **Content Development & Testing**
 
 ### 3. **Knowledge Base Enhancement**
 
-- [ ] **YAML Enhancement**: Use the job finding assistant to enhance the YAML knowledge base, focusing on leveraging Stages 1 and 2 prompts
+- [ ] **Knowledge Base Enhancement**: Use the job finding assistant to enhance the JSON knowledge base, focusing on leveraging Stages 1 and 2 prompts
 - [ ] **UX-Based Improvements**: Improve the knowledge base based on actual UX and usage patterns
-
-### 4. **Website Template & Content Pipeline**
-
-- [ ] **Template Generation**: Generate and improve the website template based on real usage patterns
-- [ ] **Content Population**: Populate website content and refine the content generation prompt based on results
-- [ ] **Iterative Refinement**: Implement iterative content refinement using Cursor and Sonnet before Notion publishing
 
 ## **Advanced Integration & Optimization**
 

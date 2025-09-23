@@ -184,29 +184,38 @@ This planning session is successful when I have:
 
 ## Example Career Objectives and Key Results
 
-```yaml
-career_objectives:
-  description: "Paul's most important goals that should guide job search assistance"
-  objectives_by_category:
-    financial:
-      - "Achieve financial freedom"
-      - "Eliminate $60,000 debt by 2027-2028"
-      - "Save $1M for retirement by age 45 (2031)"
-    career:
-      - "Accelerate career growth and ensure job security"
-      - "Land a job before savings are depleted (deadline: October 1st, 2025)"
-      - "Build local professional networks"
-    family:
-      - "Support wife as stay-at-home parent and homemaker"
-      - "Spend quality time with daughters"
-      - "Save for children's college (starting 2038 when oldest turns 18)"
-    entrepreneurship:
-      - "Position for starting own businesses by age 45 (2031)"
-      - "Own multiple profitable businesses"
-      - "Generate multiple passive income streams"
-    lifestyle:
-      - "Travel and attend more cultural events"
-      - "Afford modifying and upgrading 4X4 Jeep Grand Cherokee"
+```json
+{
+  "career_objectives": {
+    "description": "Paul's most important goals that should guide job search assistance",
+    "objectives_by_category": {
+      "financial": [
+        "Achieve financial freedom",
+        "Eliminate $60,000 debt by 2027-2028",
+        "Save $1M for retirement by age 45 (2031)"
+      ],
+      "career": [
+        "Accelerate career growth and ensure job security",
+        "Land a job before savings are depleted (deadline: October 1st, 2025)",
+        "Build local professional networks"
+      ],
+      "family": [
+        "Support wife as stay-at-home parent and homemaker",
+        "Spend quality time with daughters",
+        "Save for children's college (starting 2038 when oldest turns 18)"
+      ],
+      "entrepreneurship": [
+        "Position for starting own businesses by age 45 (2031)",
+        "Own multiple profitable businesses",
+        "Generate multiple passive income streams"
+      ],
+      "lifestyle": [
+        "Travel and attend more cultural events",
+        "Afford modifying and upgrading 4X4 Jeep Grand Cherokee"
+      ]
+    }
+  }
+}
 ```
 
 ## Additional Considerations

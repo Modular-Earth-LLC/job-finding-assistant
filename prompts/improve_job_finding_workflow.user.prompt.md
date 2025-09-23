@@ -1,27 +1,75 @@
 # Your Task
 
-Improve this {{set career objectives prompt}} given the context of the overall job-finding strategy and workflow. Take into account the context from all files in this repository, with a focus on complementing the other prompts in this repository's prompt folder. The prompts in the prompts folder are designed to run in a workflow as a single, cohesive system. The job-finding assistant system prompt is what defines the job finding assistant AI agent when it is hosted in an AI chat platform. The rest of the user prompts are sent to the agent to perform the task specified within each prompt. Reduce redundancy.
+Optimize the job-finding workflow to ensure seamless execution of the comprehensive 4-stage job search system. Focus on ensuring proper prerequisites validation and strategic alignment between completed foundation stages and content execution.
 
-These prompts are part of a comprehensive job-finding system that consists of multiple stages. This workflow typically follows this order:
+These prompts are part of a comprehensive job-finding system that consists of four sequential stages:
 
-1. **Stage 1 - Career Objectives**: Defined the candidate's goals, financial targets, and professional aspirations
-2. **Stage 2 - Personal Brand**: Established mission, vision, values, and authentic brand narratives
-3. **Stage 3 - Website Template**: Created the structural framework optimized for professional portfolios
-4. **Stage 4 - Content Generation**: Populate template with personalized, goal-aligned content
+**Updated 4-Stage Workflow Process:**
 
-The job finding assistant system prompt has more general capabilities to help the job candidate generate content for a variety of situations. The other prompts are for more strategic and specific multimedia creation tasks.
+- **Stage 1**: Career Objectives
+- **Stage 2**: Personal Brand
+- **Stage 3**: Go-to-Market Strategy
+- **Stage 4**: Content Generation and Execution
 
-Improve the {{set career objectives prompt}} so it makes sense to occur **before** the job finding assistant runs the other prompts. Here is the order of the prompts:
+## Workflow Context and Dependencies
 
-1. Set career objectives: this defines the goals and purpose of the job-finding assistant and any content it develops, like for cover letters and the job candidate's website.
-2. Develop personal brand: This acts as the cornerstone for all content developed, as it represents the mission, vision, and values of the user. 
-3. Notion website template generation: this provides the structure, framework, and boilerplate code for the website that the content needs to be populated into.
-4. Notion website content generation prompt: This takes the website template as the input and outputs a website complete with custom content personalized for the user and their goals. Generating a personal professional website for the user (aka a portfolio site and online resume for the job candidate) is often the final step in the workflow.
+The job finding assistant operates exclusively within **Stage 4** and MUST verify that Stages 1-3 are completed and stored in the knowledge base before beginning any content creation work.
 
-All prompts should follow the principles and guidelines outlined in the job assistant and incorporate input or attachments, such as the career knowledge base YAML file, the user's resume, the user's portfolio, and any other existing content necessary to populate the website template. 
+### Strategic Foundation Prerequisites
 
-Make sure this prompt fits into this system of prompts and will function as expected when ran. Ensure any changes follow all best practices for prompt and context engineering. 
+Ensure the job finding assistant properly validates these prerequisites:
 
-Ensure that the overall process and logical flow are clearly understood by the agent who receives this prompt. Part of this task involves ensuring we follow best practices in context engineering, so the agent stays focused on its task and creates a best-in-class, professional, and personalized website to help candidates find a job.
+1. **Career Objectives (Stage 1)** - Stored in knowledge base with:
+   - Financial goals and income targets
+   - Career advancement timeline
+   - Professional development objectives
+   - Work-life balance priorities
 
-Overall, make the instructions clear and understandable.
+2. **Personal Brand (Stage 2)** - Stored in knowledge base with:
+   - Mission statement and core purpose
+   - Vision for future impact
+   - Core values and guiding principles
+   - Brand narratives and messaging themes
+
+3. **Go-to-Market Strategy (Stage 3)** - MUST be present with:
+   - Target roles and industries defined
+   - Competitive positioning established
+   - Messaging frameworks developed
+   - Market research completed
+
+### Stage 4 Execution Focus
+
+The job finding assistant should excel at tactical content creation while maintaining strategic alignment:
+
+- Generate personalized outreach content (LinkedIn messages, emails, cover letters)
+- Create application materials tailored to specific opportunities
+- Develop networking and relationship-building communications
+- Execute campaigns that convert strategic positioning into job opportunities
+
+## Workflow Optimization Requirements
+
+Improve the system to ensure:
+
+1. **Prerequisites Validation**: The assistant automatically checks for and validates the presence of Stages 1-3 strategic foundation before beginning Stage 4 work
+
+2. **Strategic Alignment**: All Stage 4 content seamlessly integrates and reflects the strategic decisions made in Stages 1-3
+
+3. **Knowledge Base Integration**: The assistant efficiently accesses and applies stored strategic context from `inputs/knowledge-bases/job_search_knowledge_base.json`
+
+4. **Workflow Continuity**: Smooth handoff from strategic planning (Stages 1-3) to tactical execution (Stage 4)
+
+5. **Quality Control**: Content maintains consistency with established brand narrative and career objectives
+
+## Instructions for Optimization
+
+Ensure the job finding assistant:
+
+- **Validates Prerequisites**: Automatically confirms Stages 1-3 are complete before starting
+- **Integrates Strategic Context**: References stored career objectives, personal brand, and go-to-market strategy in all content
+- **Maintains Brand Consistency**: Uses pre-defined value propositions and messaging frameworks
+- **Executes Tactically**: Focuses on content creation rather than strategy development
+- **Measures Success**: Delivers content that generates responses and advances toward job offers
+
+The assistant should refuse to proceed with Stage 4 content creation if the strategic foundation from Stages 1-3 is incomplete, directing users to complete prerequisite stages first.
+
+Make sure this workflow functions seamlessly when deployed, following all best practices for prompt engineering and ensuring clear task boundaries between strategic planning and tactical execution.
