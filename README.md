@@ -4,7 +4,7 @@ This guide shows job seekers how to pair their own career story with modern AI t
 
 ## Introduction
 
-The Job Finding Assistant is a four-stage workflow that treats your job search like a project: set clear goals, define your personal brand, position yourself in the market, and finally generate outreach content that wins interviews. Everything you need to run those stages lives in this repository. Follow the steps below to personalize the toolkit and start producing high-quality messages, cover letters, and website copy in minutes.
+The Job Finding Assistant is a comprehensive workflow that treats your job search like a project: gather requirements, develop your personal brand, position yourself in the market, and generate outreach content that wins interviews. Everything you need to run these stages lives in this repository. Follow the steps below to personalize the toolkit and start producing high-quality messages, cover letters, and website copy in minutes.
 
 ## Prerequisites
 
@@ -19,21 +19,37 @@ The Job Finding Assistant is a four-stage workflow that treats your job search l
    Download or clone `job-finding-assistant` to a convenient folder. Keep the structure intact so the paths in this guide stay accurate.
 
 2. **Review the knowledge base**  
-   Open `inputs/knowledge-bases/job_search_knowledge_base.json` to familiarize yourself with the sections. You normally won’t edit this file directly—the prompts in Stages 1–3 generate structured updates for you. Only make manual changes if you spot inaccurate or outdated information that needs a quick correction.
+   Open `inputs/knowledge-bases/job_search_knowledge_base.json` to familiarize yourself with the sections. The assistants in each stage will generate structured updates for you. Only make manual changes if you spot inaccurate or outdated information that needs a quick correction.
 
-3. **Run Stage 1 – Career Objectives**  
-   Launch your AI assistant, upload the knowledge base, and paste the contents of `prompts/set_career_objectives.user.prompt.md`. The prompt guides a conversation and finishes by drafting a "Proposed Knowledge Base Update." Review the summary, then copy the approved JSON block into the file. Manual edits are only needed if the output misses something or you need to correct a detail.
+3. **Run Stage 1 – Career Requirements Gathering**  
+   Load `career_coach_assistant.system.prompt.md` as a system prompt in your AI tool. This assistant conducts an initial consultation to:
+   - Understand your current situation and constraints
+   - Define clear career, financial, and life objectives
+   - Document timeline requirements and preferences
+   - Create or update the knowledge base with foundational information
+   
+   The assistant will provide a summary and update only the `user_profile.basic_info` and `career_objectives` sections.
 
-4. **Run Stage 2 – Personal Brand**  
-   Use `prompts/develop_personal_brand.user.prompt.md` in the same way. The assistant will capture mission, vision, narratives, and voice guidance, then hand you a JSON knowledge-base update block. Paste the approved content into the `personal_brand` section and only tweak it manually if the AI misunderstood your story.
+4. **Run Stage 2 – Personal Brand Development**  
+   Load `personal_brand_development_assistant.system.prompt.md` as a system prompt. This assistant will:
+   - Discover your mission, vision, and values
+   - Capture your authentic personality traits
+   - Create brand narratives that resonate
+   - Update the `personal_brand` section of the knowledge base
 
 5. **Run Stage 3 – Go-To-Market Strategy**  
-   Open `job_market_positioning.system.prompt.md` inside your AI tool. This system prompt acts as a dedicated strategy agent: it maps target roles and industries, drafts positioning statements, and outputs an update block for `go_to_market_strategy`. Approve the proposal and paste it into the knowledge base.
+   Load `job_market_positioning.system.prompt.md` as a system prompt. This strategic assistant:
+   - Maps target roles and industries based on your objectives
+   - Develops positioning statements and value propositions
+   - Creates actionable go-to-market plans
+   - Updates the `go_to_market_strategy` section
 
-6. **Run Stage 4 – Job Finding Assistant**  
-   After Stages 1–3 are complete, load `job_finding_assistant.system.prompt.md` as a system prompt in your AI tool (or configure it inside a Custom GPT). Upload the latest knowledge base file each session. This execution agent verifies that all earlier stages are populated before creating content and flags any missing sections for you to revisit.
-
-> **Roadmap note:** Stages 1 and 2 will eventually ship as dedicated system prompts, making Career Objectives, Personal Brand, and Go-To-Market Strategy fully independent agents. Once those upgrades land, follow the same workflow: run each agent, approve its knowledge-base update, then move to Stage 4 for content execution.
+6. **Run Stage 4 – Professional Networking Outreach**  
+   After Stages 1–3 are complete, load `professional_networking_outreach_assistant.system.prompt.md` as a system prompt. Upload the latest knowledge base file each session. This execution assistant:
+   - Creates targeted outreach content based on your established strategy
+   - Conducts focused company research (10 minutes max)
+   - Generates platform-optimized messages (LinkedIn, email, cover letters)
+   - Executes your positioning through compelling, personalized content
 
 7. **Generate job-search materials**  
    Ask for exactly what you need—networking outreach, application follow-ups, cover letters, or website copy. Reference the role, company, and constraints (word counts, tone). Examples:
@@ -48,30 +64,41 @@ The Job Finding Assistant is a four-stage workflow that treats your job search l
 
 ## Expected Results
 
-- Your knowledge base becomes a single source of truth the assistant can draw from for every interaction.
-- The Stage 4 assistant produces consistent, on-brand messages that align with your goals and target market.
-- You can rapidly spin up tailored cover letters, outreach campaigns, and website content without starting from scratch.
+- Your knowledge base becomes a single source of truth that all assistants can reference
+- Each stage builds on the previous one, creating a coherent job search strategy
+- The outreach assistant produces consistent, on-brand messages aligned with your objectives
+- You can rapidly generate tailored content without starting from scratch each time
 
 ## Troubleshooting
 
-- **AI says the prompt is too long**: Split the system prompt into smaller chunks when pasting, or upgrade to a plan with higher limits.
-- **Content sounds generic**: Add specific accomplishments and quantified results to the knowledge base, then ask the assistant to focus on them.
-- **Wrong or outdated details**: Update the knowledge base and re-upload it before generating new content.
-- **Assistant refuses to run Stage 4**: Confirm you captured decisions from Stages 1–3 inside the knowledge base (objectives, personal brand, strategy fields).
-- **Attachment issues**: Most platforms accept JSON, PDF, and CSV files. Convert unsupported formats (e.g., DOCX) to PDF or plain text.
+- **AI says the prompt is too long**: Split the system prompt into smaller chunks when pasting, or upgrade to a plan with higher limits
+- **Content sounds generic**: Ensure you've completed all stages to populate the knowledge base with specific details
+- **Wrong or outdated details**: Update the knowledge base and re-upload it before generating new content
+- **Assistant skips to later stages**: Remind it of its specific role and boundaries (each assistant stays in its lane)
+- **Attachment issues**: Most platforms accept JSON, PDF, and CSV files. Convert unsupported formats to PDF or plain text
+
+## Knowledge Base Management
+
+The first three assistants build your knowledge base incrementally:
+
+- **Stage 1 - Career Coach**: Creates objectives and basic profile information
+- **Stage 2 - Brand Assistant**: Adds mission, vision, values, and personality
+- **Stage 3 - Positioning Assistant**: Completes strategy with target markets and positioning
+
+The Stage 4 Outreach Assistant reads from but does not modify the knowledge base, ensuring consistent execution of your established strategy.
 
 ## Additional Information
 
 - **Stage overview**:
 
-| Stage | Purpose | Files to Use |
+| Stage | Purpose | System Prompt File |
 | --- | --- | --- |
-| 1. Career Objectives | Define goals, timelines, and constraints | `prompts/set_career_objectives.user.prompt.md` |
-| 2. Personal Brand | Craft mission, values, and voice | `prompts/develop_personal_brand.user.prompt.md` |
-| 3. Go-To-Market Strategy | Map target roles, industries, and positioning | `job_market_positioning.system.prompt.md` |
-| 4. Content Execution | Generate outreach, cover letters, and follow-ups | `job_finding_assistant.system.prompt.md` |
+| 1. Requirements Gathering | Understand objectives, constraints, timeline | `career_coach_assistant.system.prompt.md` |
+| 2. Personal Brand | Develop mission, vision, values, voice | `personal_brand_development_assistant.system.prompt.md` |
+| 3. Go-To-Market Strategy | Map target roles, industries, positioning | `job_market_positioning.system.prompt.md` |
+| 4. Content Execution | Generate outreach, cover letters, follow-ups | `professional_networking_outreach_assistant.system.prompt.md` |
 
-- **Knowledge assets**: `inputs/document-library/` stores resumes, transcripts, and other references the assistant can cite. Keep this folder updated so the AI always has fresh proof points.
+- **Knowledge assets**: `inputs/document-library/` stores resumes, transcripts, and other references the assistants can cite. Keep this folder updated so the AI always has fresh proof points.
 
 - **Roadmap**: See `TODO.md` for planned improvements and integration ideas. Contributions and suggestions are welcome via GitHub issues.
 
