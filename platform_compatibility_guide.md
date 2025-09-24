@@ -10,17 +10,6 @@ All four job finding assistants are designed to work as standalone agents in pop
 - **OpenAI ChatGPT** (GPT-4, GPT-4 Turbo)
 - **Anthropic Claude** (Claude 3 Opus, Sonnet, Haiku)
 - **Mistral Le Chat Pro**
-- **Perplexity AI**
-- **Google Gemini**
-- **Any chat-based AI interface**
-
-### Platform-Specific Features
-
-| Platform | Web Search | File Upload | Code Execution | Image Generation |
-|----------|------------|-------------|----------------|------------------|
-| ChatGPT Plus | ✅ (if enabled) | ✅ | ✅ | ✅ |
-| Claude | ❌ | ✅ | ❌ | ❌ |
-| Mistral | ❌ | ❌ | ❌ | ❌ |
 
 ## How the Workflow Operates
 

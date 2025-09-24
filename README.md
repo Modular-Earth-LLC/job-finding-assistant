@@ -59,49 +59,6 @@ Imagine having a team of career experts available 24/7: a **Career Coach** to cl
   - Portfolio pieces, certifications, or project summaries
   - Any job descriptions you're targeting
 
-## 🔐 Privacy & Data Security Considerations
-
-### Understanding AI Platform Data Usage
-
-When using AI assistants for your job search, you're sharing potentially sensitive information. Here's what you should know:
-
-**What AI Platforms May Do With Your Data:**
-- **Training**: Some platforms may use conversations to improve their models (you can often opt out)
-- **Storage**: Your conversations and uploaded documents may be stored on their servers
-- **Analysis**: Platforms analyze usage patterns to improve their services
-- **Retention**: Data may be retained for various periods (check each platform's policy)
-
-**Sensitive Information to Consider:**
-- 💰 **Salary Information**: Current compensation, desired salary, financial goals
-- 🏢 **Company Details**: Current employer, reasons for leaving, workplace issues
-- 📍 **Personal Data**: Home address, phone numbers, personal email
-- 🎯 **Strategic Plans**: Target companies, negotiation strategies, timing
-
-### Smart Privacy Practices
-
-**Do's ✅**
-- Review each platform's privacy policy and data usage terms
-- Use privacy settings where available (e.g., ChatGPT's data controls)
-- Replace specific numbers with ranges ("$150K-180K" vs exact salary)
-- Refer to companies generically when discussing sensitive topics
-- Download and delete conversations containing sensitive data
-
-**Consider Alternatives 🔄**
-- Instead of: "I make $167,500 at Google"
-- Try: "I'm a senior engineer at a major tech company in the $150-175K range"
-
-**Platform-Specific Privacy Features:**
-- **ChatGPT**: Settings → Data Controls → Disable training on your data
-- **Claude**: Projects are isolated; delete projects to remove data
-- **Mistral**: Review data processing terms in your account settings
-
-**Creating a Privacy Buffer:**
-Consider maintaining two versions of your information:
-1. **Full Version**: Keep locally for your records
-2. **AI Version**: Sanitized version for AI interactions
-
-Remember: These AI assistants are powerful tools, but treat them like any professional service—share what's necessary, protect what's sensitive.
-
 ## 🔧 Platform Setup Instructions
 
 ### OpenAI ChatGPT Custom GPTs
@@ -295,18 +252,28 @@ After completing all four stages, you'll have:
 - Forget to update the knowledge base after major career changes
 - Share exact salary figures or highly confidential information
 
-## 🔍 Troubleshooting Guide
+## 📈 Measuring Success
 
-| Problem | Solution |
-|---------|----------|
-| **"Prompt too long" error** | Split the system prompt into 2-3 sections when pasting |
-| **Generic-sounding content** | Complete all stages first; provide specific company/role details |
-| **Inconsistent information** | Update knowledge base; ensure all assistants use the latest version |
-| **Platform won't accept files** | Convert to supported formats (PDF for docs, JSON for data) |
-| **Assistant confusion** | Start fresh conversation; remind it of its specific role |
-| **LinkedIn export issues** | Request "Select specific data" not "Everything" to avoid huge files |
-| **Outdated AI responses** | Upload recent knowledge base at start of each session |
-| **Privacy concerns** | Use ranges instead of exact numbers; sanitize company names when needed |
+Track your job search effectiveness:
+
+- **Response Rate**: Aim for 20-30% on personalized outreach
+- **Interview Conversion**: Target 1 interview per 5-7 applications
+- **Time Saved**: Most users report 5-10x faster content creation
+- **Quality Metrics**: Higher engagement, more meaningful conversations
+
+## 🚀 Advanced Tips
+
+### Power User Strategies
+1. **Batch Processing**: Generate multiple variations of messages and A/B test
+2. **Template Library**: Save high-performing messages in `outreach_templates`
+3. **Industry Customization**: Create industry-specific knowledge bases
+4. **Interview Prep**: Use assistants to prepare for specific company interviews
+
+### Integration Ideas
+- Connect with job boards APIs for automated application tracking
+- Export messages to CRM systems for follow-up management
+- Create calendar reminders for outreach campaigns
+- Build email templates for your preferred client
 
 ## 📊 Knowledge Base Architecture
 
@@ -341,28 +308,61 @@ The knowledge base (`job_search_knowledge_base.json`) has four main sections tha
 3. **Positioning Assistant** → Creates market strategy
 4. **Outreach Assistant** → Executes strategy (read-only access)
 
-## 📈 Measuring Success
+## 🔐 Privacy & Data Security Considerations
 
-Track your job search effectiveness:
+### Understanding AI Platform Data Usage
 
-- **Response Rate**: Aim for 20-30% on personalized outreach
-- **Interview Conversion**: Target 1 interview per 5-7 applications
-- **Time Saved**: Most users report 5-10x faster content creation
-- **Quality Metrics**: Higher engagement, more meaningful conversations
+When using AI assistants for your job search, you're sharing potentially sensitive information. Here's what you should know:
 
-## 🚀 Advanced Tips
+**What AI Platforms May Do With Your Data:**
+- **Training**: Some platforms may use conversations to improve their models (you can often opt out)
+- **Storage**: Your conversations and uploaded documents may be stored on their servers
+- **Analysis**: Platforms analyze usage patterns to improve their services
+- **Retention**: Data may be retained for various periods (check each platform's policy)
 
-### Power User Strategies
-1. **Batch Processing**: Generate multiple variations of messages and A/B test
-2. **Template Library**: Save high-performing messages in `outreach_templates`
-3. **Industry Customization**: Create industry-specific knowledge bases
-4. **Interview Prep**: Use assistants to prepare for specific company interviews
+**Sensitive Information to Consider:**
+- 💰 **Salary Information**: Current compensation, desired salary, financial goals
+- 🏢 **Company Details**: Current employer, reasons for leaving, workplace issues
+- 📍 **Personal Data**: Home address, phone numbers, personal email
+- 🎯 **Strategic Plans**: Target companies, negotiation strategies, timing
 
-### Integration Ideas
-- Connect with job boards APIs for automated application tracking
-- Export messages to CRM systems for follow-up management
-- Create calendar reminders for outreach campaigns
-- Build email templates for your preferred client
+### Smart Privacy Practices
+
+**Do's ✅**
+- Review each platform's privacy policy and data usage terms
+- Use privacy settings where available (e.g., ChatGPT's data controls)
+- Replace specific numbers with ranges ("$150K-180K" vs exact salary)
+- Refer to companies generically when discussing sensitive topics
+- Download and delete conversations containing sensitive data
+
+**Consider Alternatives 🔄**
+- Instead of: "I make $167,500 at Google"
+- Try: "I'm a senior engineer at a major tech company in the $150-175K range"
+
+**Platform-Specific Privacy Features:**
+- **ChatGPT**: Settings → Data Controls → Disable training on your data
+- **Claude**: Projects are isolated; delete projects to remove data
+- **Mistral**: Review data processing terms in your account settings
+
+**Creating a Privacy Buffer:**
+Consider maintaining two versions of your information:
+1. **Full Version**: Keep locally for your records
+2. **AI Version**: Sanitized version for AI interactions
+
+Remember: These AI assistants are powerful tools, but treat them like any professional service—share what's necessary, protect what's sensitive.
+
+## 🔍 Troubleshooting Guide
+
+| Problem | Solution |
+|---------|----------|
+| **"Prompt too long" error** | Split the system prompt into 2-3 sections when pasting |
+| **Generic-sounding content** | Complete all stages first; provide specific company/role details |
+| **Inconsistent information** | Update knowledge base; ensure all assistants use the latest version |
+| **Platform won't accept files** | Convert to supported formats (PDF for docs, JSON for data) |
+| **Assistant confusion** | Start fresh conversation; remind it of its specific role |
+| **LinkedIn export issues** | Request "Select specific data" not "Everything" to avoid huge files |
+| **Outdated AI responses** | Upload recent knowledge base at start of each session |
+| **Privacy concerns** | Use ranges instead of exact numbers; sanitize company names when needed |
 
 ## 🤝 Contributing
 
@@ -400,7 +400,6 @@ MIT License - see LICENSE file for details. Use this toolkit to land your dream 
 ## Questions?
 
 - 📧 Open an issue on GitHub
-- 💬 Join our community discussions
 - 📖 Check the knowledge base guide for detailed documentation
 
 *Remember: AI amplifies your authentic self—it doesn't replace it. Use these tools to showcase the amazing professional you already are.*
