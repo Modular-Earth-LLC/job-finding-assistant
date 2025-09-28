@@ -62,16 +62,12 @@ This document outlines the documentation architecture for the Job Finding Assist
 - Testing procedures
 - Compatibility matrix
 
-### knowledge_base_config_guide.md
-- File structure explanation
-- Data vs. configuration separation
-- Integration patterns
-- Privacy considerations
-
 ### knowledge_base_management_guide.md
-- CRUD operations
-- Data validation
-- Update procedures
+- File structure and architecture
+- Data vs. configuration separation
+- CRUD operations and permissions
+- Integration patterns
+- Privacy and version control
 - Best practices
 
 ## Navigation Flow
@@ -79,10 +75,9 @@ This document outlines the documentation architecture for the Job Finding Assist
 ```
 README.md
     ├── Quick Start
-    ├── Platform Setup → platform_compatibility_guide.md
-    ├── Data Architecture → knowledge_base_config_guide.md
     ├── System Prompts → system_prompts_guide.md
-    └── KB Management → knowledge_base_management_guide.md
+    ├── Platform Setup → platform_compatibility_guide.md
+    └── Knowledge Base → knowledge_base_management_guide.md
 ```
 
 ## Maintenance Guidelines
