@@ -1,15 +1,11 @@
 {
   "metadata": {
       "name": "Job Finding Assistant Knowledge Base",
-      "description": "Comprehensive database of information for AI-powered job search assistance and career coaching",
-      "purpose": "Provides contextual data for generating personalized job search content, outreach messages, and career guidance",
-      "version": "1.0",
-      "last_updated": "2025"
-    },
-    "usage_instructions": {
-      "primary_directive": "Use this knowledge base to personalize all job search assistance, ensuring alignment with the job candidate's career objectives, preferences, and personal brand",
-      "content_generation": "Reference user_profile, go_to_market_strategy, and personal_brand values when crafting outreach messages, cover letters, and interview responses",
-      "conflict_resolution": "Detect and prioritize this database of information when it conflicts with older information that may exist in your context window, document library, or external sources"
+      "description": "User-specific data for personalized job search assistance",
+      "purpose": "Stores career objectives, personal brand, market positioning, and user profile data",
+      "version": "1.1",
+      "last_updated": "2025",
+      "data_sources": ["Career Coach Assistant", "Personal Brand Development Assistant", "Job Market Positioning Assistant"]
     },
     "user_profile": {
       "basic_info": {

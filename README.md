@@ -1,6 +1,6 @@
 # Job Finding Assistant: Your AI-Powered Career Transformation Toolkit
 
-Transform your job search from a scattered effort into a strategic campaign with four specialized AI assistants that work together to land your dream role.
+Transform your job search from a scattered effort into a strategic campaign with five specialized AI assistants that work together to land your dream role.
 
 ## 🎯 What This Toolkit Does
 
@@ -26,11 +26,17 @@ Imagine having a team of career experts available 24/7: a **Career Coach** to cl
    - Creates go-to-market strategies tailored to your goals
    - Identifies your competitive advantages
 
-4. **💬 Professional Networking Outreach Assistant** - Your communications expert
-   - Writes personalized LinkedIn messages and connection requests
-   - Creates compelling cover letters and follow-up emails
-   - Adapts tone and style for different platforms
-   - Maintains your brand voice across all communications
+4. **📄 Job Application & Interview Assistant** - Your application specialist
+   - Creates ATS-optimized resumes tailored to each role
+   - Writes compelling cover letters that get noticed
+   - Prepares responses for common application questions
+   - Crafts professional interview follow-up communications
+
+5. **🤝 Professional Networking Assistant** - Your relationship builder
+   - Develops LinkedIn outreach strategies at scale
+   - Writes connection requests with 60%+ acceptance rates
+   - Creates thought leadership content for visibility
+   - Nurtures professional relationships that lead to referrals
 
 ## 📖 A Success Story: From Overwhelmed to Organized
 
@@ -42,7 +48,7 @@ Imagine having a team of career experts available 24/7: a **Career Coach** to cl
 
 *Week 3: The Positioning Assistant identified fintech and healthcare as ideal target industries where her skills commanded premium value.*
 
-*Week 4: The Outreach Assistant generated 15 personalized LinkedIn messages. Result? 5 responses, 3 interviews, and 1 offer for her dream role as Principal AI Engineer at a health tech startup.*
+*Week 4: The Application Assistant created tailored resumes and cover letters while the Networking Assistant generated 15 personalized LinkedIn messages. Result? 5 responses, 3 interviews, and 1 offer for her dream role as Principal AI Engineer at a health tech startup.*
 
 ## 🛠️ Quick Start Guide
 
@@ -184,10 +190,40 @@ Before starting, organize your career documents in the `inputs/document-library/
 **Sample Positioning Statement**:
 > "Technical leader who bridges the gap between cutting-edge AI research and practical business applications, with a track record of building compliant systems in regulated industries."
 
-### Stage 4: Outreach Assistant 💬
+### Stage 4: Job Application Assistant 📄
 
-**Setup**: Load `AI_assistants/professional_networking_outreach_assistant.system.prompt.md`
-**Important**: Always upload your latest knowledge base file when starting a session
+**Setup**: Load `AI_assistants/job_application_interview_assistant.system.prompt.md`
+**Important**: Always upload your latest knowledge base file and the shared communication config
+
+**Use Cases with Examples**:
+
+**ATS-Optimized Resume**:
+```
+Prompt: "Create a resume for the Senior AI Engineer role at HealthTech Inc focusing on healthcare ML experience"
+
+Output: Tailored resume with healthcare keywords, HIPAA compliance experience, and quantified ML achievements formatted for ATS systems
+```
+
+**Cover Letter**:
+```
+Prompt: "Write a cover letter for the Director of AI role at Microsoft"
+
+Output:
+"When I read that Microsoft is seeking a Director of AI to lead responsible AI initiatives, I immediately recognized the perfect intersection of my passion and expertise. Over the past decade, I've not only built AI systems that serve millions but also championed ethical AI practices that became industry standards at my previous companies..."
+[Full 3-paragraph letter with specific examples and clear value proposition]
+```
+
+**Interview Thank You**:
+```
+Prompt: "Write a thank you email after interviewing with Sarah Chen for the ML Lead role"
+
+Output: Professional follow-up referencing specific conversation points, reiterating interest, and clear next steps
+```
+
+### Stage 5: Professional Networking Assistant 🤝
+
+**Setup**: Load `AI_assistants/professional_networking_assistant.system.prompt.md`
+**Strategy**: Focus on building relationships, not just asking for jobs
 
 **Use Cases with Examples**:
 
@@ -198,34 +234,23 @@ Prompt: "Write a connection request to the VP of Engineering at HealthTech Inc a
 Output: "Hi Sarah, I've been following HealthTech's innovative work in diagnostic AI. As someone who's built HIPAA-compliant ML systems processing 1M+ patient records, I'd love to connect and learn more about your team's approach to ethical AI in healthcare."
 ```
 
-**Cold Email to Recruiter**:
+**Relationship Building Email**:
 ```
-Prompt: "Email a recruiter about the Senior Product Manager role at their fintech startup"
+Prompt: "Email a technical leader I met at a conference 6 months ago"
 
-Output:
-Subject: Fintech Product Leader - Re: Senior PM Role
-
-Hi [Name],
-
-I noticed your posting for a Senior Product Manager and was immediately drawn to [Company]'s mission of democratizing financial services through AI. Having led product launches that increased user engagement by 40% at [Previous Company], I'm excited about the opportunity to bring similar innovation to your platform.
-
-My background uniquely combines technical depth (MS in Computer Science) with product excellence (shipped 5 products from 0 to 1). I'd welcome a brief call to discuss how my experience building AI-powered financial products could contribute to [Company]'s growth.
-
-Best regards,
-[Your name]
+Output: Value-first message sharing relevant industry insight, checking on their project progress, and offering a specific way to help
 ```
 
-**Cover Letter Opening**:
+**Thought Leadership Post**:
 ```
-Prompt: "Write an opening paragraph for a cover letter for the Director of AI role at Microsoft"
+Prompt: "Create a LinkedIn post about ethical AI development"
 
-Output:
-"When I read that Microsoft is seeking a Director of AI to lead responsible AI initiatives, I immediately recognized the perfect intersection of my passion and expertise. Over the past decade, I've not only built AI systems that serve millions but also championed ethical AI practices that became industry standards at my previous companies."
+Output: Engaging post with personal insight, industry trend analysis, and discussion-driving question, optimized for LinkedIn algorithm
 ```
 
 ## 🎉 Expected Results
 
-After completing all four stages, you'll have:
+After completing all five stages, you'll have:
 
 ✅ **Crystal-clear career direction** with documented goals and priorities  
 ✅ **Authentic personal brand** that differentiates you from other candidates  
@@ -237,7 +262,7 @@ After completing all four stages, you'll have:
 ## 🛡️ Best Practices
 
 ### Do's ✅
-- Complete stages 1-3 before using the outreach assistant
+- Complete stages 1-3 before using the application or networking assistants
 - Upload fresh documents when your situation changes
 - Provide specific context for each outreach request
 - Review and personalize AI-generated content before sending
@@ -275,38 +300,23 @@ Track your job search effectiveness:
 - Create calendar reminders for outreach campaigns
 - Build email templates for your preferred client
 
-## 📊 Knowledge Base Architecture
+## 📊 Data Architecture Overview
 
-The knowledge base (`job_search_knowledge_base.json`) has four main sections that are built progressively:
+The system uses two key files:
 
-```json
-{
-  "user_profile": {          // Stage 1: Career Coach
-    "basic_info": {},
-    "career_objectives": {}
-  },
-  "personal_brand": {        // Stage 2: Brand Assistant
-    "mission": "",
-    "vision": "",
-    "values": [],
-    "personality": {}
-  },
-  "go_to_market_strategy": { // Stage 3: Positioning Assistant
-    "target_markets": [],
-    "positioning": {},
-    "action_plan": {}
-  },
-  "outreach_templates": {    // Used by Stage 4: Outreach Assistant
-    "successful_examples": []
-  }
-}
-```
+### User Data (`job_search_knowledge_base.json`)
+- **Stage 1**: Career objectives and profile (Career Coach)
+- **Stage 2**: Personal brand and values (Brand Development)
+- **Stage 3**: Market positioning strategy (Market Positioning)
+- **Stage 4**: Read-only by Application and Networking assistants
 
-### Progressive Building Process
-1. **Career Coach** → Establishes foundation (who you are, what you want)
-2. **Brand Assistant** → Adds personality and authenticity  
-3. **Positioning Assistant** → Creates market strategy
-4. **Outreach Assistant** → Executes strategy (read-only access)
+### System Configuration (`job_assistant_system_config.json`)
+- Workflow definitions and permissions
+- Communication standards and templates
+- Platform compatibility settings
+- Shared boundaries between assistants
+
+See the [Knowledge Base Management Guide](inputs/knowledge-bases/knowledge_base_management_guide.md) for detailed technical information.
 
 ## 🔐 Privacy & Data Security Considerations
 
@@ -373,12 +383,16 @@ We welcome contributions! Here's how to help:
 3. **Add Features**: Check `TODO.md` for roadmap items
 4. **Report Issues**: Help us fix bugs and improve documentation
 
-## 📚 Resources
+## 📚 Technical Documentation
 
-- **Documentation**: `inputs/knowledge-bases/knowledge_base_management_guide.md`
-- **Example Documents**: Browse `inputs/document-library/` for samples
-- **Platform Guides**: See `AI_assistants/PLATFORM_COMPATIBILITY_GUIDE.md`
-- **Updates**: Check `AI_assistants/PLATFORM_INDEPENDENCE_UPDATES.md`
+### System Guides
+- **System Prompts**: [`AI_assistants/system_prompts_guide.md`](AI_assistants/system_prompts_guide.md) - Understanding and customizing the AI assistants
+- **Platform Setup**: [`AI_assistants/platform_compatibility_guide.md`](AI_assistants/platform_compatibility_guide.md) - Deploy assistants on ChatGPT, Claude, Mistral
+- **Knowledge Base**: [`inputs/knowledge-bases/knowledge_base_management_guide.md`](inputs/knowledge-bases/knowledge_base_management_guide.md) - Data architecture, management, and best practices
+
+### Reference Materials
+- **Example Documents**: `inputs/document-library/` - Sample resumes, LinkedIn exports, etc.
+- **System Configuration**: `inputs/knowledge-bases/job_assistant_system_config.json` - Shared system settings
 
 ## 🎯 Start Your Transformation Today
 

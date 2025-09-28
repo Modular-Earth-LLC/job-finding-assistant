@@ -1,0 +1,37 @@
+# User-specific data (should not be in version control)
+inputs/knowledge-bases/job_search_knowledge_base.json
+
+# Keep the config file (it's system-level, not user-specific)
+# !inputs/knowledge-bases/job_communication_config.json
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Node modules (if any JS tools are added)
+node_modules/
+
+# Environment files
+.env
+.env.local
+
+# Backup files
+*.bak
+*.backup
+*~

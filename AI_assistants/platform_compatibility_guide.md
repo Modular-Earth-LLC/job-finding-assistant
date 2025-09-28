@@ -1,8 +1,10 @@
-# Platform Compatibility Guide for Job Finding Assistants
+# Platform Compatibility Guide
 
-## Overview
+This guide provides technical instructions for deploying the Job Finding Assistant system prompts across different AI platforms.
 
-All four job finding assistants are designed to work as standalone agents in popular AI platforms without requiring file system access. They operate through conversation, accepting pasted inputs and providing copy-ready outputs.
+## System Architecture
+
+The system consists of five specialized assistants designed to work as standalone agents without file system dependencies. Each operates through conversational interfaces, accepting pasted inputs and providing structured outputs.
 
 ## Supported Platforms
 
@@ -11,40 +13,49 @@ All four job finding assistants are designed to work as standalone agents in pop
 - **Anthropic Claude** (Claude 3 Opus, Sonnet, Haiku)
 - **Mistral Le Chat Pro**
 
-## How the Workflow Operates
+## Assistant Workflow
 
-### Step 1: Career Coach Assistant
+### Stage 1: Career Coach Assistant
 **Input**: None required (starts fresh)
 **Process**: Conversational consultation
 **Output**: Career objectives summary (markdown + JSON)
 
-### Step 2: Personal Brand Assistant
-**Input**: Paste career objectives from Step 1
+### Stage 2: Personal Brand Development Assistant
+**Input**: Paste career objectives from Stage 1
 **Process**: Brand discovery workshops
 **Output**: Personal brand profile (markdown + JSON)
 
-### Step 3: Market Positioning Assistant
-**Input**: Paste outputs from Steps 1 & 2
+### Stage 3: Job Market Positioning Assistant
+**Input**: Paste outputs from Stages 1 & 2
 **Process**: Strategy development dialogue
 **Output**: Go-to-market strategy (markdown + JSON)
 
-### Step 4: Networking Outreach Assistant
-**Input**: Paste outputs from Steps 1-3 + job description
-**Process**: Content creation
-**Output**: Copy-ready messages/letters
+### Stage 4A: Job Application & Interview Assistant
+**Input**: Paste outputs from Stages 1-3 + job description
+**Process**: Application material creation
+**Output**: ATS-optimized resumes, cover letters, interview materials
 
-## Data Flow Between Assistants
+### Stage 4B: Professional Networking Assistant
+**Input**: Paste outputs from Stages 1-3 + target information
+**Process**: Relationship building content
+**Output**: LinkedIn messages, connection requests, thought leadership
+
+## Data Flow Architecture
 
 ```
-[Career Coach] 
-    ↓ (copy/paste summary)
-[Personal Brand]
-    ↓ (copy/paste profile)
-[Market Positioning]
-    ↓ (copy/paste strategy)
-[Networking Outreach]
-    ↓
-[Ready-to-send content]
+[Career Coach Assistant] 
+    ↓ (objectives summary)
+[Personal Brand Development]
+    ↓ (brand profile)
+[Job Market Positioning]
+    ↓ (go-to-market strategy)
+    ├─→ [Job Application Assistant]
+    │      ↓
+    │   [Resumes, Cover Letters]
+    │
+    └─→ [Professional Networking Assistant]
+           ↓
+       [Networking Content]
 ```
 
 ## Setting Up Custom GPTs/Agents
@@ -90,10 +101,16 @@ User: "I have my career objectives and personal brand documentation. Can you hel
 [Assistant should ask for the documents]
 ```
 
-#### Networking Outreach Test
+#### Job Application Test
 ```
-User: "I need a LinkedIn message for a Director of AI role at a healthcare company. I have my strategy documentation ready."
+User: "I need a resume and cover letter for a Director of AI role at a healthcare company. I have my strategy documentation ready."
 [Assistant should ask for documents and job description]
+```
+
+#### Professional Networking Test
+```
+User: "I need LinkedIn outreach messages to connect with AI leaders in healthcare. I have my strategy documentation ready."
+[Assistant should ask for documents and target details]
 ```
 
 ## Common Issues and Solutions
@@ -135,26 +152,31 @@ Before considering setup complete:
 - [ ] Platform constraints are respected
 - [ ] Workflow progression is smooth
 
-## Sample Complete Workflow
+## Complete Workflow Example
 
-1. **Start with Career Coach**
+1. **Stage 1: Career Coach**
    - Complete consultation
    - Copy objectives summary
 
-2. **Move to Personal Brand**
+2. **Stage 2: Personal Brand Development**
    - Paste objectives
    - Complete brand workshops
    - Copy brand profile
 
-3. **Continue to Market Positioning**
+3. **Stage 3: Market Positioning**
    - Paste objectives and brand
    - Develop strategy
    - Copy strategy document
 
-4. **Finish with Networking Outreach**
+4. **Stage 4A: Job Applications** (when applying to specific roles)
    - Paste all previous outputs
    - Provide job description
-   - Receive ready-to-send content
+   - Receive optimized resume and cover letter
+
+5. **Stage 4B: Professional Networking** (for relationship building)
+   - Paste all previous outputs
+   - Provide target information
+   - Receive networking content
 
 ## Summary
 

@@ -1,12 +1,23 @@
-# Knowledge Base Management Guide for Job Finding Assistants
+# Knowledge Base Management Guide
 
-## Overview
+This comprehensive guide covers the data architecture, management procedures, and best practices for the Job Finding Assistant knowledge base system.
 
-This guide documents the standardized knowledge base management approach implemented across all AI assistants in the job finding system. Each assistant has specific read/write permissions aligned with their expertise area.
+## System Architecture
+
+The system uses two JSON files with distinct purposes:
+
+1. **`job_search_knowledge_base.json`** - User-specific data storage
+2. **`job_assistant_system_config.json`** - System-level agent configuration
+
+### Architectural Separation
+
+- **User Data**: Personal information that customizes assistant responses
+- **System Config**: Shared rules and templates that govern assistant behavior
+- **Privacy**: User data stays private, config can be open-sourced
 
 ## Knowledge Base Structure
 
-The centralized knowledge base is located at: `inputs/knowledge-bases/job_search_knowledge_base.json`
+Location: `inputs/knowledge-bases/job_search_knowledge_base.json`
 
 ### Core Sections
 
@@ -18,6 +29,22 @@ The centralized knowledge base is located at: `inputs/knowledge-bases/job_search
 6. **go_to_market_strategy** - Target roles, industries, and positioning
 7. **user_personality** - Character traits and communication style
 
+### System Configuration Structure
+
+Location: `inputs/knowledge-bases/job_assistant_system_config.json`
+
+```json
+{
+  "metadata": {...},
+  "knowledge_base_usage": {...},
+  "workflow_architecture": {...},
+  "communication_standards": {...},
+  "platform_constraints": {...},
+  "shared_boundaries": {...},
+  "quality_standards": {...}
+}
+```
+
 ## Assistant Permissions Matrix
 
 | Assistant | Read Access | Write Access | Primary Responsibility |
@@ -25,7 +52,8 @@ The centralized knowledge base is located at: `inputs/knowledge-bases/job_search
 | Career Coach | user_profile, career_objectives | user_profile.basic_info, career_objectives | Gather initial requirements and objectives |
 | Personal Brand | All sections | personal_brand, user_personality | Develop brand elements and personality profile |
 | Market Positioning | All sections | go_to_market_strategy | Create market strategy and positioning |
-| Networking Outreach | All sections | None (Read-Only) | Execute content creation based on strategy |
+| Job Application | All sections | None (Read-Only) | Create resumes and application materials |
+| Professional Networking | All sections | None (Read-Only) | Build networking content and relationships |
 
 ## Knowledge Base Operations
 
@@ -131,6 +159,53 @@ All assistants must function without knowledge base access:
 2. Document changes in session output
 3. Provide JSON for manual updates if needed
 4. Ensure downstream assistants have required data
+
+## Version Control and Privacy
+
+### Git Configuration
+
+```bash
+# The .gitignore file should include:
+inputs/knowledge-bases/job_search_knowledge_base.json
+
+# The config file SHOULD be in version control:
+# inputs/knowledge-bases/job_assistant_system_config.json
+```
+
+### Privacy Best Practices
+
+- **Knowledge Base**: Contains sensitive personal information - keep private
+- **Config File**: Contains no personal data - safe to share/open source
+- **User Data**: Never commit real user data to public repositories
+- **Test Data**: Use anonymized data for testing and examples
+
+## Integration Patterns
+
+### Assistant Initialization
+
+```python
+# Pseudo-code for assistant startup
+if exists("job_assistant_system_config.json"):
+    load_system_config()
+    apply_workflow_rules()
+    set_boundaries()
+else:
+    use_built_in_defaults()
+
+if exists("job_search_knowledge_base.json"):
+    load_user_data()
+    personalize_responses()
+else:
+    ask_user_for_context()
+```
+
+### Data Flow
+
+1. Assistant loads system config for behavioral rules
+2. Assistant loads knowledge base for user context
+3. Assistant applies permissions based on role
+4. Assistant performs allowed operations
+5. Changes are validated before saving
 
 ## Summary
 
