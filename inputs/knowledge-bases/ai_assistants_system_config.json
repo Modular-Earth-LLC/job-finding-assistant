@@ -1,10 +1,11 @@
 {
   "metadata": {
-    "name": "Job Finding Communication Configuration",
-    "description": "Shared system-level standards, templates, and guidelines for all job-finding assistants",
-    "purpose": "Ensures consistent operation and communication across all assistants",
-    "version": "2.0",
-    "last_updated": "2025"
+    "name": "AI Assistants System Configuration",
+    "description": "Technical configuration for all job-finding AI assistants. Defines system architecture, workflows, boundaries, communication standards, and shared behaviors.",
+    "purpose": "Provides AI assistants with consistent operational guidelines, permissions, and quality standards. This is a technical configuration managed by AI engineers, not intended for end-user modification.",
+    "version": "3.0",
+    "last_updated": "2025-09-28",
+    "note": "This file configures AI assistant behavior. User-specific data is stored in job_search_knowledge_base.json"
   },
   "knowledge_base_usage": {
     "primary_directive": "Use the job_search_knowledge_base.json to personalize all assistance, ensuring alignment with the job candidate's career objectives, preferences, and personal brand",
@@ -59,7 +60,7 @@
     },
     "personal_brand": {
       "read": ["career_objectives", "user_profile", "personal_brand", "user_personality"],
-      "write": ["personal_brand", "user_personality.character_traits"]
+      "write": ["personal_brand", "user_personality"]
     },
     "market_positioning": {
       "read": ["career_objectives", "personal_brand", "user_profile", "user_personality", "go_to_market_strategy"],
@@ -297,6 +298,48 @@
       "user_privacy": "No personal data in system configurations"
     }
   },
+  "knowledge_base_operations": {
+    "error_handling": {
+      "file_not_found": {
+        "detection": "Knowledge base file does not exist",
+        "user_message": "The knowledge base file does not exist. Would you like me to: 1) Create it (if platform supports), or 2) Proceed with conversation-only mode?",
+        "fallback": "Continue in conversation mode without file persistence"
+      },
+      "json_decode_error": {
+        "detection": "Invalid JSON format in knowledge base",
+        "user_message": "The knowledge base file contains invalid JSON. I'll proceed in conversation mode. Please check the file format.",
+        "fallback": "Operate without reading corrupted file"
+      },
+      "permission_error": {
+        "detection": "Cannot read or write knowledge base file",
+        "user_message": "I don't have permission to access the knowledge base file. I'll continue in conversation mode.",
+        "fallback": "Proceed without file access"
+      },
+      "generic_error": {
+        "detection": "Any other unexpected error",
+        "user_message": "An unexpected error occurred with the knowledge base. I'll continue in conversation mode to ensure we can proceed.",
+        "fallback": "Safe mode operation without file dependency"
+      }
+    },
+    "data_validation": {
+      "before_write": [
+        "Validate JSON syntax is correct",
+        "Check all data types match expected schema",
+        "Verify all required fields are present",
+        "Ensure no data written outside assigned permissions",
+        "Confirm data coherence with existing sections"
+      ],
+      "user_approval": {
+        "requirement": "All knowledge base modifications require explicit user approval",
+        "process": [
+          "Present proposed changes clearly with before/after comparison",
+          "Explain impact on downstream workflow stages",
+          "Wait for explicit confirmation (Yes/Approve/Confirm)",
+          "Log approval with ISO-8601 timestamp"
+        ]
+      }
+    }
+  },
   "shared_templates": {
     "session_handoff": {
       "format": "markdown",
@@ -317,7 +360,7 @@
     },
     "missing_file_handling": {
       "knowledge_base": "The knowledge base file does not exist. Would you like me to: 1) Create it (if platform supports), or 2) Proceed with conversation-only mode?",
-      "communication_config": "The shared configuration file is not available. I'll proceed with built-in defaults."
+      "system_config": "The AI assistants system configuration file is not available. I'll proceed with built-in defaults."
     }
   }
 }

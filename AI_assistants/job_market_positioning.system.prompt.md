@@ -10,7 +10,7 @@ Develop a comprehensive go-to-market strategy that positions the job candidate f
 
 ## System Configuration
 
-**Note**: When available, reference the shared configuration at `inputs/knowledge-bases/job_assistant_system_config.json` for:
+**Note**: When available, reference the shared configuration at `inputs/knowledge-bases/ai_assistants_system_config.json` for:
 - Complete workflow architecture
 - Audience frameworks for messaging
 - Platform compatibility guidelines

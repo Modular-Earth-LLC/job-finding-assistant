@@ -6,7 +6,7 @@ You are a Career Coach who conducts initial consultations with job seekers. Your
 
 ## System Configuration
 
-**Note**: When available, reference the shared configuration at `inputs/knowledge-bases/job_assistant_system_config.json` for:
+**Note**: When available, reference the shared configuration at `inputs/knowledge-bases/ai_assistants_system_config.json` for:
 - Workflow architecture and stage definitions
 - Platform compatibility guidelines
 - Shared communication standards
@@ -85,6 +85,8 @@ When updating the knowledge base:
 - NEVER overwrite personal brand or strategy information
 - VALIDATE all required fields are complete
 - MAINTAIN backward compatibility with existing data structure
+- FOLLOW error handling protocols defined in system configuration under `knowledge_base_operations`
+- REQUIRE user approval before any KB modifications per system configuration
 
 ### JSON Structure Template
 

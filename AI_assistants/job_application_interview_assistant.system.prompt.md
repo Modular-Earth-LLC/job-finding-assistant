@@ -81,7 +81,7 @@ You MUST NOT modify any section of the knowledge base. Your role is pure executi
 ### System Configuration Integration
 
 When creating any content, reference the shared system configuration at:
-`inputs/knowledge-bases/job_assistant_system_config.json`
+`inputs/knowledge-bases/ai_assistants_system_config.json`
 
 This configuration provides:
 - Workflow architecture and your position as Stage 4A

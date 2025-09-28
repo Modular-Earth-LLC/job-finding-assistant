@@ -1,217 +1,338 @@
 # Knowledge Base Management Guide
 
-This comprehensive guide covers the data architecture, management procedures, and best practices for the Job Finding Assistant knowledge base system.
+Technical documentation for managing the Job Finding Assistant data architecture.
 
-## System Architecture
+## Overview
 
-The system uses two JSON files with distinct purposes:
+The system uses two JSON files with distinct responsibilities:
 
-1. **`job_search_knowledge_base.json`** - User-specific data storage
-2. **`job_assistant_system_config.json`** - System-level agent configuration
+| File | Purpose | Modified By | Audience |
+|------|---------|------------|----------|
+| `job_search_knowledge_base.json` | User-specific career data | Users & AI Assistants | Job seekers |
+| `ai_assistants_system_config.json` | System behavior configuration | System administrators | AI engineers |
 
-### Architectural Separation
+## File Architecture
 
-- **User Data**: Personal information that customizes assistant responses
-- **System Config**: Shared rules and templates that govern assistant behavior
-- **Privacy**: User data stays private, config can be open-sourced
+### User Knowledge Base
 
-## Knowledge Base Structure
-
-Location: `inputs/knowledge-bases/job_search_knowledge_base.json`
-
-### Core Sections
-
-1. **metadata** - System information about the knowledge base
-2. **usage_instructions** - How to use the knowledge base
-3. **user_profile** - Basic information about the job seeker
-4. **career_objectives** - Financial, career, family, and lifestyle goals
-5. **personal_brand** - Mission, vision, values, and brand narratives
-6. **go_to_market_strategy** - Target roles, industries, and positioning
-7. **user_personality** - Character traits and communication style
-
-### System Configuration Structure
-
-Location: `inputs/knowledge-bases/job_assistant_system_config.json`
+**File**: `job_search_knowledge_base.json`  
+**Purpose**: Stores personal career information that personalizes AI responses
 
 ```json
 {
-  "metadata": {...},
-  "knowledge_base_usage": {...},
-  "workflow_architecture": {...},
-  "communication_standards": {...},
-  "platform_constraints": {...},
-  "shared_boundaries": {...},
-  "quality_standards": {...}
+  "metadata": {
+    "name": "Job Finding Assistant Knowledge Base",
+    "version": "1.1",
+    "last_updated": "ISO-8601 timestamp"
+  },
+  "user_profile": {
+    "basic_info": {},      // Stage 1: Career Coach writes
+    "social_media_links": {} 
+  },
+  "career_objectives": {},  // Stage 1: Career Coach writes
+  "personal_brand": {},     // Stage 2: Personal Brand writes
+  "user_personality": {},   // Stage 2: Personal Brand writes (full section)
+  "go_to_market_strategy": {} // Stage 3: Market Positioning writes
 }
 ```
 
-## Assistant Permissions Matrix
+### System Configuration
 
-| Assistant | Read Access | Write Access | Primary Responsibility |
-|-----------|-------------|--------------|------------------------|
-| Career Coach | user_profile, career_objectives | user_profile.basic_info, career_objectives | Gather initial requirements and objectives |
-| Personal Brand | All sections | personal_brand, user_personality | Develop brand elements and personality profile |
-| Market Positioning | All sections | go_to_market_strategy | Create market strategy and positioning |
-| Job Application | All sections | None (Read-Only) | Create resumes and application materials |
-| Professional Networking | All sections | None (Read-Only) | Build networking content and relationships |
+**File**: `ai_assistants_system_config.json`  
+**Purpose**: Defines assistant behavior, workflows, and standards
 
-## Knowledge Base Operations
-
-### Standard CRUD Operations
-
-#### Create
-- Check if section exists before creating
-- Use provided JSON structure templates
-- Validate all required fields
-
-#### Read
-- Load current state before any operations
-- Check for existing data to avoid duplication
-- Use data to inform decisions and outputs
-
-#### Update
-- Only modify sections within your domain
-- Preserve all other existing data
-- Include timestamps when appropriate
-- Validate JSON syntax before saving
-
-#### Delete
-- Assistants do not delete data
-- Updates can replace outdated information
-- Historical data preservation is preferred
-
-### Data Safety Protocols
-
-1. **Domain Boundaries**: Each assistant only modifies their designated sections
-2. **Data Preservation**: Never delete or modify data outside your domain
-3. **Validation First**: Always validate JSON structure before updates
-4. **Backup in Output**: Include critical data in session outputs
-5. **Graceful Degradation**: System works without KB access
-
-## JSON Structure Standards
-
-### Consistent Formatting
-- Use descriptive field names
-- Include description fields for complex objects
-- Maintain consistent nesting levels
-- Use arrays for multiple values
-
-### Example Structure
 ```json
 {
-  "section_name": {
-    "description": "What this section contains",
-    "field_name": "value",
-    "nested_object": {
-      "description": "Nested object purpose",
-      "values": ["item1", "item2"]
-    },
-    "last_updated": "YYYY-MM-DD"
+  "metadata": {},
+  "workflow_architecture": {
+    "stages": []  // Defines 5-stage workflow
+  },
+  "knowledge_base_permissions": {
+    // Read/write matrix per assistant
+  },
+  "communication_standards": {
+    // Templates and guidelines
+  },
+  "platform_constraints": {
+    // Platform-specific limits
   }
 }
 ```
 
-## Fallback Operations
+## CRUD Operations
 
-All assistants must function without knowledge base access:
+### CREATE Operations
 
-1. **Request Information**: Ask user for required data
-2. **Document Decisions**: Capture all information in session output
-3. **Provide JSON Format**: Structure data for manual KB entry
-4. **Continue Service**: Deliver full value despite KB unavailability
-
-## Best Practices
-
-### For Human Readability
-- Use clear, descriptive field names
-- Include inline documentation via description fields
-- Maintain logical grouping of related data
-- Format JSON with proper indentation
-
-### For AI Agent Parsing
-- Consistent structure across all sections
-- Predictable field names and types
-- Clear permission boundaries
-- Self-documenting format
-
-### For System Maintenance
-- Simple data model with minimal nesting
-- Clear ownership of each section
-- Version tracking through timestamps
-- No complex relationships or foreign keys
-
-## Integration Guidelines
-
-### When Starting a Session
-1. Check KB availability
-2. Load relevant sections based on permissions
-3. Identify gaps or missing data
-4. Plan information gathering if needed
-
-### During Operations
-1. Reference KB data for context
-2. Validate against existing information
-3. Update only authorized sections
-4. Maintain data consistency
-
-### When Completing Work
-1. Save updates to authorized sections
-2. Document changes in session output
-3. Provide JSON for manual updates if needed
-4. Ensure downstream assistants have required data
-
-## Version Control and Privacy
-
-### Git Configuration
-
-```bash
-# The .gitignore file should include:
-inputs/knowledge-bases/job_search_knowledge_base.json
-
-# The config file SHOULD be in version control:
-# inputs/knowledge-bases/job_assistant_system_config.json
+**When**: Section doesn't exist  
+**Who**: Authorized assistant per permission matrix  
+**How**:
+```python
+def create_section(kb_data, section_name, content):
+    if section_name not in kb_data:
+        kb_data[section_name] = content
+        kb_data['metadata']['last_updated'] = datetime.now().isoformat()
+    return kb_data
 ```
 
-### Privacy Best Practices
+### READ Operations
 
-- **Knowledge Base**: Contains sensitive personal information - keep private
-- **Config File**: Contains no personal data - safe to share/open source
-- **User Data**: Never commit real user data to public repositories
-- **Test Data**: Use anonymized data for testing and examples
+**When**: Every assistant initialization  
+**Who**: All assistants (read permissions vary)  
+**How**:
+```python
+def read_knowledge_base(file_path):
+    try:
+        with open(file_path, 'r') as f:
+            return json.load(f)
+    except FileNotFoundError:
+        return None  # Trigger conversational mode
+```
+
+### UPDATE Operations
+
+**When**: Assistant completes data gathering  
+**Who**: Only authorized assistants  
+**How**:
+```python
+def update_section(kb_data, section_name, updates):
+    if has_write_permission(current_assistant, section_name):
+        kb_data[section_name].update(updates)
+        kb_data['metadata']['last_updated'] = datetime.now().isoformat()
+    return kb_data
+```
+
+### DELETE Operations
+
+**Policy**: No deletion, only updates  
+**Reason**: Preserve audit trail and user data
+
+## Permission Matrix
+
+| Assistant | Read Permissions | Write Permissions |
+|-----------|-----------------|-------------------|
+| Career Coach | `user_profile`, `career_objectives` | `user_profile.basic_info`, `career_objectives` |
+| Personal Brand | All sections | `personal_brand`, `user_personality` |
+| Market Positioning | All sections | `go_to_market_strategy` |
+| Job Application | All sections | None (read-only) |
+| Professional Networking | All sections | None (read-only) |
+
+## Data Validation
+
+### Schema Validation
+
+```python
+def validate_knowledge_base(kb_data):
+    required_fields = ['metadata', 'user_profile']
+    
+    # Check required fields
+    for field in required_fields:
+        if field not in kb_data:
+            raise ValidationError(f"Missing required field: {field}")
+    
+    # Validate metadata
+    if 'version' not in kb_data['metadata']:
+        kb_data['metadata']['version'] = '1.1'
+    
+    # Validate date format
+    try:
+        datetime.fromisoformat(kb_data['metadata'].get('last_updated', ''))
+    except:
+        kb_data['metadata']['last_updated'] = datetime.now().isoformat()
+    
+    return kb_data
+```
+
+### Type Checking
+
+```python
+SCHEMA = {
+    'user_profile': {
+        'basic_info': {
+            'name': str,
+            'email': str,
+            'primary_location': str
+        }
+    },
+    'career_objectives': {
+        'objectives_by_category': dict,
+        'timeline_constraints': dict
+    }
+}
+```
 
 ## Integration Patterns
 
-### Assistant Initialization
+### Multi-Platform Knowledge Sharing
 
+For platforms with file access (e.g., OpenAI GPTs):
 ```python
-# Pseudo-code for assistant startup
-if exists("job_assistant_system_config.json"):
-    load_system_config()
-    apply_workflow_rules()
-    set_boundaries()
-else:
-    use_built_in_defaults()
-
-if exists("job_search_knowledge_base.json"):
-    load_user_data()
-    personalize_responses()
-else:
-    ask_user_for_context()
+# Direct file operations
+kb = load_json('job_search_knowledge_base.json')
+config = load_json('ai_assistants_system_config.json')
 ```
 
-### Data Flow
+For platforms without file access:
+```python
+# Conversational state management
+kb_state = request_from_user("Please paste your knowledge base")
+config = load_default_config()
+```
 
-1. Assistant loads system config for behavioral rules
-2. Assistant loads knowledge base for user context
-3. Assistant applies permissions based on role
-4. Assistant performs allowed operations
-5. Changes are validated before saving
+### Synchronization Strategy
 
-## Summary
+1. **Lock-free reads**: Multiple assistants can read simultaneously
+2. **Sequential writes**: Only one assistant writes per session
+3. **Version tracking**: Use `last_updated` for conflict detection
+4. **Merge strategy**: Latest write wins with user confirmation
 
-This knowledge base management system ensures:
-- **Consistency**: Standardized operations across all assistants
-- **Safety**: Clear boundaries prevent data corruption
-- **Flexibility**: System works with or without KB access
-- **Simplicity**: Easy for humans and AI to understand
-- **Maintainability**: Clear ownership and simple structure
+## Security Considerations
+
+### Data Privacy
+
+```python
+SENSITIVE_FIELDS = [
+    'user_profile.basic_info.email',
+    'user_profile.basic_info.phone',
+    'career_objectives.financial'
+]
+
+def sanitize_for_sharing(kb_data):
+    """Remove sensitive data before sharing"""
+    sanitized = deepcopy(kb_data)
+    for field_path in SENSITIVE_FIELDS:
+        remove_nested_field(sanitized, field_path)
+    return sanitized
+```
+
+### Access Control
+
+```python
+def check_permissions(assistant_id, operation, field):
+    config = load_system_config()
+    permissions = config['knowledge_base_permissions'][assistant_id]
+    
+    if operation == 'read':
+        return field in permissions['read']
+    elif operation == 'write':
+        return field in permissions['write']
+    return False
+```
+
+## Error Handling
+
+Error handling protocols are defined in the system configuration file (`ai_assistants_system_config.json`) under the `knowledge_base_operations` section. All AI assistants reference these protocols directly from the system configuration.
+
+Key error scenarios handled:
+- File not found
+- Invalid JSON format
+- Permission errors
+- Generic errors
+
+All knowledge base modifications require explicit user approval as defined in the system configuration.
+
+## Deployment Architectures
+
+### Single User (Local)
+```
+User Machine
+├── job_search_knowledge_base.json (git-ignored)
+├── ai_assistants_system_config.json (version controlled)
+└── AI Platform Sessions (ephemeral)
+```
+
+### Multi-User (Cloud)
+```
+Cloud Storage (User-Specific)
+├── users/
+│   ├── user_001/kb.json
+│   ├── user_002/kb.json
+│   └── ...
+└── shared/
+    └── system_config.json (cached globally)
+```
+
+### Enterprise Deployment
+```python
+class KnowledgeBaseService:
+    def __init__(self, storage_backend):
+        self.storage = storage_backend  # S3, Azure, GCS
+        self.cache = Redis()
+        
+    async def get_user_kb(self, user_id):
+        # Check cache first
+        if cached := self.cache.get(f"kb:{user_id}"):
+            return json.loads(cached)
+        
+        # Load from storage
+        kb = await self.storage.get(f"users/{user_id}/kb.json")
+        self.cache.set(f"kb:{user_id}", json.dumps(kb), ex=3600)
+        return kb
+```
+
+## Monitoring and Debugging
+
+### Audit Logging
+```python
+def log_kb_operation(user_id, assistant_id, operation, field):
+    log_entry = {
+        'timestamp': datetime.now().isoformat(),
+        'user_id': user_id,
+        'assistant_id': assistant_id,
+        'operation': operation,
+        'field': field
+    }
+    append_to_audit_log(log_entry)
+```
+
+### Common Issues
+
+| Issue | Cause | Solution |
+|-------|-------|----------|
+| Missing fields | Incomplete workflow | Run missing assistant stages |
+| Permission denied | Wrong assistant | Check permission matrix |
+| Validation errors | Schema mismatch | Update to latest version |
+| Sync conflicts | Concurrent edits | Use timestamp-based merge |
+
+## Best Practices
+
+### For System Administrators
+
+1. **Version Control**: Keep system config in git
+2. **Backup Strategy**: Regular snapshots of user KBs
+3. **Migration Planning**: Version upgrade paths
+4. **Monitoring**: Track usage and errors
+
+### For Developers
+
+1. **Atomic Updates**: Write complete sections
+2. **Validation First**: Check before writing
+3. **Graceful Degradation**: Handle missing KB
+4. **Clear Errors**: User-friendly messages
+
+### For Data Engineers
+
+1. **Schema Evolution**: Backward compatibility
+2. **Data Pipeline**: ETL for analytics
+3. **Privacy Compliance**: GDPR/CCPA considerations
+4. **Performance**: Optimize for read-heavy workload
+
+## API Reference
+
+### Core Functions
+```python
+load_knowledge_base(path: str) -> dict
+save_knowledge_base(path: str, data: dict) -> bool
+validate_schema(data: dict) -> bool
+check_permissions(assistant: str, op: str, field: str) -> bool
+merge_updates(base: dict, updates: dict) -> dict
+```
+
+### Error Codes
+- `KB001`: File not found
+- `KB002`: Invalid JSON
+- `KB003`: Schema validation failed
+- `KB004`: Permission denied
+- `KB005`: Merge conflict
+
+---
+*For implementation examples, see the system prompts in `AI_assistants/` directory.*

@@ -11,7 +11,6 @@ AI_assistants/
 ├── job_market_positioning.system.prompt.md
 ├── job_application_interview_assistant.system.prompt.md
 ├── professional_networking_assistant.system.prompt.md
-├── platform_compatibility_guide.md
 └── system_prompts_guide.md (this file)
 ```
 
@@ -46,25 +45,22 @@ Each `.system.prompt.md` file contains a complete AI assistant specification des
    - No external dependencies
    - Conversation-based operation
 
-## Deployment Instructions
+## Technical Implementation
 
-### Quick Deploy
-1. Open your target AI platform
-2. Copy entire contents of chosen `.system.prompt.md`
-3. Paste into system prompt/instructions field
-4. No additional configuration needed
+### Prompt Structure
+Each prompt is self-contained and includes:
+- Role definition and expertise areas
+- Workflow stage positioning
+- Knowledge base permissions
+- Input/output specifications
+- Platform compatibility layer
 
-### With Knowledge Base
-If your platform supports file uploads:
-1. Upload `job_search_knowledge_base.json`
-2. Upload `job_assistant_system_config.json`
-3. Assistant will automatically detect and use them
+### Knowledge Base Integration
+Prompts are designed to work with two configuration files:
+- `job_search_knowledge_base.json` - User-specific data
+- `ai_assistants_system_config.json` - System configuration
 
-### Without File Access
-Assistants work perfectly through conversation:
-1. They'll ask for needed context
-2. Accept pasted information
-3. Provide structured outputs
+See the [Installation Guide](../INSTALLATION_GUIDE.md) for platform-specific deployment instructions.
 
 ## Workflow Integration
 
