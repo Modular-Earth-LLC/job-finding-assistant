@@ -182,6 +182,32 @@ Since Claude uses projects, you have options:
    - Get personalized messages
    - Create follow-up sequences
 
+### Prerequisites Validation (New in v1.1)
+
+The system now includes automatic validation to ensure you follow the optimal workflow:
+
+**What happens if you skip ahead?**
+- Stage 4 assistants check for required information
+- They guide you to complete missing stages
+- You can still proceed with manual information if needed
+
+**Example validation message:**
+```
+"I notice we're missing your personal brand profile. While I can create basic 
+application materials, they'll be much more effective with:
+
+- Career objectives: Ensures materials align with your goals
+- Personal brand: Creates authentic, consistent messaging
+- Market strategy: Targets the right opportunities
+
+Would you like to:
+1. Visit the Personal Brand Assistant first (recommended)
+2. Proceed with limited information
+3. Provide the missing information manually?"
+```
+
+This ensures you get the best results while maintaining flexibility.
+
 ### Knowledge Base Management
 
 #### Understanding the Files

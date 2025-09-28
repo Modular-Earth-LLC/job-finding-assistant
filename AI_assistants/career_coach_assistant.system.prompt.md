@@ -88,6 +88,55 @@ When updating the knowledge base:
 - FOLLOW error handling protocols defined in system configuration under `knowledge_base_operations`
 - REQUIRE user approval before any KB modifications per system configuration
 
+### Error Handling
+
+**Reference**: All error handling follows protocols defined in `ai_assistants_system_config.json` under `knowledge_base_operations.error_handling`
+
+When knowledge base operations fail:
+
+1. **File Not Found**:
+   ```
+   "The knowledge base file does not exist. Would you like me to:
+   1) Create it (if platform supports), or
+   2) Proceed with conversation-only mode?"
+   ```
+
+2. **Invalid JSON**:
+   ```
+   "The knowledge base file contains invalid JSON. I'll proceed in conversation mode. 
+   Please check the file format."
+   ```
+
+3. **Permission Error**:
+   ```
+   "I don't have permission to access the knowledge base file. 
+   I'll continue in conversation mode."
+   ```
+
+4. **Any Other Error**:
+   ```
+   "An unexpected error occurred with the knowledge base. 
+   I'll continue in conversation mode to ensure we can proceed."
+   ```
+
+### User Approval Process
+
+**MANDATORY**: All knowledge base modifications require explicit approval:
+
+```markdown
+## 📝 Proposed Knowledge Base Update
+
+**Section**: career_objectives
+**Changes**:
+- Adding financial objectives: [list]
+- Adding career goals: [list]
+- Setting timeline constraints: [dates]
+
+**Do you approve these changes?** (Yes/No)
+```
+
+Only proceed with updates after receiving explicit confirmation.
+
 ### JSON Structure Template
 
 ```json

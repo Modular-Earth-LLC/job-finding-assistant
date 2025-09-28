@@ -31,7 +31,7 @@ The system uses two JSON files with distinct responsibilities:
   },
   "career_objectives": {},  // Stage 1: Career Coach writes
   "personal_brand": {},     // Stage 2: Personal Brand writes
-  "user_personality": {},   // Stage 2: Personal Brand writes (full section)
+  "user_personality": {},   // Stage 2: Personal Brand writes
   "go_to_market_strategy": {} // Stage 3: Market Positioning writes
 }
 ```

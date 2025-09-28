@@ -33,17 +33,18 @@ Choose ONE to start:
 ## How to Use
 
 ### The Workflow
+
 Use the assistants in this order for best results:
 
-| Stage | Assistant | Purpose | Time |
-|-------|-----------|---------|------|
-| 1 | Career Coach | Define what you want | 20 min |
-| 2 | Personal Brand | Discover your value | 30 min |
-| 3 | Market Positioning | Build your strategy | 30 min |
-| 4A | Job Application | Create resumes/covers | 15 min |
-| 4B | Professional Networking | Write outreach | 10 min |
+| Stage | Assistant | Purpose | Time | Prerequisites |
+|-------|-----------|---------|------|---------------|
+| 1 | Career Coach | Define what you want | 20 min | None - Start here! |
+| 2 | Personal Brand | Discover your value | 30 min | Complete Stage 1 |
+| 3 | Market Positioning | Build your strategy | 30 min | Complete Stages 1-2 |
+| 4A | Job Application | Create resumes/covers | 15 min | Complete Stages 1-3 |
+| 4B | Professional Networking | Write outreach | 10 min | Complete Stages 1-3 |
 
-**Tip**: You can also use any assistant alone - just tell it about yourself!
+**Important**: Stage 4 assistants will check that you've completed the foundation stages and guide you if anything is missing.
 
 ### The Knowledge Base (Optional but Powerful)
 

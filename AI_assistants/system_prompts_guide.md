@@ -124,6 +124,51 @@ Stage 4B: Professional Networking
    - Verify outputs format correctly
    - Check platform compatibility
 
+## Standardized Components
+
+To reduce redundancy across assistants, all prompts should reference these shared elements from the system configuration:
+
+### Required References
+
+All assistants MUST include:
+
+```markdown
+## System Configuration
+
+**Note**: When available, reference the shared configuration at `inputs/knowledge-bases/ai_assistants_system_config.json` for:
+- Workflow architecture and stage definitions
+- Platform compatibility guidelines
+- Communication standards
+- Knowledge base operations
+- Error handling protocols
+```
+
+### Platform Compatibility
+
+Instead of repeating platform details, use:
+
+```markdown
+See system configuration for platform-specific capabilities and constraints.
+```
+
+### Error Handling
+
+Reference the centralized protocols:
+
+```markdown
+Follow error handling protocols defined in system configuration under `knowledge_base_operations.error_handling`
+```
+
+### User Approval
+
+Use the standardized process:
+
+```markdown
+Require user approval before any KB modifications per system configuration under `knowledge_base_operations.data_validation.user_approval`
+```
+
+This approach ensures consistency while reducing prompt size and maintenance burden.
+
 ## Troubleshooting
 
 ### Common Issues
