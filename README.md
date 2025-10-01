@@ -8,7 +8,8 @@ Think of this as having a complete career services team available 24/7:
 - **Career Coach** - Clarifies your goals and priorities
 - **Brand Strategist** - Defines your unique value  
 - **Market Expert** - Positions you for success
-- **Application Specialist** - Creates winning resumes
+- **Website Generator** - Creates portfolio websites
+- **Application Specialist** - Creates winning resumes and cover letters
 - **Networking Pro** - Builds valuable connections
 
 ## Quick Install (5 minutes)
@@ -41,8 +42,9 @@ Use the assistants in this order for best results:
 | 1 | Career Coach | Define what you want | 20 min | None - Start here! |
 | 2 | Personal Brand | Discover your value | 30 min | Complete Stage 1 |
 | 3 | Market Positioning | Build your strategy | 30 min | Complete Stages 1-2 |
-| 4A | Job Application | Create resumes/covers | 15 min | Complete Stages 1-3 |
-| 4B | Professional Networking | Write outreach | 10 min | Complete Stages 1-3 |
+| 4A | Website Generator | Create portfolio website | 15 min | Complete Stages 1-3 |
+| 4B | Job Application | Create resumes/covers | 15 min | Complete Stages 1-3 |
+| 4C | Professional Networking | Write outreach | 10 min | Complete Stages 1-3 |
 
 **Important**: Stage 4 assistants will check that you've completed the foundation stages and guide you if anything is missing.
 

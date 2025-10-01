@@ -57,8 +57,9 @@ The job-finding system operates as a sequential, dependent workflow:
 graph LR
     A[Stage 1: Career Objectives] --> B[Stage 2: Personal Brand]
     B --> C[Stage 3: Go-to-Market Strategy]
-    C --> D[Stage 4A: Application Materials]
-    C --> E[Stage 4B: Networking Content]
+    C --> D[Stage 4A: Website Generator]
+    D --> E[Stage 4B: Application Materials]
+    D --> F[Stage 4C: Networking Content]
 ```
 
 ### Knowledge Base CRUD Architecture
@@ -70,6 +71,7 @@ Each assistant has specific permissions defined in `ai_assistants_system_config.
 | Career Coach | user_profile, career_objectives | user_profile.basic_info, career_objectives |
 | Personal Brand | All strategic sections | personal_brand, user_personality |
 | Market Positioning | All sections | go_to_market_strategy |
+| Website Generator | All sections | website_configuration |
 | Application Assistant | All sections (read-only) | None |
 | Networking Assistant | All sections (read-only) | None |
 

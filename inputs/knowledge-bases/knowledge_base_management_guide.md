@@ -22,7 +22,7 @@ The system uses two JSON files with distinct responsibilities:
 {
   "metadata": {
     "name": "Job Finding Assistant Knowledge Base",
-    "version": "1.1",
+    "version": "1.2",
     "last_updated": "ISO-8601 timestamp"
   },
   "user_profile": {
@@ -32,7 +32,8 @@ The system uses two JSON files with distinct responsibilities:
   "career_objectives": {},  // Stage 1: Career Coach writes
   "personal_brand": {},     // Stage 2: Personal Brand writes
   "user_personality": {},   // Stage 2: Personal Brand writes
-  "go_to_market_strategy": {} // Stage 3: Market Positioning writes
+  "go_to_market_strategy": {}, // Stage 3: Market Positioning writes
+  "website_configuration": {}  // Stage 4A: Website Generator writes
 }
 ```
 
@@ -113,6 +114,7 @@ def update_section(kb_data, section_name, updates):
 | Career Coach | `user_profile`, `career_objectives` | `user_profile.basic_info`, `career_objectives` |
 | Personal Brand | All sections | `personal_brand`, `user_personality` |
 | Market Positioning | All sections | `go_to_market_strategy` |
+| Website Generator | All sections | `website_configuration` |
 | Job Application | All sections | None (read-only) |
 | Professional Networking | All sections | None (read-only) |
 
@@ -156,6 +158,14 @@ SCHEMA = {
     'career_objectives': {
         'objectives_by_category': dict,
         'timeline_constraints': dict
+    },
+    'website_configuration': {
+        'last_updated': (str, type(None)),
+        'target_platform': (str, type(None)),
+        'design_preferences': dict,
+        'content_sections': dict,
+        'customizations': dict,
+        'generated_websites': list
     }
 }
 ```
@@ -184,6 +194,75 @@ config = load_default_config()
 2. **Sequential writes**: Only one assistant writes per session
 3. **Version tracking**: Use `last_updated` for conflict detection
 4. **Merge strategy**: Latest write wins with user confirmation
+
+### Website Configuration Section
+
+**Purpose**: Stores website design preferences and platform selections for portfolio website generation.
+
+**Structure**:
+```json
+{
+  "website_configuration": {
+    "description": "Website design preferences and platform selections",
+    "last_updated": "2025-10-01T12:00:00Z",
+    "target_platform": "Notion|Eleventy|Jekyll|Astro",
+    "design_preferences": {
+      "color_scheme": "professional|modern|creative",
+      "layout_style": "minimalist|detailed|storytelling",
+      "content_focus": "technical|business|balanced"
+    },
+    "content_sections": {
+      "hero": true,
+      "mission_vision": true,
+      "value_proposition": true,
+      "skills": true,
+      "projects": true,
+      "contact": true
+    },
+    "customizations": {
+      "featured_projects": ["Project 1", "Project 2"],
+      "highlighted_skills": ["Skill 1", "Skill 2"],
+      "industry_focus": "Healthcare|FinTech|AI"
+    },
+    "generated_websites": [
+      {
+        "platform": "Notion",
+        "generated_date": "2025-10-01T12:00:00Z",
+        "url": "https://notion.site/...",
+        "version": "1.0"
+      }
+    ]
+  }
+}
+```
+
+**Access Control**:
+- **Read**: All assistants (especially Stage 4B/4C for including website links)
+- **Write**: Only Website Generator (Stage 4A)
+- **Scope**: Limited to `website_configuration` section only - NEVER modifies `go_to_market_strategy`, `personal_brand`, or other sections
+
+**Safe Operations**:
+```python
+def update_website_config(kb_data, config_updates):
+    """Safely update website configuration"""
+    # Validate assistant has permission
+    if current_assistant != 'website_generator':
+        raise PermissionError("Only Website Generator can modify website_configuration")
+    
+    # Update only website_configuration section
+    kb_data['website_configuration'].update(config_updates)
+    kb_data['website_configuration']['last_updated'] = datetime.now().isoformat()
+    
+    # Preserve all other sections unchanged
+    return kb_data
+```
+
+**Validation Rules**:
+- `target_platform` must be one of: "Notion", "Eleventy", "Jekyll", "Astro", or null
+- `design_preferences` values must match predefined options
+- `content_sections` values must be boolean
+- `generated_websites` must be a list of objects with required fields
+- `last_updated` must be ISO-8601 format or null
 
 ## Security Considerations
 

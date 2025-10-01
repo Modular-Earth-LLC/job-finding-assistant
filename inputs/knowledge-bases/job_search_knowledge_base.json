@@ -3,9 +3,9 @@
       "name": "Job Finding Assistant Knowledge Base",
       "description": "User-specific data for personalized job search assistance",
       "purpose": "Stores career objectives, personal brand, market positioning, and user profile data",
-      "version": "1.1",
-      "last_updated": "2025",
-      "data_sources": ["Career Coach Assistant", "Personal Brand Development Assistant", "Job Market Positioning Assistant"]
+      "version": "1.2",
+      "last_updated": "2025-10-01",
+      "data_sources": ["Career Coach Assistant", "Personal Brand Development Assistant", "Job Market Positioning Assistant", "Professional Website Generator"]
     },
     "user_profile": {
       "basic_info": {
@@ -294,5 +294,29 @@
           ]
         }
       }
+    },
+    "website_configuration": {
+      "description": "Website design preferences and platform selections for portfolio website generation",
+      "last_updated": null,
+      "target_platform": null,
+      "design_preferences": {
+        "color_scheme": null,
+        "layout_style": null,
+        "content_focus": null
+      },
+      "content_sections": {
+        "hero": true,
+        "mission_vision": true,
+        "value_proposition": true,
+        "skills": true,
+        "projects": true,
+        "contact": true
+      },
+      "customizations": {
+        "featured_projects": [],
+        "highlighted_skills": [],
+        "industry_focus": null
+      },
+      "generated_websites": []
     }
 }

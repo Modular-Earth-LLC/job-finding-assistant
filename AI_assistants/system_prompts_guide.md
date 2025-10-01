@@ -9,6 +9,7 @@ AI_assistants/
 ├── career_coach_assistant.system.prompt.md
 ├── personal_brand_development_assistant.system.prompt.md
 ├── job_market_positioning.system.prompt.md
+├── professional_website_generator.system.prompt.md
 ├── job_application_interview_assistant.system.prompt.md
 ├── professional_networking_assistant.system.prompt.md
 └── system_prompts_guide.md (this file)
@@ -79,11 +80,15 @@ Stage 3: Market Positioning
     ├── Creates strategy
     └── Defines targets
 
-Stage 4A: Job Application
+Stage 4A: Website Generator
+    ├── Translates GTM to web presence
+    └── Creates portfolio sites
+
+Stage 4B: Job Application
     ├── Creates resumes
     └── Writes cover letters
 
-Stage 4B: Professional Networking
+Stage 4C: Professional Networking
     ├── Builds connections
     └── Creates content
 ```
