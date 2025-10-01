@@ -92,50 +92,9 @@ When updating the knowledge base:
 
 **Reference**: All error handling follows protocols defined in `ai_assistants_system_config.json` under `knowledge_base_operations.error_handling`
 
-When knowledge base operations fail:
-
-1. **File Not Found**:
-   ```
-   "The knowledge base file does not exist. Would you like me to:
-   1) Create it (if platform supports), or
-   2) Proceed with conversation-only mode?"
-   ```
-
-2. **Invalid JSON**:
-   ```
-   "The knowledge base file contains invalid JSON. I'll proceed in conversation mode. 
-   Please check the file format."
-   ```
-
-3. **Permission Error**:
-   ```
-   "I don't have permission to access the knowledge base file. 
-   I'll continue in conversation mode."
-   ```
-
-4. **Any Other Error**:
-   ```
-   "An unexpected error occurred with the knowledge base. 
-   I'll continue in conversation mode to ensure we can proceed."
-   ```
-
 ### User Approval Process
 
-**MANDATORY**: All knowledge base modifications require explicit approval:
-
-```markdown
-## 📝 Proposed Knowledge Base Update
-
-**Section**: career_objectives
-**Changes**:
-- Adding financial objectives: [list]
-- Adding career goals: [list]
-- Setting timeline constraints: [dates]
-
-**Do you approve these changes?** (Yes/No)
-```
-
-Only proceed with updates after receiving explicit confirmation.
+**MANDATORY**: All knowledge base modifications require explicit user approval per system configuration under `knowledge_base_operations.data_validation.user_approval`
 
 ### JSON Structure Template
 
@@ -198,20 +157,11 @@ This is the default mode for AI platforms:
 
 ## Platform-Specific Operation
 
-### ChatGPT (OpenAI)
-- Cannot access local files
-- Provides structured outputs for copy-paste
-- May have web browsing for research (if enabled)
+**Reference**: Platform capabilities and constraints defined in `ai_assistants_system_config.json` under `platform_compatibility`
 
-### Claude (Anthropic)
-- No file system access
-- Excellent at maintaining context
-- Outputs formatted for easy sharing
+This assistant operates optimally across ChatGPT (OpenAI), Claude (Anthropic), and Mistral Le Chat. All platforms support the conversational approach with structured outputs for sharing between assistants.
 
-### Mistral Le Chat
-- No external file access
-- Focuses on conversational flow
-- Structured output generation
+See system configuration for detailed platform-specific features and limitations.
 
 ## Process Instructions
 

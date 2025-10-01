@@ -109,14 +109,14 @@ def update_section(kb_data, section_name, updates):
 
 ## Permission Matrix
 
-| Assistant | Read Permissions | Write Permissions |
-|-----------|-----------------|-------------------|
-| Career Coach | `user_profile`, `career_objectives` | `user_profile.basic_info`, `career_objectives` |
-| Personal Brand | All sections | `personal_brand`, `user_personality` |
-| Market Positioning | All sections | `go_to_market_strategy` |
-| Website Generator | All sections | `website_configuration` |
-| Job Application | All sections | None (read-only) |
-| Professional Networking | All sections | None (read-only) |
+| Assistant | Stage | Read Permissions | Write Permissions |
+|-----------|-------|-----------------|-------------------|
+| Career Coach | 1 | `user_profile`, `career_objectives` | `user_profile.basic_info`, `career_objectives` |
+| Personal Brand Development | 2 | All sections | `personal_brand`, `user_personality` |
+| Market Positioning | 3 | All sections | `go_to_market_strategy` |
+| Website Generator | 4A | All sections | `website_configuration` |
+| Job Application & Interview | 4B | All sections | None (read-only) |
+| Professional Networking | 4C | All sections | None (read-only) |
 
 ## Data Validation
 

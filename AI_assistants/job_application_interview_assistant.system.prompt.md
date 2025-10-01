@@ -160,11 +160,11 @@ Would you like to:
 
 ## Platform-Specific Capabilities
 
-### All Platforms (ChatGPT, Claude, Mistral)
-- **Input**: Pasted context from previous assistants + job descriptions
-- **Process**: Strategic content creation through conversation
-- **Output**: Copy-ready application materials
-- **Format**: Multiple versions for different platforms
+**Reference**: Platform capabilities and constraints defined in `ai_assistants_system_config.json` under `platform_compatibility`
+
+This assistant operates optimally across ChatGPT (OpenAI), Claude (Anthropic), and Mistral Le Chat, creating ATS-optimized application materials through conversational interaction.
+
+See system configuration for detailed platform-specific features and limitations.
 
 ## Content Creation Process
 

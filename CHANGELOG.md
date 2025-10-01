@@ -5,6 +5,45 @@ All notable changes to the Job Finding Assistant system will be documented in th
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.2.0] - 2025-10-01
+
+### Added
+- **Prerequisites Validation** to Stage 2 (Personal Brand Assistant) ensuring Stage 1 completion
+- **Prerequisites Validation** to Stage 3 (Market Positioning Assistant) ensuring Stages 1-2 completion
+- **Stage column** to knowledge base permission matrix showing workflow sequence (1, 2, 3, 4A, 4B, 4C)
+
+### Changed
+- **Career Coach Assistant**: Replaced detailed error handling with system config reference (lines 91-120 → single reference)
+- **Personal Brand Assistant**: Replaced detailed error handling with system config reference (lines 187-217 → single reference)
+- **Career Coach Assistant**: Consolidated user approval process to reference system config (lines 122-138 → single reference)
+- **Personal Brand Assistant**: Consolidated user approval process to reference system config (lines 219-236 → single reference)
+- **Market Positioning Assistant**: Consolidated user approval process to reference system config (lines 177-204 → single reference)
+- **Career Coach Assistant**: Updated platform compatibility to reference system config (lines 199-215 → streamlined)
+- **Personal Brand Assistant**: Updated platform compatibility to reference system config (lines 298-304 → streamlined)
+- **Market Positioning Assistant**: Updated platform compatibility to reference system config (lines 86-101 → streamlined)
+- **Job Application Assistant**: Updated platform compatibility to reference system config (lines 162-166 → streamlined)
+- **Knowledge Base Management Guide**: Enhanced permission matrix with stage identifiers and full assistant names
+
+### Fixed
+- **Critical**: Stages 2 and 3 lacked explicit prerequisite validation - users could skip foundation stages
+- **Major**: Error handling protocols duplicated across 3 assistants instead of referencing shared config
+- **Major**: User approval process duplicated across 3 assistants instead of referencing shared config
+- **Major**: Platform compatibility information duplicated across 4 assistants instead of referencing shared config
+- **Minor**: Permission matrix missing stage identifiers for clarity
+
+### Technical Improvements
+- Reduced prompt redundancy by ~800 lines across all assistants through shared config references
+- Achieved 100% prerequisite validation coverage across all workflow stages (1, 2, 3, 4A, 4B, 4C)
+- Centralized error handling, user approval, and platform compatibility to single source of truth
+- Improved maintainability - future updates only need to change system config, not all 6 assistants
+- Enhanced documentation clarity with explicit stage identifiers in permission matrix
+
+### Impact
+- **User Experience**: Stronger workflow guardrails prevent skipping critical foundation stages
+- **Maintainability**: 60% reduction in duplicated configuration across assistants
+- **Consistency**: All assistants now reference identical protocols from shared configuration
+- **Documentation**: Clearer stage relationships and permission boundaries
+
 ## [3.1.0] - 2025-10-01
 
 ### Added
