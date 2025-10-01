@@ -62,8 +62,9 @@ The knowledge base acts like a shared notebook between your AI agents:
 Repeat the above process for each assistant:
 1. **Personal Brand Assistant** - Use `personal_brand_development_assistant.system.prompt.md`
 2. **Market Positioning** - Use `job_market_positioning.system.prompt.md`
-3. **Job Application** - Use `job_application_interview_assistant.system.prompt.md`
-4. **Professional Networking** - Use `professional_networking_assistant.system.prompt.md`
+3. **Website Generator** - Use `professional_website_generator.system.prompt.md`
+4. **Job Application** - Use `job_application_interview_assistant.system.prompt.md`
+5. **Professional Networking** - Use `professional_networking_assistant.system.prompt.md`
 
 #### Using Multiple Agents Together
 
@@ -170,6 +171,19 @@ Since Claude uses projects, you have options:
    - Analyze target markets
    - Create positioning strategy
    - Define target companies
+
+#### Day 2.5: Web Presence (30 min - Optional but Recommended)
+3.5. **Website Generator** (30 min)
+   - Select platform (Notion, Eleventy, Jekyll, Astro)
+   - Generate portfolio website from GTM strategy
+   - Deploy web presence
+   - Get shareable link for applications and networking
+
+**Why build a website?**
+- Provides professional "learn more" link for applications and networking messages
+- Demonstrates technical competency and attention to detail
+- Converts hiring manager visits to interview requests
+- Serves as living portfolio that evolves with your career
 
 #### Day 3+: Execution (As needed)
 4. **Applications** (15 min per job)

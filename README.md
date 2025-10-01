@@ -1,6 +1,6 @@
 # Job Finding Assistant - Your AI Career Team
 
-Transform your job search with 5 specialized AI assistants that work together to land your dream role.
+Transform your job search with 6 specialized AI assistants that work together to land your dream role.
 
 ## What This Does
 
@@ -8,7 +8,7 @@ Think of this as having a complete career services team available 24/7:
 - **Career Coach** - Clarifies your goals and priorities
 - **Brand Strategist** - Defines your unique value  
 - **Market Expert** - Positions you for success
-- **Website Generator** - Creates portfolio websites
+- **Website Generator** - Creates high-impact portfolio websites that convert visits to interviews
 - **Application Specialist** - Creates winning resumes and cover letters
 - **Networking Pro** - Builds valuable connections
 
